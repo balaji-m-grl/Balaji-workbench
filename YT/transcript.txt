@@ -1,0 +1,2029 @@
+[00:00:00] This comprehensive course will give you
+[00:00:02] a rockolid foundation in Git for version
+[00:00:04] control and GitHub for collaborative
+[00:00:07] remote storage. You will learn the core
+[00:00:10] concepts like how Git tracks your work
+[00:00:13] through the working directory, staging
+[00:00:15] area and repository. You'll learn the
+[00:00:18] vital git commands from add and commit
+[00:00:21] to stash and rebase through clear real
+[00:00:23] world examples. And you'll learn about
+[00:00:26] collaborative workflows like how to work
+[00:00:28] with branches, handle merges, and use
+[00:00:30] powerful features like pull requests on
+[00:00:32] GitHub. Sumit Saha developed this
+[00:00:35] course. Today we are diving into
+[00:00:37] something really exciting. Git and
+[00:00:38] GitHub. But before we go any further,
+[00:00:41] let's clear one thing up. Git and GitHub
+[00:00:43] are not the same thing. They are
+[00:00:45] connected. Yes, but completely
+[00:00:47] different. Think of it this way. G is
+[00:00:49] the coffee and GitHub is the coffee shop
+[00:00:52] where that coffee is served. Fun
+[00:00:54] analogy, right? Don't worry. In just a
+[00:00:56] moment, you will see exactly what I
+[00:00:58] mean.
+[00:01:03] So, let's start by understanding what
+[00:01:05] Git actually is and how it works. Simply
+[00:01:08] put, Git is a powerful tool that
+[00:01:10] constantly keep track of every change
+[00:01:12] you make to your files. And I mean
+[00:01:14] literally all the time, day or night,
+[00:01:16] 365 days a year. Git records what
+[00:01:18] changed, when it changed, who changed
+[00:01:20] it, and even where it happened. Now what
+[00:01:23] kind of files are we talking about?
+[00:01:25] Almost any kind, not just code. It could
+[00:01:28] be an image, a text file, JavaScript,
+[00:01:30] PHP, Python, or even a video. No matter
+[00:01:33] what you are working on, G tracks every
+[00:01:35] single change. Which line was edited,
+[00:01:37] when it was done, and by whom? Pretty
+[00:01:40] amazing, isn't it? But here's the best
+[00:01:42] part. The magic of Git doesn't stop
+[00:01:44] there. The coolest thing about Git is
+[00:01:46] that it saves different versions of your
+[00:01:48] files. Imagine you wrote some code and
+[00:01:50] then made a few changes to it after a
+[00:01:52] few days. Now you want to make sure the
+[00:01:54] old version doesn't get lost. That's
+[00:01:56] exactly where Git comes to the rescue.
+[00:01:58] It lets you keep multiple versions of
+[00:02:00] the same file effortlessly and whenever
+[00:02:02] you want, you can roll back to any
+[00:02:04] previous version in just a moment. Git
+[00:02:07] is most commonly used in coding
+[00:02:09] projects, but its power goes far beyond
+[00:02:11] just code. You can use Git to keep track
+[00:02:14] of changes and maintain different
+[00:02:15] versions of almost any file. This means
+[00:02:18] you never have to worry about losing a
+[00:02:20] file or accidentally overwriting
+[00:02:21] something important. Let's look at a
+[00:02:24] real life example. Suppose you are
+[00:02:26] working on a project. You have spent
+[00:02:28] hours writing code. Your client loves it
+[00:02:30] and everything's going great. Then a
+[00:02:33] month later, the client asks for some
+[00:02:35] new changes. You make the updates as
+[00:02:37] requested. But after a few days, the
+[00:02:40] client comes back and says, "Actually,
+[00:02:42] the old version was better. Now you are
+[00:02:44] in trouble, right? because you have
+[00:02:46] already overwritten the original code.
+[00:02:48] How do you get it back? That's exactly
+[00:02:50] the kind of problem Kit solves. This is
+[00:02:52] why Kit is known as a version control
+[00:02:54] system. It keeps every version of your
+[00:02:57] files or code safely stored. So you can
+[00:02:59] go back to any previous state whenever
+[00:03:01] you need to without losing a thing. G
+[00:03:04] was created by Linus Torvs, the same
+[00:03:07] brilliant mind behind Linux. And
+[00:03:09] honestly, what he built is nothing short
+[00:03:11] of genius. Most tools we programmers use
+[00:03:14] have a short lifespan, but Git is one of
+[00:03:16] those rare ones that once you learn it,
+[00:03:19] stays useful for the rest of your
+[00:03:21] career. The best part, Git isn't hard to
+[00:03:23] learn at all. It's built around a few
+[00:03:25] simple commands and concepts. Once you
+[00:03:28] understand those, the whole system
+[00:03:29] starts to make perfect sense. Still, for
+[00:03:32] beginners, Git can feel a little
+[00:03:34] confusing at first. And that's exactly
+[00:03:36] why I made this video. Think of it not
+[00:03:38] just a tutorial but as a complete
+[00:03:40] learning resource for mastering it. Here
+[00:03:42] we will cover all the essential topics
+[00:03:44] you will actually use in real world
+[00:03:46] projects. And if you want to jump to a
+[00:03:48] specific topic, you can easily find it
+[00:03:50] from the video timeline. So if you
+[00:03:53] follow this video closely, I'm sure
+[00:03:55] you'll easily understand every part of
+[00:03:57] Git step by step. Now let's move on to
+[00:04:00] another important topic. The difference
+[00:04:01] between Git and GitHub. Git is a tool
+[00:04:04] that runs locally on your own computer.
+[00:04:06] It tracks all the changes you make to
+[00:04:08] your files and keeps everything
+[00:04:09] organized. But imagine this, you and
+[00:04:12] your teammate are working on the same
+[00:04:13] project. You are coding on your own
+[00:04:15] computer and your teammate is working
+[00:04:17] from another one. That means you both
+[00:04:19] have different versions of the same
+[00:04:21] project, right? And if your team has
+[00:04:23] more members, there will be even more
+[00:04:25] versions each saved separately on their
+[00:04:27] own machines. That's exactly where
+[00:04:30] GitHub comes in. When the project is
+[00:04:32] complete, you will need to combine
+[00:04:33] everyone's work into one single place to
+[00:04:36] merge all those changes together. For
+[00:04:38] that, you need a central hub where
+[00:04:40] everyone can upload their updates. You
+[00:04:43] push your work there, your teammate
+[00:04:45] pushes theirs, and GitHub brings it all
+[00:04:47] together. GitHub acts as that central
+[00:04:49] online server where your team's entire
+[00:04:51] project lives, making it easy for
+[00:04:53] everyone to see, edit, and share updates
+[00:04:56] in one single place without any
+[00:04:58] confusion. But GitHub isn't the only
+[00:05:00] place where you can host your Git
+[00:05:02] repositories. There are other popular
+[00:05:04] platforms too like GitLab and Bitbucket.
+[00:05:07] These are also widely used and trusted
+[00:05:09] by developers around the world. Still,
+[00:05:11] among all of them, GitHub remains the
+[00:05:13] most popular and widely adopted
+[00:05:15] platform. In today's discussion, we will
+[00:05:17] focus mainly on GitHub. It's now owned
+[00:05:20] by Microsoft and is maintained with
+[00:05:21] great care and attention, especially in
+[00:05:24] the programming community. And in the
+[00:05:25] world of open source projects, GitHub's
+[00:05:28] contribution is truly remarkable. So
+[00:05:30] without wasting any more time, let's
+[00:05:32] dive in and explore how Git and GitHub
+[00:05:34] actually work and see some real world
+[00:05:36] use cases that will help you understand
+[00:05:38] their power in action. Before you start
+[00:05:41] working with GitHub, the most important
+[00:05:43] thing is to understand its core concept,
+[00:05:46] how it actually works and what its
+[00:05:48] internal structure or architecture looks
+[00:05:50] like. G is mainly divided into two major
+[00:05:53] parts, local and remote. The local part
+[00:05:55] refers to your own computer where you do
+[00:05:58] all your work. This is where your files,
+[00:06:00] code, and every change you make are
+[00:06:02] stored. The remote part on the other
+[00:06:04] hand lives in the cloud. It's where you
+[00:06:06] push or upload your local work. In most
+[00:06:09] cases, when we say remote, we are
+[00:06:11] usually referring to GitHub. Now, let's
+[00:06:14] start with how the local part works. In
+[00:06:16] your computer, the folder where you are
+[00:06:18] working on your project is called the
+[00:06:20] working directory. This is where all the
+[00:06:22] action happens. You write code, create
+[00:06:24] new files, modify existing ones, and
+[00:06:27] make changes as needed. And when you
+[00:06:29] feel all right, this version looks good.
+[00:06:31] I want to save this change. That's when
+[00:06:33] you move on to the next stage in kids
+[00:06:36] workflow. So, what do we do next? We
+[00:06:38] move our work to the stage. At first,
+[00:06:41] this word might sound a bit unfamiliar,
+[00:06:44] but once you use it a few times, it will
+[00:06:46] make perfect sense. In simple terms,
+[00:06:48] when you finish your work in the working
+[00:06:50] directory, staging means you are saying,
+[00:06:53] "All right, my changes are ready. They
+[00:06:55] can move to the next step." This staging
+[00:06:58] process is the second phase in Git's
+[00:07:00] workflow. Then comes the third phase
+[00:07:03] where we take the staged files and send
+[00:07:05] them to the local repository. You can
+[00:07:07] think of the staging area as a middle
+[00:07:09] ground, a temporary space where files
+[00:07:12] sit between your working directory and
+[00:07:14] the final save in the repository. Once
+[00:07:17] you have reviewed everything and you are
+[00:07:18] confident the work is correct, you
+[00:07:20] commit it. Committing means permanently
+[00:07:23] saving those changes to your local
+[00:07:24] repository, locking them in as a
+[00:07:26] recorded version of your project's
+[00:07:28] history. Now, you might be wondering
+[00:07:30] what exactly is a repository. Simply
+[00:07:33] put, a repository is a place where all
+[00:07:35] the versions of your files and their
+[00:07:37] complete change history are stored. In
+[00:07:39] the case of a local repository, it's a
+[00:07:41] specific folder on your own computer.
+[00:07:43] For a remote repository, it lives on a
+[00:07:45] cloud server like GitHub. You can think
+[00:07:48] of a repository as a digital cabinet for
+[00:07:50] your code, a secure place where Git
+[00:07:53] neatly stores every record of your work
+[00:07:55] and every change you have ever made.
+[00:07:58] Inside this repository, Git
+[00:07:59] automatically creates a few system files
+[00:08:01] that track everything, your changes,
+[00:08:03] history, commits and more. These files
+[00:08:06] are managed entirely by Git itself and
+[00:08:08] the whole system runs based on the data
+[00:08:10] stored within them. So if we summarize
+[00:08:13] everything we have learned so far, it
+[00:08:15] goes like this. First, we work inside
+[00:08:17] our local working directory. Once we are
+[00:08:19] done, we stage our changes and then
+[00:08:21] commit those staged files to the local
+[00:08:23] repository. Up to this point, everything
+[00:08:26] happens only on our own computer.
+[00:08:28] Nothing has been sent to the cloud yet.
+[00:08:31] We need the cloud only when we want to
+[00:08:33] share our code with others, access it
+[00:08:35] from another computer or keep it safely
+[00:08:37] backed up. That's when we push our local
+[00:08:40] repository to the remote repository. In
+[00:08:42] other words, we upload it to GitHub.
+[00:08:45] Think about it like this. Just as we use
+[00:08:48] Google Drive or One Drive to store
+[00:08:49] files, photos or documents, we could
+[00:08:52] technically keep everything only on our
+[00:08:54] own device, but we store them in the
+[00:08:56] cloud so that we can access them from
+[00:08:58] anywhere. And even if something gets
+[00:09:00] deleted locally, it stays safe online.
+[00:09:03] GitHub works the same way. It's our
+[00:09:05] cloud backup for code. So you see the
+[00:09:08] main purpose of this whole process is to
+[00:09:10] make collaboration and remote access
+[00:09:12] possible. Having a remote means we can
+[00:09:14] easily send our code from the local
+[00:09:16] repository to a cloud server and if
+[00:09:18] needed pull that same code back to any
+[00:09:20] other machine and that's the core idea
+[00:09:23] of git. The foundation of the entire
+[00:09:25] system rests on this simple concept.
+[00:09:27] Beyond that there's nothing overly
+[00:09:29] complex. Once you clearly understand
+[00:09:31] this basic workflow, everything else in
+[00:09:33] Git will feel much easier to grasp. All
+[00:09:36] right. Now let's see how to get started
+[00:09:38] with Git from scratch. The very first
+[00:09:40] step before working with Git is
+[00:09:41] installing it on your computer. To do
+[00:09:44] that, just open Google and search for
+[00:09:46] Git. Click on the official G website
+[00:09:48] that appears in the search results. Then
+[00:09:50] go to the download section. There you
+[00:09:52] will find different versions for three
+[00:09:54] major operating systems, Windows, Mac
+[00:09:57] OS, and Linux. Simply choose the one
+[00:09:59] that matches your system and you will
+[00:10:00] get clear download instructions right
+[00:10:02] there. Since Git is already installed on
+[00:10:05] my machine, I won't reinstall it. But if
+[00:10:07] you are working on Windows, click on the
+[00:10:09] Windows option and you will see two
+[00:10:11] download choices. One for 32-bit and
+[00:10:13] another for 64-bit systems. Just pick
+[00:10:16] the one that matches your setup.
+[00:10:17] Download it and run the installer. For
+[00:10:19] Mac users, when you select the Mac OS
+[00:10:21] option, you will also find instructions
+[00:10:23] on how to install Git using Homebrew.
+[00:10:25] Just follow those steps and your
+[00:10:27] installation will be done in no time.
+[00:10:29] And for those using Linux or other Unix
+[00:10:31] based systems, you can follow the
+[00:10:32] installation guide provided on the site
+[00:10:34] according to your distribution. The
+[00:10:36] entire process is really simple and
+[00:10:38] straightforward. Once the installation
+[00:10:40] is complete, the next step is to open
+[00:10:41] your terminal or common prompt. If you
+[00:10:43] are using a Mac, simply open the
+[00:10:45] terminal app. For Windows users, you can
+[00:10:47] use either common prompt or PowerShell.
+[00:10:49] Both will work just fine. However, after
+[00:10:52] installing Git, you will usually get a
+[00:10:54] separate terminal called G Bash. You can
+[00:10:57] use that too if you prefer. Many
+[00:10:59] developers actually like working in Git
+[00:11:01] bash because it feels very similar to a
+[00:11:03] Linux terminal and makes running
+[00:11:04] Gcommerce a lot easier and more
+[00:11:06] intuitive. All right, I'm opening my
+[00:11:08] terminal now. The first thing we need to
+[00:11:10] do is make sure G is properly installed.
+[00:11:13] To check that, we will type a simple
+[00:11:15] command in the terminal g-
+[00:11:18] version. Then just press enter. As soon
+[00:11:20] as you do that, you will see an output
+[00:11:22] on the terminal showing the version of
+[00:11:24] Git installed on your machine. Keep in
+[00:11:26] mind the version number might not be the
+[00:11:27] same for everyone. It depends on when
+[00:11:29] you installed G and which update you are
+[00:11:31] using. If G is installed correctly, you
+[00:11:33] will see something like this version
+[00:11:35] output. But if it isn't installed,
+[00:11:37] you'll get an error message instead.
+[00:11:39] Hopefully, G is now properly set up on
+[00:11:41] your machine too and you are ready to
+[00:11:43] start using it. Now it's time to get our
+[00:11:46] hands dirty to do some practical work.
+[00:11:48] As I mentioned earlier, G can be
+[00:11:50] implemented in any file or folder.
+[00:11:52] Right? So first we need to create few
+[00:11:54] files and folders to work with. Let's
+[00:11:57] start by navigating to the desktop using
+[00:11:59] the terminal. I'll type cd desktop and
+[00:12:02] then press enter. Here cd is a terminal
+[00:12:04] command that stands for change
+[00:12:06] directory. It simply means we are moving
+[00:12:08] from one folder to another. Hopefully
+[00:12:10] you are already familiar with some basic
+[00:12:12] terminal commands like cd, pwd, touch
+[00:12:15] and mkdir. If not, no worries. You can
+[00:12:18] easily learn them using Google or even
+[00:12:20] charg. They are really simple to
+[00:12:22] understand. Just remember for Windows
+[00:12:25] users, some of these commands might be
+[00:12:27] slightly different. And keep in mind
+[00:12:29] commands like cd, pwd, touch, and mkdir
+[00:12:32] are general terminal commands, not git
+[00:12:35] commands. All right. Now that we are
+[00:12:37] inside the desktop directory, let's
+[00:12:38] create a new folder where we will keep
+[00:12:40] all our project files. We will name it
+[00:12:42] gy-en 1. So we will type in the terminal
+[00:12:46] mkdir. That means creating a directory
+[00:12:49] gy 1 and press enter. That's it. A new
+[00:12:53] folder named gy-en 1 has been created
+[00:12:56] inside the desktop directory. Now we
+[00:12:58] will move into that folder by typing cd
+[00:13:01] git - 1 and pressing enter again.
+[00:13:04] Perfect. We are now inside the g one
+[00:13:07] folder. And this is where our g project
+[00:13:09] officially begins. So now that we are
+[00:13:11] inside the g one folder, we will create
+[00:13:13] two files. For that, type the following
+[00:13:15] commands in the terminal. Touch 1.xt and
+[00:13:19] touch 2.txt. Next, we will create
+[00:13:21] another folder named my folder. To do
+[00:13:24] that, type mkdir my folder. Then use cd
+[00:13:28] my folder to enter the folder. Inside
+[00:13:30] this folder, we will create another file
+[00:13:32] by typing touch3.txt.
+[00:13:35] Now, let's check everything we have
+[00:13:36] created in our file system. I will open
+[00:13:38] the kit one folder in finder on my Mac
+[00:13:40] by typing this command in the terminal.
+[00:13:42] Open dot. Here the dot means the current
+[00:13:45] folder. As soon as I press enter, Finder
+[00:13:48] opens up. Inside the G1 folder, I can
+[00:13:50] see two files 1.xt and 2.xt and a folder
+[00:13:55] named my folder which contains the 3.xt
+[00:13:58] file. Now I'm going to write something
+[00:14:00] inside each of the files. I opened 1.xt
+[00:14:03] in a text editor. Wrote one and saved
+[00:14:06] it. Then I opened 2.xt, wrote two and
+[00:14:09] saved that as well. Finally, I went
+[00:14:11] inside the my folder directory, opened
+[00:14:14] three.txt, wrote three and saved it. So
+[00:14:18] now all three of my files contain some
+[00:14:20] content. This git one folder is actually
+[00:14:23] my working directory. As I mentioned
+[00:14:25] earlier, this is the folder where I'm
+[00:14:26] doing all my work and where all my files
+[00:14:28] are stored. Now, if I want git to start
+[00:14:31] monitoring everything inside this git
+[00:14:33] one folder, I have to tell git this is
+[00:14:36] my project folder. Track all the changes
+[00:14:38] here. For that I'll go back to the
+[00:14:40] terminal. Make sure I am inside the g
+[00:14:42] one folder and type g init. The word
+[00:14:45] init means initialize. In other words,
+[00:14:48] we are telling g to start working inside
+[00:14:50] this folder from now on. Once I run the
+[00:14:53] command, it shows a message initialized
+[00:14:55] empty g repository. That means g has now
+[00:14:58] started tracking this folder. How do we
+[00:15:01] know that? Let me show you. Since I'm
+[00:15:03] already inside the g folder, if I type
+[00:15:06] ls in the terminal and press enter, I
+[00:15:08] can see all the files and folders inside
+[00:15:10] it. But if I type ls - la. Notice that
+[00:15:16] now we can also see a hidden directory
+[00:15:18] named git. The ls-la command lets us
+[00:15:21] view hidden files and folders in the
+[00:15:23] system. So we can see a hidden folder
+[00:15:26] named git inside our project directory.
+[00:15:29] But who created it? The answer is g
+[00:15:32] itself. This dogg folder is actually the
+[00:15:35] core of the entire project. It's where
+[00:15:38] git keeps all its internal data such as
+[00:15:41] which files have changed, who made the
+[00:15:42] changes, and what the previous versions
+[00:15:44] were. In short, everything G does is
+[00:15:47] stored right here. From now on, G will
+[00:15:50] be able to track every change I make in
+[00:15:52] my work. Let's say I made some changes
+[00:15:54] to the three files I created earlier.
+[00:15:57] That means I now have a local
+[00:15:58] repository. But we can also create a
+[00:16:01] remote repository directly. I mentioned
+[00:16:03] this earlier. So let's see how to do it.
+[00:16:06] First I will open my browser again. Then
+[00:16:08] I will go to the URL github.com.
+[00:16:11] If you are new, you will need to create
+[00:16:13] an account on GitHub first. Since I
+[00:16:15] already have an account and I'm logged
+[00:16:17] in, you can see my profile here. On the
+[00:16:19] left side, you can see my repositories,
+[00:16:22] feeds, and other details. Our goal is to
+[00:16:24] store our local files on GitHub. For
+[00:16:27] that we need to create a new repository.
+[00:16:29] To do that I will check the blue new
+[00:16:31] icon. Just like we used g in it to
+[00:16:34] create a local repository here we can
+[00:16:36] initialize one in the cloud. I will give
+[00:16:39] it a name gy-en journey. And in the
+[00:16:42] description I will write we are learning
+[00:16:44] it and GitHub I will keep it public so
+[00:16:47] everyone can view it. Then I will click
+[00:16:49] the create repository button. And that's
+[00:16:51] it. A new repository has been created on
+[00:16:54] GitHub. Congratulations.
+[00:16:56] Right now the repository is completely
+[00:16:58] empty. It doesn't have any files inside
+[00:17:01] it. I want to add some files here. So I
+[00:17:04] will create one. I click on the create a
+[00:17:06] new file button. Name it 1.xt and inside
+[00:17:10] the file I write one. Then I click on
+[00:17:13] the commit changes button. Now the term
+[00:17:16] comet basically means save. Comeing is
+[00:17:20] just like saving a file. Nothing
+[00:17:21] complicated. Don't worry about this. We
+[00:17:24] will explore comets in detail later. For
+[00:17:27] now, there's already a default comet
+[00:17:29] message saying so I will keep that as it
+[00:17:31] is and click commit changes. Next, I
+[00:17:33] create another file the same way. This
+[00:17:36] time naming it 2.xt, writing two inside
+[00:17:39] it and saving it as well. Now, if I
+[00:17:42] check my GitHub repository, I can see
+[00:17:44] two files there. 1.xt and 2.xt. At this
+[00:17:48] point, I have two repositories. one on
+[00:17:50] the cloud, meaning on GitHub, and
+[00:17:52] another one locally on my computer. I
+[00:17:55] initialized the local one myself
+[00:17:57] earlier. But now I want to bring the
+[00:17:59] GitHub repository down to my machine by
+[00:18:02] cloning it. So what should I do? I will
+[00:18:05] go back to my terminal. Right now I'm
+[00:18:07] inside the G1 folder, but I want to
+[00:18:09] clone the remote repository onto my
+[00:18:11] desktop. So in the terminal, I will type
+[00:18:14] cd dot dot slash. This command takes me
+[00:18:17] back to the desktop just one level back.
+[00:18:20] Now I am going to clone the remote
+[00:18:22] repository the one I just created on
+[00:18:24] GitHub. For that I need a link which is
+[00:18:27] basically the repositories URL. So I
+[00:18:30] will go back to GitHub open that
+[00:18:32] repository and click on the code button.
+[00:18:35] There I can see an HTTPS link. I will
+[00:18:38] copy that link. Then in the terminal I
+[00:18:41] typed g clone followed by the link I
+[00:18:44] just copied and pressed enter. Now
+[00:18:47] notice g is pulling my github repository
+[00:18:49] down into my local machine. After a few
+[00:18:51] moments the cloning process is complete.
+[00:18:54] Let's verify whether the repository has
+[00:18:56] been successfully cloned. In the
+[00:18:58] terminal I will type ls. This command
+[00:19:01] shows the list of folders in my current
+[00:19:03] location. As you can see, there's now a
+[00:19:05] new folder named gy-en journey alongside
+[00:19:08] my previous gy-en 1 folder. Now we will
+[00:19:12] enter the g journey folder. To do that,
+[00:19:14] I will type cd g journey. We have now
+[00:19:18] entered the g journey directory. If I
+[00:19:20] type ls, I can see the contents of the
+[00:19:22] folder and inside it there are two files
+[00:19:24] 1.xt and 2.xt. And if we want to see the
+[00:19:27] hidden files, we'll simply type in the
+[00:19:29] terminal ls- a. Even here you will find
+[00:19:33] agit folder that proves this is also a
+[00:19:36] complete git repository cloned from the
+[00:19:38] cloud. Earlier we saw the same thing in
+[00:19:41] our local repository. Right? So this is
+[00:19:43] how we can create a git repository in
+[00:19:45] two ways. One by initializing it locally
+[00:19:48] and the other by cloning it from GitHub
+[00:19:50] or any other remote server. No matter
+[00:19:53] which way we create it to start working
+[00:19:55] with g initialization is always
+[00:19:57] required. Now let's look at something
+[00:20:00] new. Suppose I am currently inside the
+[00:20:02] gourney folder. This is the repository I
+[00:20:05] just cloned from the remote. Now if I
+[00:20:08] make any changes to this repository, for
+[00:20:10] example, I open the file 1.txt in a text
+[00:20:12] editor. Inside it I keep everything as
+[00:20:15] it was but add the number one at the end
+[00:20:18] and save the file. Now I want to know
+[00:20:20] what exactly changed or whether G has
+[00:20:23] detected the modification. To check that
+[00:20:26] I will type in the terminal g status and
+[00:20:29] as soon as I run this command g
+[00:20:31] immediately tells me modified 1.txt.
+[00:20:35] That means g has already detected the
+[00:20:37] change I made in that file. Now let's
+[00:20:39] say I make a small change in 2.xt as
+[00:20:42] well. Just adding a two at the end. Then
+[00:20:45] I run g status again. This time it shows
+[00:20:48] modified 2.xt. That means both files
+[00:20:51] have been changed and g has detected
+[00:20:53] both modifications. This is exactly how
+[00:20:55] g continuously keeps an eye on every
+[00:20:58] change we make. It's like it's always
+[00:21:00] watching over our project. At any point,
+[00:21:03] we can simply run the g status command
+[00:21:05] to see which files have been modified or
+[00:21:07] updated. In a real project, we usually
+[00:21:10] work with multiple files at the same
+[00:21:11] time. Right? In that case, g status give
+[00:21:14] us a clear summary of the overall
+[00:21:16] situation. What has changed? Which files
+[00:21:18] are new and which ones are modified. So
+[00:21:21] up to this point we have learned that
+[00:21:23] git can be initialized in two ways
+[00:21:25] either locally or from a remote
+[00:21:27] repository and with g status we can
+[00:21:29] easily check what changes have been made
+[00:21:30] in our working directory. Hopefully
+[00:21:32] everything is clear up to this point. So
+[00:21:35] far we have only worked inside the
+[00:21:36] working directory that means we have
+[00:21:38] created and modified files but we
+[00:21:40] haven't yet told g to keep those
+[00:21:42] changes. Now we are going to move them
+[00:21:44] into the staging area. In g terminology,
+[00:21:47] the process of moving changes from the
+[00:21:49] working directory to the staging area is
+[00:21:51] called adding. Simply put, g add means
+[00:21:55] telling g I want to keep this change. So
+[00:21:58] let's see how g add works. Right now
+[00:22:01] inside our g journey folder, we have two
+[00:22:04] files and both have been modified. Now I
+[00:22:07] will create another folder inside g
+[00:22:09] journey named my folder. To do that I
+[00:22:11] will type in the terminal mkdir my
+[00:22:14] folder. Then I will use cd to enter that
+[00:22:17] folder. Inside my folder, I will create
+[00:22:19] a new file called free.txt by typing
+[00:22:22] touch3.txt.
+[00:22:24] As soon as I run this command, a new
+[00:22:25] file named 3.txt is created. Then I open
+[00:22:28] the 3.txt file in my text editor. Inside
+[00:22:31] it, I write three and save the file.
+[00:22:34] Now, we have made quite a few changes,
+[00:22:36] haven't we? Let's see what we did. We
+[00:22:38] created a new folder, added a new file,
+[00:22:41] and modified some existing ones. In
+[00:22:43] other words, our entire project has gone
+[00:22:45] through multiple changes. So now it's
+[00:22:48] time to move all these changes into the
+[00:22:50] staging area. To do that, I will first
+[00:22:52] go back to the repository's root folder.
+[00:22:54] Meaning I will move one step up. CD dot
+[00:22:56] dot. Now I'm back in the root directory,
+[00:22:59] which is the gourney folder. From here,
+[00:23:01] I'll run the g add command. But before
+[00:23:04] adding, let's first check which files
+[00:23:06] have actually been changed. So I will
+[00:23:08] type g status. And look, g is showing
+[00:23:12] that two text files have been modified
+[00:23:14] and a new folder has been created. It is
+[00:23:16] also saying that the old files are
+[00:23:18] tracked while the new folder is
+[00:23:20] unttracked. Why is that? Because the old
+[00:23:23] files came from the remote repository we
+[00:23:25] cloned earlier. So, G already knows
+[00:23:28] about them. But since my folder is newly
+[00:23:30] created, G doesn't recognize it yet. If
+[00:23:33] I want to move everything to the staging
+[00:23:35] area at once, I have two options. I can
+[00:23:38] either use the command g add d- all or
+[00:23:42] the shorter version g add- a. Both
+[00:23:47] commands do exactly the same thing. So
+[00:23:49] let's first try with g add d- all. In
+[00:23:53] the terminal I type get add-all.
+[00:23:58] After running this command I will check
+[00:24:00] the status again by typing g status. Now
+[00:24:03] we will see that g has staged
+[00:24:06] everything. In other words, all the
+[00:24:08] changes we made are now ready to commit.
+[00:24:10] We'll talk about commits in detail a bit
+[00:24:13] later. For now, just remember that when
+[00:24:15] we use g add-all, g takes every change
+[00:24:19] and prepares it for the next comet. Now,
+[00:24:22] suppose I want to go back to the
+[00:24:24] previous state, that is remove
+[00:24:26] everything from the staging area and
+[00:24:27] return them to the working directory. To
+[00:24:30] do that, I'll type in the terminal get
+[00:24:32] reset. As soon as I run this command,
+[00:24:35] everything goes back to the way it was
+[00:24:37] before. You can see in the terminal, it
+[00:24:39] says unstaged changes after reset. Now,
+[00:24:43] if I check the status again by typing g
+[00:24:45] status, you will notice that everything
+[00:24:47] is back to the earlier state just like
+[00:24:50] before. All right. Now, let's take a
+[00:24:52] look at how g addy- a works. Just like
+[00:24:55] before, I will type in the terminal g
+[00:24:58] add- capital letter a. After running
+[00:25:01] this command, I will check the status
+[00:25:03] again by typing g status. And you will
+[00:25:06] see that git has tested everything just
+[00:25:08] like before. That means all the changes
+[00:25:10] we made are now ready to commit. So
+[00:25:13] whether we use g add-all or g add- a do
+[00:25:18] the same thing. G stages every change.
+[00:25:20] You can use either one. It doesn't make
+[00:25:22] a difference. Now I will run g reset
+[00:25:25] again to unstage everything and bring
+[00:25:27] all changes back to the working
+[00:25:29] directory. Then I will check the status
+[00:25:31] once more using get status. Everything
+[00:25:34] looks good again back to the unstaged
+[00:25:36] state. Now in this state if I type in
+[00:25:39] the terminal get add dot. What happens
+[00:25:42] then? At first glance it seems like it's
+[00:25:45] doing the same thing as g add-all
+[00:25:48] everything appears to be test but
+[00:25:50] actually that's not the case. Here's
+[00:25:52] where the difference lies. Let's see
+[00:25:55] what that difference really is. I'll run
+[00:25:57] get reset again to return everything to
+[00:26:00] the previous state. Now all files are
+[00:26:02] back in the working directory. Next, I
+[00:26:04] will go inside the my folder directory
+[00:26:06] by typing cd my folder. Now that I'm
+[00:26:09] inside my folder, I will type g add dot.
+[00:26:12] Then to check the status, I will type g
+[00:26:15] status. And look, g has only staged the
+[00:26:18] three.xt file that's inside my folder.
+[00:26:20] The other files in the root folder are
+[00:26:22] still unstaged. This difference is
+[00:26:24] really important. The options d-all or -
+[00:26:27] a mean that g will stage every single
+[00:26:30] change across the entire project. But
+[00:26:32] using the dot means git will only stage
+[00:26:34] the changes within the current directory
+[00:26:36] you are in. Also keep in mind if there
+[00:26:39] were a subfolder inside my folder using
+[00:26:41] the dot would still include the files
+[00:26:43] inside that subfolder too. In simple
+[00:26:46] terms the dot means the current
+[00:26:48] directory and everything inside it. So
+[00:26:50] now we have seen three variations of the
+[00:26:52] g add command d- all- a and dot. The
+[00:26:57] first two work exactly the same way
+[00:26:59] while the dot version is a bit more
+[00:27:00] limited in scope. Now I will run g reset
+[00:27:04] to bring everything back to the previous
+[00:27:05] state again. Next let's look at another
+[00:27:08] important concept. I will go back to the
+[00:27:10] root folder by typing cd dot dot. Then
+[00:27:13] in the terminal I will type git add-all
+[00:27:17] so that everything is staged again. Now
+[00:27:19] we know all our files are ready for
+[00:27:21] commit. At this point I make some
+[00:27:24] changes directly in the working
+[00:27:25] directory. For example, I delete the
+[00:27:27] file 2.txt and create a new one named
+[00:27:30] 4.xt writing four inside it. That means
+[00:27:35] I have deleted one file and added
+[00:27:37] another new one. Now if I check the
+[00:27:40] status by typing g status, what do you
+[00:27:42] see? G shows that under changes to be
+[00:27:45] committed the previously staged files
+[00:27:47] are still there. But under changes not
+[00:27:49] test for commit, it now lists 2.xt as
+[00:27:52] deleted and 4.xt as unttracked. So if I
+[00:27:57] now type g add star and then check again
+[00:28:01] with g status, you'll see that g has st
+[00:28:05] the newly created for.txt file, but it
+[00:28:08] hasn't st the deleted 2.xt file. That's
+[00:28:11] why it's important to understand that g
+[00:28:13] add star only stages new or modified
+[00:28:17] files but not deleted ones. The behavior
+[00:28:20] of the aesthetics is that it stages all
+[00:28:23] visible changes except for deleted
+[00:28:25] files. In other words, if a file has
+[00:28:27] been deleted, it won't be added to the
+[00:28:29] staging area. That's the key difference
+[00:28:31] between the star and the dot and the d-
+[00:28:34] all options. This is how the star works
+[00:28:37] in g add. Now let's return to the
+[00:28:40] previous state again by typing g reset.
+[00:28:43] Then check the current situation with g
+[00:28:46] status. Now if you want to stage only a
+[00:28:49] specific file say 1.xt which has been
+[00:28:52] modified you can do that by typing g
+[00:28:55] add1.txt.
+[00:28:57] Similarly if you want to stage a file
+[00:28:58] inside a folder for example the file
+[00:29:01] inside my folder you can write g add my
+[00:29:04] folder/3.txt.
+[00:29:07] Let's test it. I type g add2.txt.
+[00:29:11] After running this command, if we check
+[00:29:13] the status using g status, we'll see
+[00:29:15] that only 2.xt has been changed. So yes,
+[00:29:18] we can also stage individual files by
+[00:29:20] specifying their names. Now let's go
+[00:29:23] back again by typing g reset. This
+[00:29:25] returns everything to the previous
+[00:29:27] unstaged state. We can also stage files
+[00:29:30] by their extension. For example, if we
+[00:29:32] want to stage all txt files, we will
+[00:29:35] write g add star.txt.
+[00:29:38] This command stages all txt files in the
+[00:29:41] current directory excluding deleted
+[00:29:43] ones. Note that g only stages the
+[00:29:45] changes it finds in the root folder. It
+[00:29:48] won't include deleted files or files
+[00:29:50] inside subfolders. Finally, if we want
+[00:29:52] to stage everything at once, the best
+[00:29:54] and simplest practice is to go to the
+[00:29:56] root directory and type g add dot. After
+[00:30:00] doing that, all the changes are staged
+[00:30:02] together. If we now run g status, we'll
+[00:30:06] see that everything has been staged
+[00:30:07] successfully. That means all our changes
+[00:30:10] have been moved from the working
+[00:30:11] directory to the staging area. So far,
+[00:30:14] we have learned how to move changes from
+[00:30:16] the working directory to the staging
+[00:30:18] area using the git add command. Now
+[00:30:21] let's see how we can save those changes
+[00:30:22] from the staging area to the local
+[00:30:24] repository. In g language, this is
+[00:30:27] called a comet. It means we are
+[00:30:29] confirming and saving our changes
+[00:30:31] permanently. You can think of it like
+[00:30:33] getting ready for a party. You don't
+[00:30:35] just walk straight out the door. First,
+[00:30:37] you stand in front of a mirror and check
+[00:30:39] your clothes, shoes, tie, and hair. Then
+[00:30:42] the stage where you make adjustments.
+[00:30:44] Maybe you realize this shirt doesn't
+[00:30:46] look good or let me change this shoes.
+[00:30:49] That's an intermediate step. You haven't
+[00:30:51] left for the party yet. You are just
+[00:30:53] making sure everything is in order. If
+[00:30:55] something's off, you can fix it right
+[00:30:57] there. Once you are satisfied and
+[00:30:59] everything looks perfect, that's when
+[00:31:01] you finally leave for the party. G works
+[00:31:03] in the same way. Instead of going
+[00:31:05] straight from the working directory to
+[00:31:06] the local repository, we first move our
+[00:31:08] changes to the staging area. This is an
+[00:31:10] intermediate step where we can review,
+[00:31:12] adjust, or even remove changes before
+[00:31:15] saving them permanently. We don't commit
+[00:31:17] directly from the working directory
+[00:31:19] because the staging area gives us a
+[00:31:21] chance to verify everything before
+[00:31:23] finalizing. When you finally commit, it
+[00:31:25] means you are sure everything is
+[00:31:27] correct. No more mistakes and now the
+[00:31:29] work can be saved permanently. That's
+[00:31:31] why this process is called a commit. Now
+[00:31:34] let's see how to make a commit in
+[00:31:35] practice. First we will check our
+[00:31:37] current state using g status. It shows
+[00:31:40] that the staging area contains some
+[00:31:42] changes. These are ready but not yet
+[00:31:44] committed. To commit them, we will write
+[00:31:46] g commit / m space and a commit message.
+[00:31:51] The /m flag lets you add a short message
+[00:31:54] describing what you changed. For
+[00:31:56] example, g committ/m I have made some
+[00:31:59] changes to the files. Now, sometimes an
+[00:32:01] error may appear the first time you try
+[00:32:03] to commit. When you install git for the
+[00:32:05] first time and attempt a commit, you
+[00:32:07] might see a message like please tell me
+[00:32:09] who you are. Don't worry, this is
+[00:32:11] completely normal. It's just G's way of
+[00:32:14] asking for your identity before
+[00:32:16] recording a comet. It needs to know who
+[00:32:19] is making the changes and from which
+[00:32:20] email address. This information is
+[00:32:23] attached to every commit in the project
+[00:32:25] history which later helps track who made
+[00:32:27] which changes. Fixing this issue is very
+[00:32:29] simple. G actually tells us exactly what
+[00:32:32] to do. Just run the following two
+[00:32:34] commands. Get config- global user and
+[00:32:39] pass your email address. Then get
+[00:32:42] config- global user.name pass your name.
+[00:32:46] By running these two commands, the
+[00:32:48] problem is solved. The first command
+[00:32:51] sets your email address globally and the
+[00:32:53] second one sets your name globally. The
+[00:32:55] d- global flag means that this
+[00:32:57] configuration will apply to your entire
+[00:32:59] computer. So every git commit you make
+[00:33:02] from this machine will use the same name
+[00:33:04] and email from now on. If you want to
+[00:33:06] make the configuration specific to a
+[00:33:08] single project, you can use the d-local
+[00:33:10] flag instead of d- global flag. That way
+[00:33:13] the settings will apply only to that
+[00:33:15] particular repository. In short, when
+[00:33:17] you use git for the first time, setting
+[00:33:20] up your user configuration is mandatory.
+[00:33:22] It's part of the basic Git setup you
+[00:33:24] need to do before committing. Once it's
+[00:33:26] configured, G will automatically
+[00:33:28] recognize your identity for all your
+[00:33:30] future commits. Since I already have Git
+[00:33:32] configured, I don't need to set it up
+[00:33:34] again. All right, let's go back to our
+[00:33:37] main task. We are going to make a comet.
+[00:33:40] We already know what to type in the
+[00:33:41] terminal. get commit minus m. I have
+[00:33:45] made some changes to the files. Perfect.
+[00:33:47] The commit is done. The terminal now
+[00:33:49] shows how many files were changed, how
+[00:33:51] many lines were added and how many lines
+[00:33:54] were deleted. Let's verify everything by
+[00:33:56] checking the status. G status. As you
+[00:33:59] can see, everything looks clean now.
+[00:34:01] Meaning all the changes have been
+[00:34:02] successfully saved in the local
+[00:34:04] repository. From now on, whenever you
+[00:34:06] make new changes to any file, you'll
+[00:34:08] have to stage and commit them again just
+[00:34:11] like before. One more thing about
+[00:34:12] comets, you can always roll back to the
+[00:34:14] previous state if needed. To do that,
+[00:34:16] type in the terminal get reset head and
+[00:34:20] a t sign. This command will undo the
+[00:34:23] last commit and bring everything back to
+[00:34:25] the working directory. Now, if we type g
+[00:34:28] status, you'll see that all the files
+[00:34:30] have returned to the working directory,
+[00:34:32] ready to be staged again. You can now
+[00:34:34] modify or commit them as you wish. See
+[00:34:37] how amazing it is. You have complete
+[00:34:40] control over your work. It's just about
+[00:34:42] remembering the right commands. We will
+[00:34:44] explore even more useful features soon.
+[00:34:46] Now let's move on to the use of g
+[00:34:48] remove. But before that, let's make a
+[00:34:50] new commit just like the one we did
+[00:34:52] earlier. So in the terminal, I will type
+[00:34:55] g add dot then get commit minus m. I
+[00:35:00] have made some changes to the files.
+[00:35:02] Perfect. Our commit is done. Now let's
+[00:35:05] manually delete the 1.xt txt file from
+[00:35:07] our file system and then go back to the
+[00:35:09] terminal. I'll type get status. Now you
+[00:35:12] can see the change. It shows that our
+[00:35:15] 1.txt file has been deleted. After that,
+[00:35:18] if I type get add dot, the deletion will
+[00:35:21] also be sted, right? So instead of
+[00:35:24] deleting a file manually and then adding
+[00:35:26] it again, you can actually do both steps
+[00:35:28] in a single command. If you want to
+[00:35:30] delete a file and stage that deletion at
+[00:35:33] the same time, just type get rm4.txt.
+[00:35:37] Here we are taking for.txt as an
+[00:35:40] example. This means we want to delete
+[00:35:42] 4.txt and automatically move that change
+[00:35:45] to the staging area. Once we run this
+[00:35:47] command and then check the status with G
+[00:35:49] status, you will notice that 4.xt has
+[00:35:52] been deleted and at the same time
+[00:35:53] staged. So we no longer have to perform
+[00:35:56] two separate steps, deleting and adding
+[00:35:58] manually. We can do both at once with
+[00:36:01] this single shortcut. If we check in
+[00:36:03] Finder, we'll see that 4.xt has
+[00:36:06] disappeared. Now let's look at another
+[00:36:08] example. But before that, we'll roll
+[00:36:11] back the deleted file. To do this, we
+[00:36:13] will use the get reset command. However,
+[00:36:16] when you run a normal G reset, it only
+[00:36:18] brings back the changes, not the deleted
+[00:36:21] files. Once you execute reset, you'll
+[00:36:24] see in the terminal the message unstaged
+[00:36:26] changes after reset. But if you check
+[00:36:29] your file system, the deleted file
+[00:36:31] hasn't returned. That's because a normal
+[00:36:33] reset only brings back the staged
+[00:36:35] changes, not the actual files. We can
+[00:36:38] confirm this by running g status. You
+[00:36:41] will notice only the changes are back.
+[00:36:43] Manually deleted files are still
+[00:36:45] missing. If you want to restore
+[00:36:47] everything, meaning both the changes and
+[00:36:49] the deleted files, then you will have to
+[00:36:51] run get reset- hard. Once you execute
+[00:36:55] this, both your changes and the deleted
+[00:36:57] files return to their previous state.
+[00:37:00] Now let's explore the use of get remove
+[00:37:02] a bit deeper. Suppose you want to remove
+[00:37:05] a file. Now let's say we edit the 4.xt
+[00:37:08] file and write four inside it. That
+[00:37:11] means there's now a change in the
+[00:37:13] working directory. If I try to delete it
+[00:37:16] directly using g rm4.txt,
+[00:37:19] what happens? The file isn't deleted and
+[00:37:22] g starts showing an error. The following
+[00:37:24] file has local modifications. This means
+[00:37:27] it isn't allowing the deletion because
+[00:37:29] it has detected uncommitted changes in
+[00:37:32] that file. Before you can remove it, you
+[00:37:34] either have to commit those changes or
+[00:37:37] confirm that you truly want to discard
+[00:37:39] them. If you are sure you want to delete
+[00:37:42] the file anyway, you can force it by
+[00:37:44] using get rm/f
+[00:37:48] 4.xt.
+[00:37:50] As soon as you run this command, the
+[00:37:51] file is forcefully deleted. If you check
+[00:37:54] your file explorer, you'll see that
+[00:37:56] 4.txt is gone. Now, let's look at
+[00:37:59] another situation. I'll run another hard
+[00:38:01] reset. Get reset- hard. This brings
+[00:38:05] everything back again. I'll now modify
+[00:38:07] the file for.txt by writing hello inside
+[00:38:10] it. Now, if I type get rm-cached
+[00:38:16] 4.txt, txt. This removes the file from
+[00:38:19] the staging area but keeps it physically
+[00:38:22] in your working directory. Let's check
+[00:38:24] it with G status. You'll see that 4.txt
+[00:38:28] has moved to the unttracked file
+[00:38:29] section. It's no longer staged, but the
+[00:38:32] file itself still exists in the system.
+[00:38:35] That's the difference between the
+[00:38:36] d-force and d- cache flags. The d-force
+[00:38:40] flag completely deletes the file while
+[00:38:42] the d-cashed flag only removes it from
+[00:38:45] staging. keeping the actual file intact
+[00:38:48] in your working directory. Another
+[00:38:50] useful command is get rm-r
+[00:38:54] folder. Here the - r flag stands for
+[00:38:57] recursive. This means if the folder
+[00:39:00] contains other subfolders or files, all
+[00:39:02] of them will be removed recursively. If
+[00:39:05] you only mention the folder named
+[00:39:07] without -ash r, then only that folder
+[00:39:10] will be removed, not its contents. All
+[00:39:13] right, let's try this out. But first I
+[00:39:15] will reset everything again by typing g
+[00:39:17] reset- hard. Now that the reset is done,
+[00:39:20] we'll experiment with our my folder.
+[00:39:22] Okay, in the terminal I will type g rm-
+[00:39:26] r my folder. And as you can see the
+[00:39:29] folder has been deleted from our file
+[00:39:31] system as well. If we now check the
+[00:39:33] status using g status, we will notice
+[00:39:35] that my folder is listed as deleted and
+[00:39:38] has already been staged automatically.
+[00:39:40] Now I will reset everything again by
+[00:39:42] typing get reset- hard. Perfect. So far
+[00:39:46] we have made quite a few comets. Right
+[00:39:49] now let's learn how to view those
+[00:39:51] comets. Basically viewing comets means
+[00:39:54] checking the comet log. And doing that
+[00:39:56] is very simple. In the terminal just
+[00:39:58] type get log. That's it. Instantly you
+[00:40:02] will see the full comet history. Here we
+[00:40:05] can see three comets. Right. Along with
+[00:40:07] each one, there are details and messages
+[00:40:09] that clearly describe what was done in
+[00:40:12] that comet. You will also notice some
+[00:40:14] long random strings. Those are comet
+[00:40:17] ids. Using these ids, we can go back to
+[00:40:20] previous versions later on. Don't worry,
+[00:40:22] we'll learn how to do that soon. For
+[00:40:24] now, just remember this part. The first
+[00:40:27] two commits were created when we made
+[00:40:29] files while setting up our GitHub
+[00:40:30] repository. And the last one was made
+[00:40:32] when we modified some files recently.
+[00:40:34] Now if we want to view this log in a
+[00:40:37] cleaner, more compact format, you can
+[00:40:39] use this version of the command. Get log
+[00:40:42] d- on one line. Once you run it, you'll
+[00:40:45] see a nice short summary of each comet
+[00:40:47] with just the essential information. The
+[00:40:49] unique comet ids are also shown in a
+[00:40:52] shortened format. These shortened ids
+[00:40:54] can also be used to return to any
+[00:40:56] previous version later on. Now let's
+[00:40:58] move on to one of Git's most powerful
+[00:41:01] and important features, branching. At
+[00:41:03] the moment, our repository has only one
+[00:41:05] branch. A branch in Git is like a
+[00:41:07] separate line of development where you
+[00:41:09] can work independently. If you check the
+[00:41:12] online repository we cloned earlier, you
+[00:41:14] will see that the default branch is
+[00:41:16] called main. It used to be known as the
+[00:41:18] master branch before. This is the
+[00:41:20] default branch where all work begins. In
+[00:41:23] recent times, G has shifted from calling
+[00:41:25] it master to main. But the idea remains
+[00:41:28] the same. The main branch is your
+[00:41:30] project's central line of development.
+[00:41:32] To understand the concept of branching
+[00:41:34] more simply, imagine you are working in
+[00:41:36] the kitchen of a large restaurant. The
+[00:41:39] main branch is the main kitchen where
+[00:41:41] all the dishes are prepared and served
+[00:41:43] to customers. Now, if your client wants
+[00:41:45] to try a new dish or recipe, you
+[00:41:48] wouldn't experiment directly in that
+[00:41:49] main kitchen because if something goes
+[00:41:52] wrong, it could ruin everything.
+[00:41:54] Instead, you create a separate taste
+[00:41:56] kitchen where you can safely prepare and
+[00:41:58] taste the new dish. Once the recipe is
+[00:42:00] perfected, you bring it back into the
+[00:42:02] main kitchen to serve it officially. It
+[00:42:04] works exactly the same way. Instead of
+[00:42:06] making changes directly in the main
+[00:42:08] branch, you create a separate
+[00:42:09] development branch where you test and
+[00:42:12] commit all your changes. Once everything
+[00:42:14] is stable and verified, you merge that
+[00:42:16] branch back into the main branch. This
+[00:42:19] ensures your main project stays safe
+[00:42:21] while new features can be developed and
+[00:42:23] tested without breaking anything. In
+[00:42:25] short, branching in Git provides a
+[00:42:27] secure and organized intermediate step
+[00:42:29] that allows you to review, test, and
+[00:42:31] manage changes before merging them into
+[00:42:33] the main codebase. Now, since I have
+[00:42:35] already mentioned the word merge, let's
+[00:42:38] understand what it really means. Merge
+[00:42:40] simply means combining the changes from
+[00:42:42] two branches into one. It's an important
+[00:42:44] concept for understanding how branches
+[00:42:46] work. In Git, you can create multiple
+[00:42:49] branches like staging, development,
+[00:42:51] front end or back end and work on each
+[00:42:54] of them separately. Once all the changes
+[00:42:56] are finalized and tested, they are
+[00:42:58] merged back into the main branch. Right
+[00:43:00] now, our application has only one
+[00:43:02] branch. To see how many branches we
+[00:43:04] have, we can type in the terminal get
+[00:43:07] branch. This command shows the list of
+[00:43:09] all branches. At the moment, we have
+[00:43:11] only one, and the branch we are
+[00:43:13] currently in has a star next to it. To
+[00:43:15] create a new branch, we simply write g
+[00:43:18] branch followed by the branch name. For
+[00:43:20] example, let's type g branch
+[00:43:22] development. Now if we run the same
+[00:43:25] command again like get branch, we'll see
+[00:43:28] two branches listed, main and
+[00:43:30] development. That star next to main
+[00:43:33] means we are still on the main branch.
+[00:43:35] When a new branch is created, it takes
+[00:43:37] the exact state of the branch you were
+[00:43:39] on at that moment. So in this case the
+[00:43:42] development branch is an exact copy of
+[00:43:45] the main branch. Remember whenever you
+[00:43:47] create a new branch it inherits the
+[00:43:49] current state of the branch you are in.
+[00:43:51] Now that we have created a new branch
+[00:43:53] let's switch to it. To move to the
+[00:43:55] development branch type get checkout
+[00:43:58] development. We are now inside the
+[00:44:00] development branch. If we check the
+[00:44:02] current status using g status, we will
+[00:44:04] see that everything looks clean because
+[00:44:06] the development branch has been created
+[00:44:08] with the same content as the main branch
+[00:44:10] and it was clean before. Now let's go to
+[00:44:13] our file system and create a new file
+[00:44:15] named 3.txt. Inside it, we will write
+[00:44:18] three. Then back in the terminal, if we
+[00:44:20] type g status, we'll see that there's a
+[00:44:23] new file. To stage it, we type g add
+[00:44:26] dot. And to commit it, we write get
+[00:44:30] commit/m
+[00:44:31] I created 3.txt and entered three there.
+[00:44:34] Now our commit is done inside the
+[00:44:36] development branch. Next, let's switch
+[00:44:39] back to the main branch. To do that, we
+[00:44:41] type get checkout main. Now we have
+[00:44:44] moved from the development branch back
+[00:44:46] to the main branch. If you check your
+[00:44:48] file system now, you will notice that
+[00:44:50] the 3.txt file is no longer there. Why?
+[00:44:52] Because the changes made in the
+[00:44:54] development branch exist only in that
+[00:44:56] branch. those changes haven't been
+[00:44:58] merged into the main branch yet. The
+[00:45:00] moment you switch back to the main
+[00:45:01] branch, G automatically hides the
+[00:45:03] changes made in development, showing you
+[00:45:05] only what exists in that main branch.
+[00:45:08] This demonstrates just how much control
+[00:45:10] G has over your file system. When you
+[00:45:13] switch branches, G instantly adjusts
+[00:45:15] which files are visible so that you only
+[00:45:17] see the changes relevant to that
+[00:45:19] specific branch. There's no duplication
+[00:45:21] or conflict in your file system. G
+[00:45:24] manages everything seamlessly. In this
+[00:45:26] way, you can create hundreds of
+[00:45:28] branches, each containing its own set of
+[00:45:30] changes. And G will always show you a
+[00:45:32] separate isolated view for each one. But
+[00:45:35] remember, for any change to actually
+[00:45:37] take effect, you must commit it.
+[00:45:40] Whatever branch you are working in, the
+[00:45:41] commit must be made there. Once
+[00:45:43] committed, G understands that those
+[00:45:45] changes belong exclusively to that
+[00:45:47] specific branch. That's why when you
+[00:45:50] switch back to the main branch, the
+[00:45:51] changes made in the development branch
+[00:45:53] don't appear there. Now let's say we
+[00:45:55] make a new change to the for.txt file
+[00:45:57] while we are on the main branch. Let's
+[00:45:59] add a four to it. Then if we check the
+[00:46:02] status by typing g status, we'll see the
+[00:46:04] new change. Let's stage it using g add
+[00:46:07] dot and commit it with g commit minus m.
+[00:46:11] I changed four.xt and added additional
+[00:46:14] four. Now both branches have changes.
+[00:46:17] The main branch has this new comet and
+[00:46:19] the development branch still has its
+[00:46:21] previous one. Since both branches now
+[00:46:23] contain updates, we will merge the
+[00:46:25] changes from the development branch into
+[00:46:27] the main branch. But first, let's start
+[00:46:29] by merging the main branch into the
+[00:46:31] development branch just to synchronize
+[00:46:33] everything. So, first we switch to the
+[00:46:35] development branch by typing geckout
+[00:46:38] development. Now that we are inside the
+[00:46:40] development branch, we will run gge
+[00:46:44] main
+[00:46:46] merging main into development. After the
+[00:46:49] merge, you will notice that the changes
+[00:46:50] made in the main branch have now
+[00:46:52] appeared inside the development branch
+[00:46:54] as well. For example, the updated
+[00:46:56] for.txt file is now present in the
+[00:46:58] development branch alongside the
+[00:46:59] previous changes. In short, updates of
+[00:47:02] both branches have been combined and the
+[00:47:04] development branch now reflects all the
+[00:47:06] latest modifications. Next, let's switch
+[00:47:09] back to the main branch by typing git
+[00:47:11] checkout main. Once we are back on the
+[00:47:13] main branch, we can see that the changes
+[00:47:15] from the development branch haven't yet
+[00:47:17] appeared here. So now from the main
+[00:47:19] branch, we will merge everything from
+[00:47:21] the development branch by typing gerge
+[00:47:24] development/m
+[00:47:26] merging on main with development.
+[00:47:29] After running this command, you will see
+[00:47:31] that the 3.txt file from the development
+[00:47:33] branch has now appeared in the main
+[00:47:35] branch as well. That means both branches
+[00:47:37] changes have been successfully merged
+[00:47:39] and the merge process is complete.
+[00:47:41] However, sometimes during a merge,
+[00:47:43] conflicts may occur. A merge conflict
+[00:47:46] happens when the same part of the same
+[00:47:48] file has been changed differently in two
+[00:47:50] branches. For example, if you modified
+[00:47:53] 1.txt in the main branch and someone
+[00:47:56] else modified the exact same section of
+[00:47:58] 1.xt in the development branch, Git
+[00:48:01] won't know which version to keep. In
+[00:48:03] such cases, Git flags the file as having
+[00:48:06] a conflict and you will have to resolve
+[00:48:09] it manually by deciding which changes to
+[00:48:11] keep or by merging both versions
+[00:48:13] yourself. Right now we are on the main
+[00:48:16] branch. From here we will create a new
+[00:48:18] branch so that the main branch remains
+[00:48:20] untouched while we simulate a conflict.
+[00:48:23] Let's move ahead quickly. I run the
+[00:48:25] command get branch staging to create a
+[00:48:28] new branch named staging. This branch
+[00:48:31] now contains all the latest updates from
+[00:48:33] main. Then I switch to it using get
+[00:48:36] checkout staging. While working on the
+[00:48:39] staging branch, I open my file system
+[00:48:41] and go to the file named 4.xt. At the
+[00:48:44] end of this file, there was the number
+[00:48:46] four. I add 44 at the end and save the
+[00:48:50] file. Now the staging branch has a
+[00:48:52] change. When I run g status, I can see
+[00:48:55] that the change is being tracked. So I
+[00:48:58] add and commit it by running g add dot
+[00:49:02] and then get commit / m changed 44. The
+[00:49:07] staging branch work is done. Next I
+[00:49:10] switch back to the development branch by
+[00:49:11] running g checkout development. When I
+[00:49:15] open 4.xt here I don't see 44 I added
+[00:49:18] earlier in the staging. So I write 444
+[00:49:22] and save the file. Then I run g add dot
+[00:49:25] and commit it with g get commit / m
+[00:49:29] added 444 on 4.xt. That means the
+[00:49:34] development branch now has its own
+[00:49:36] separate change. Now while staying in
+[00:49:38] the development branch I try to merge
+[00:49:40] the changes from the staging branch
+[00:49:41] using git merge staging. But g fails to
+[00:49:45] merge automatically and shows an error.
+[00:49:47] Automatic merge failed fix conflicts and
+[00:49:49] then commit the result. This happens
+[00:49:52] because the same line in 4.xt was
+[00:49:54] modified in both branches staging and
+[00:49:57] development. G can't decide which
+[00:50:00] version should take priority. So it
+[00:50:02] leaves the decision to us. In this case
+[00:50:05] the developer working on the development
+[00:50:07] branch or whoever is managing it has to
+[00:50:10] manually resolve the conflict. When you
+[00:50:12] open for.txt txt in a text editor. Git
+[00:50:15] marks the conflicting section clearly
+[00:50:17] showing which part came from staging and
+[00:50:20] which part came from development. You
+[00:50:22] will see both the double four from
+[00:50:24] staging and the triple four from
+[00:50:26] development. It's now up to you to
+[00:50:29] decide whether to keep one, remove one
+[00:50:31] or combine both changes. While staying
+[00:50:34] on the development branch, you decide
+[00:50:36] which version to keep. Let's say you
+[00:50:38] choose to keep the triple 4. You remove
+[00:50:41] all the conflicting markers. Save the
+[00:50:43] file and then run get add dot followed
+[00:50:47] by get commit minus m merge conflict
+[00:50:50] solved. The commit messages merge
+[00:50:53] conflict solved. Now you switch back to
+[00:50:56] the staging branch using get checkout
+[00:50:59] staging. When you open the file system
+[00:51:01] and check for.txt, it still shows 4,
+[00:51:06] meaning no change has been applied yet.
+[00:51:09] At this point, you can choose to merge
+[00:51:11] changes either into staging or
+[00:51:13] development since both branches are now
+[00:51:15] in sync. Let's say we decide to resolve
+[00:51:18] it from staging. We run the command
+[00:51:20] gerge development. This time g marges
+[00:51:24] everything smoothly without any conflict
+[00:51:26] because both sides now contain the same
+[00:51:28] content. When you check the status using
+[00:51:30] g status, it shows everything is clean.
+[00:51:33] Now if we want to bring these merged
+[00:51:35] changes into the main branch, we switch
+[00:51:37] to it using get checkout main. Once we
+[00:51:41] are on the main branch and open the file
+[00:51:43] system, we notice that for.txt doesn't
+[00:51:46] yet have the latest update. So we merge
+[00:51:48] the staging branch with git merge
+[00:51:51] staging. Immediately all the latest
+[00:51:53] changes flow into the main branch. The
+[00:51:56] double four from staging and the triple
+[00:51:58] four from development now combine
+[00:52:00] perfectly resulting in the final merged
+[00:52:02] version. And that's how the entire
+[00:52:04] process of merging and resolving merge
+[00:52:07] conflicts is completed. So far we have
+[00:52:10] learned how branching works. We have
+[00:52:11] already seen how to switch from one
+[00:52:13] branch to another using the checkout
+[00:52:15] command. Now earlier when we talked
+[00:52:17] about git log I mentioned that we can
+[00:52:20] also go back to a previous version using
+[00:52:22] a comet ID. That's what we are going to
+[00:52:24] see now. And to do that we will again
+[00:52:26] use the check out command. First let's
+[00:52:29] check our comet history. We can do that
+[00:52:31] by running get log d- on one line. Right
+[00:52:36] now we have nine comets in our log. Now
+[00:52:38] let's make a small change. I open the
+[00:52:41] one.xt file and write hello inside it.
+[00:52:44] Then I stage it by running g add dot and
+[00:52:48] commit it using g commit/m
+[00:52:51] update 1.txt file. Next, I again run get
+[00:52:56] log d- on one line. And all the comets
+[00:52:59] are nicely displayed. Now, I want to
+[00:53:01] switch back to one of my previous
+[00:53:03] comets, especially the one named merging
+[00:53:06] main into development. To do that, I
+[00:53:09] will simply copy the comet ID of that
+[00:53:10] comet and type get checkout that come
+[00:53:14] ID. Earlier, when we switched branches,
+[00:53:17] we used the branch name. But this time,
+[00:53:19] we are using a comet ID instead.
+[00:53:21] Remember your comet ID will be different
+[00:53:24] from mine. After running this command,
+[00:53:26] the project will move from the main
+[00:53:28] branch to the exact state it was in at
+[00:53:30] that previous commit. However, you must
+[00:53:33] ensure that all your changes on the main
+[00:53:35] branch are tracked and committed before
+[00:53:37] doing this. If there are many unttracked
+[00:53:39] or uncommitted files, it won't allow you
+[00:53:40] to check out to a previous version. Once
+[00:53:43] you run the command, you'll see that in
+[00:53:44] the terminal, instead of showing main,
+[00:53:46] it now says head detached at your comet
+[00:53:50] ID. That means you have successfully
+[00:53:52] switched to that particular commit. If
+[00:53:55] you open 1.txt now, you will notice the
+[00:53:57] hello line you added earlier is no
+[00:53:59] longer there. That confirms you have
+[00:54:01] returned to the previous version of your
+[00:54:02] project. But now suppose you want to go
+[00:54:05] back to your latest date. That means
+[00:54:08] returning to the main branch. In that
+[00:54:10] case, you will use the same command as
+[00:54:12] before. Get checkout main. Perfect. Now
+[00:54:15] you have switched back to the main
+[00:54:16] branch. Meaning you are back to the most
+[00:54:18] recent version of your project. So we
+[00:54:21] have seen how to switch between comets,
+[00:54:23] how to move from one version to another.
+[00:54:26] Now let's explore something new. How to
+[00:54:28] compare one comet with another. If we
+[00:54:31] want to see the differences between our
+[00:54:33] current comet and a previous comet, what
+[00:54:35] lines of code were added? What lines
+[00:54:37] were deleted? We can do that easily
+[00:54:39] using g commands. Before that, let's
+[00:54:42] first check our comet history again by
+[00:54:44] typing glo-
+[00:54:46] one line. We can see that there are now
+[00:54:49] 10 commits in total. Now we'll compare
+[00:54:52] the comet update 1.txt file with the
+[00:54:55] previous one. That means merging main
+[00:54:57] into development. For that we will need
+[00:54:59] the commit ids of both. Since we have
+[00:55:02] already run glog, we can just copy those
+[00:55:04] two ids. Once we have them, we will
+[00:55:07] write the command g diff doublef then
+[00:55:11] the first comet id space then the second
+[00:55:14] comet id. After running this command, G
+[00:55:17] will show us the exact changes made
+[00:55:19] between those two comets. The terminal
+[00:55:21] will display which files were changed.
+[00:55:23] What was removed in red and what was
+[00:55:26] added in green. Also notice one
+[00:55:29] important detail in g. We place the most
+[00:55:32] recent comet ID first and the older one
+[00:55:35] second. This means it will show
+[00:55:37] differences from the perspective of the
+[00:55:39] newer comet. What's newly added or
+[00:55:41] removed compared to the older one. If
+[00:55:44] you reverse the order, that means
+[00:55:45] putting the older comet ID first and the
+[00:55:47] newer one second. G will show the
+[00:55:50] opposite perspective. Try running the
+[00:55:52] command both ways a few times. You will
+[00:55:54] easily understand how the comparison
+[00:55:56] works. All right, just a quick reminder.
+[00:55:59] Right now, you can't exit the terminal
+[00:56:01] view because you are inside the log
+[00:56:03] window. As I mentioned before, to exit
+[00:56:05] from there, simply press Q on your
+[00:56:08] keyboard. That will close the log view
+[00:56:11] immediately. So far everything we have
+[00:56:13] done has been inside our local
+[00:56:14] repository. Meaning we have staged
+[00:56:16] files, made commits and stored
+[00:56:18] everything locally. But our real goal is
+[00:56:21] to send those updates to the remote
+[00:56:22] repository like GitHub. When we send
+[00:56:25] local changes to a remote repository,
+[00:56:27] that process is called a push. And if
+[00:56:30] any changes have been made in the remote
+[00:56:32] repository that we want to bring into a
+[00:56:34] local repository, we use fetch. When you
+[00:56:37] run g fetch, the remote changes are
+[00:56:40] downloaded into your local repositories
+[00:56:42] memory, but they won't appear in your
+[00:56:44] working directory yet. To actually
+[00:56:46] update your working directory and see
+[00:56:48] those changes in your files, you need to
+[00:56:50] run git pull. So in short, push means
+[00:56:55] sending local changes to the remote.
+[00:56:57] Fetch means bringing remote changes into
+[00:57:00] your local repository but not merging
+[00:57:02] them yet. And pull means fetching plus
+[00:57:05] merging. So your working directory
+[00:57:07] immediately reflects the remote changes.
+[00:57:10] In other words, gpool is equal to g
+[00:57:13] fetch plus g marge. Let's see an example
+[00:57:16] of how g push works. We have already
+[00:57:19] made several changes in our local
+[00:57:20] repository and now we want to push them
+[00:57:22] to the remote main branch. Since we are
+[00:57:25] currently on the main branch, the
+[00:57:26] command will be get push origin main.
+[00:57:30] Here origin refers to the remote
+[00:57:32] repository and main is the branch we
+[00:57:34] want to push to. After running this
+[00:57:36] command, all your latest comets will be
+[00:57:38] sent to the remote main branch. If you
+[00:57:41] check your repository on GitHub, you
+[00:57:42] will see that everything is updated.
+[00:57:45] However, only the main branch is pushed.
+[00:57:47] Other branches aren't uploaded yet. This
+[00:57:49] means we have only pushed our main
+[00:57:51] branch to the remote's main. Now if we
+[00:57:54] switch to the staging branch using g
+[00:57:56] checkout staging and then run g push
+[00:57:59] origin staging g will create a new
+[00:58:02] branch named staging in the remote
+[00:58:04] repository and push all your staging
+[00:58:06] changes there. When you check github
+[00:58:08] again you'll see that the staging branch
+[00:58:10] has been created and updated. Similarly,
+[00:58:13] if you switch to the development branch
+[00:58:15] by running gout development and then g
+[00:58:19] push origin development, the development
+[00:58:22] branch will also be uploaded to the
+[00:58:23] remote. So now all three branches main,
+[00:58:27] staging and development are fully synced
+[00:58:29] with the remote repository. Finally, I
+[00:58:32] switch back to the main branch again
+[00:58:34] using g checkout main. By now the
+[00:58:37] concept of g push should be crystal
+[00:58:39] clear. Now imagine we have already
+[00:58:41] pushed our local changes to the remote.
+[00:58:43] Let's see how fetch works. Suppose we
+[00:58:46] make a change directly on GitHub. For
+[00:58:48] example, we open the file 3.txt on
+[00:58:51] GitHub. Type three and commit the
+[00:58:53] change. Now the remote main branch has a
+[00:58:56] new update that our local main branch
+[00:58:57] doesn't yet have. It's behind the remote
+[00:59:00] version. While staying on the local main
+[00:59:02] branch, I want to bring in the latest
+[00:59:04] changes from the remote. So I run the
+[00:59:07] command get fetch. It immediately
+[00:59:10] fetches the new changes from the remote
+[00:59:12] repository, but those updates don't yet
+[00:59:14] appear in your local file system. For
+[00:59:16] example, you won't see any update in
+[00:59:18] 3.txt until you merge the feted changes.
+[00:59:21] Once you run get merge, the remote
+[00:59:24] changes will finally reflect in your
+[00:59:26] local working directory as well. Now,
+[00:59:29] let's say we edit the remote 3.txt file
+[00:59:31] again. This time, we add 33 after three
+[00:59:35] and commit it on GitHub. The remote main
+[00:59:38] branch is now ahead once more. To bring
+[00:59:40] in all those updates and merge them into
+[00:59:42] your local main branch at once, we use
+[00:59:45] gpool. Gpool automatically performs both
+[00:59:48] fetch and merge in a single command.
+[00:59:51] Which means all the new remote changes
+[00:59:53] including the latest updates in 3.xt
+[00:59:55] will immediately appear in your local
+[00:59:57] files. So that's how gitpool helps you
+[01:00:00] fetch and merge all remote updates into
+[01:00:02] your local repository in one go. We have
+[01:00:05] now learned how to push changes from
+[01:00:07] local to remote, fetch changes from
+[01:00:09] remote without merging, and pull changes
+[01:00:11] from remote while merging them
+[01:00:13] automatically. These three commands,
+[01:00:15] push, fetch, and pull are among the most
+[01:00:18] frequently used G operations and are
+[01:00:20] more than enough for most of our daily
+[01:00:22] development work. Now, let's move on to
+[01:00:24] something new. Imagine you are working
+[01:00:26] on a project. You start developing a new
+[01:00:29] feature, writing a lot of new code, and
+[01:00:31] modify several existing files. After
+[01:00:33] some time, you realize that the approach
+[01:00:36] you took isn't working at all. But by
+[01:00:38] then, you have already made changes
+[01:00:40] across 10 to 15 different files. Some
+[01:00:42] with new code, some heavily modified. In
+[01:00:45] this situation, you want to discard
+[01:00:47] everything and go back to the previous
+[01:00:49] state. Now, think about it. Would you
+[01:00:51] really open each of those 10 to 15 files
+[01:00:54] manually, remove all the new lines, and
+[01:00:56] try to restore the old code one by one?
+[01:00:59] How accurate or even possible would that
+[01:01:01] be? Probably not at all. In this case,
+[01:01:03] the simplest answer is it's actually not
+[01:01:06] possible, almost impossible. And the
+[01:01:08] complicated answer is you could try
+[01:01:10] doing it manually, but there's no
+[01:01:12] guarantee everything will return to its
+[01:01:15] exact previous state. And this is
+[01:01:17] exactly where the magic of the get
+[01:01:19] restore command comes in. The get
+[01:01:22] restore command helps you revert any
+[01:01:24] files or directory back to its previous
+[01:01:26] state, that is to the state of the last
+[01:01:29] comet. It's mainly used to undo local
+[01:01:32] uncommitted changes or to remove changes
+[01:01:34] that were added to the staging area
+[01:01:36] using g add. Let's test it out. Suppose
+[01:01:40] in the 1.xt file, I write new feature.
+[01:01:44] Remember this repository already had
+[01:01:46] some committed history. Now I'm just
+[01:01:48] trying to develop a new feature. But
+[01:01:50] after writing the new code, I realized
+[01:01:52] that the change I made in 1.txt adding
+[01:01:55] new feature was actually a mistake. The
+[01:01:58] previous version was fine and since this
+[01:02:00] change isn't ready to be committed, I
+[01:02:03] want to undo it and go back to the last
+[01:02:05] committed state. To do that, I'll simply
+[01:02:08] run get restore 1.txt. As soon as you
+[01:02:12] run this command, the file instantly
+[01:02:14] reverts to its previous state, the exact
+[01:02:17] version from the most recent commit. If
+[01:02:19] you want to restore an entire directory
+[01:02:21] instead of a single file, just type the
+[01:02:24] directory name after g restore and it
+[01:02:26] will bring everything in that folder
+[01:02:27] back to the last committed version. And
+[01:02:29] if you want to undo all changes across
+[01:02:31] the entire repository, you can run g
+[01:02:34] restore dot. This will restore every
+[01:02:37] file to its last committed state. Now,
+[01:02:40] if you have already staged some changes
+[01:02:42] using g add, you can still undo them
+[01:02:45] using the d-staged flag. For example, g
+[01:02:49] restore d-staged file name or g restore
+[01:02:54] d-staged dot. This removes the files
+[01:02:57] from the staging area but keeps the
+[01:02:58] working directory unchanged. So in
+[01:03:01] summary, the get restore command helps
+[01:03:03] you bring any file or directory back to
+[01:03:06] its previous or last committed state.
+[01:03:08] It's mainly used to undo local
+[01:03:10] uncommitted changes before they're ever
+[01:03:13] committed. Now let's move on and talk
+[01:03:15] about G stash. Now imagine this. You are
+[01:03:18] working on a new branch developing a big
+[01:03:21] feature. It's a long process and you
+[01:03:23] have already finished about half of it.
+[01:03:25] But the work isn't yet in a state to be
+[01:03:27] committed. Suddenly another developer
+[01:03:30] messages you saying there's a new update
+[01:03:32] on a different branch and you need to
+[01:03:34] check it out and give feedback. Now the
+[01:03:36] question is how will you switch branches
+[01:03:38] without losing your unfinished work? Are
+[01:03:40] you going to throw away all your
+[01:03:41] progress using the g restore command? Of
+[01:03:44] course not. There's no reason to go
+[01:03:46] through that kind of hassle when gives
+[01:03:48] us a much smarter way to handle this
+[01:03:50] using the g stash command. With git
+[01:03:53] stash, you can temporarily set aside
+[01:03:55] your unfinished work. Switch to another
+[01:03:58] branch to do something else and later
+[01:04:00] bring all your changes back with a
+[01:04:01] single command. Let's see how it works
+[01:04:03] with an example. Suppose in our 1.xt
+[01:04:06] file, you write another feature. You are
+[01:04:09] currently on the main branch. Now let's
+[01:04:11] say you need to switch to the
+[01:04:12] development branch to review a new
+[01:04:14] feature. So you type git checkout
+[01:04:17] development.
+[01:04:18] But git throws an error. Your local
+[01:04:21] changes to the following files would be
+[01:04:22] overwritten by checkout 1.txt. Please
+[01:04:25] commit your changes or stash them before
+[01:04:27] you switch branches. Aborting. This
+[01:04:30] means because G doesn't allow switching
+[01:04:32] branches when there are uncommitted
+[01:04:34] changes, it's protecting your work. But
+[01:04:36] since your feature isn't ready to be
+[01:04:38] committed, this is exactly when we use
+[01:04:40] gash. So you can run g stash. The moment
+[01:04:44] you execute this command, your
+[01:04:46] uncommitted changes disappear from your
+[01:04:48] working directory. But don't worry, they
+[01:04:50] are not lost. It has safely stored them
+[01:04:53] in a temporary area called the stash.
+[01:04:55] This lets you freely switch branches
+[01:04:57] without affecting your unfinished work.
+[01:04:59] Now let's switch to the development
+[01:05:01] branch. Get checkout development. You
+[01:05:04] have now successfully switched branches.
+[01:05:06] You can review the new feature, make
+[01:05:08] notes, do whatever you need to. Once you
+[01:05:11] are done, you switch back to your main
+[01:05:13] branch again. Get checkout main. But now
+[01:05:16] when you look around, you'll see that
+[01:05:18] your unfinished feature, the one you
+[01:05:20] were working on earlier, isn't there.
+[01:05:22] Don't panic. It's still saved safely in
+[01:05:24] the stash. To bring it back, you just
+[01:05:27] need to pop it out of the stash using
+[01:05:29] the command get stash pop. As soon as
+[01:05:32] you run this, all your stashed changes
+[01:05:35] reappear in your working directory. The
+[01:05:37] pop command restores the most recently
+[01:05:39] stashed work and simultaneously removes
+[01:05:42] it from the stashed list. If you have
+[01:05:44] stashed multiple times, G keeps them all
+[01:05:47] in order. Newest on top, oldest at the
+[01:05:50] bottom. When you pop it, brings back the
+[01:05:53] most recent one first. But if you want
+[01:05:55] to reapply the stashed changes without
+[01:05:58] removing them from the stash list so
+[01:05:59] that you can reuse them later, you can
+[01:06:01] use the apply command instead. For
+[01:06:04] example, get stash apply. This way your
+[01:06:07] changes are restored but they also
+[01:06:09] remain safely stored in the stash for
+[01:06:12] future use. So now I run gash again and
+[01:06:16] then this time I type the command get
+[01:06:18] stash apply. After running it, you will
+[01:06:21] notice it behaves almost the same
+[01:06:23] before. The changes come back just like
+[01:06:25] when we used pop. All right. Now, let's
+[01:06:28] understand the difference more clearly.
+[01:06:29] We already know that G can store
+[01:06:31] multiple stashes and we can even view a
+[01:06:33] list of all those stashed changes. To
+[01:06:36] see that list, we type get stash list.
+[01:06:40] Once you run this command, you will see
+[01:06:42] a list of all your saved stashes. If you
+[01:06:45] look closely, you'll notice that each
+[01:06:47] stashed item is marked with an
+[01:06:49] identifier like stash zero stash 1 and
+[01:06:52] so on. You can use these identifiers to
+[01:06:55] apply or pop specific stashes as well.
+[01:06:58] For example, get stash pop stash zero or
+[01:07:02] get stash apply stash zero. Both
+[01:07:05] commands will work. The only difference
+[01:07:06] is how they handle the stash afterward.
+[01:07:09] Let's walk through this difference step
+[01:07:11] by step. First, I check my stash list
+[01:07:13] using get stash list and I see there's
+[01:07:17] just one stash in the list. Since I
+[01:07:19] already ran g-ash apply once, the stash
+[01:07:22] item is still there in the list. To
+[01:07:24] understand this better, let's first
+[01:07:26] remove that stash manually using the get
+[01:07:28] stash command. The drop command
+[01:07:30] basically removes a specific stash from
+[01:07:32] the stash list. All right. So, in the
+[01:07:35] terminal, we will simply type get stash
+[01:07:38] drop. Now if we check our stash list we
+[01:07:41] will see that it's completely empty.
+[01:07:43] Type in the terminal get stash list. See
+[01:07:47] the stash list is totally empty. Now
+[01:07:50] since we previously used g-apply
+[01:07:53] all the changes are still in our working
+[01:07:55] directory. We can confirm that by typing
+[01:07:57] g status. Let's do that g status. And as
+[01:08:02] you can see the changes we applied are
+[01:08:04] still there. Now let's go ahead and
+[01:08:06] stash those changes again by typing g
+[01:08:09] stash. That means we have stored our
+[01:08:12] changes back into the stash. Next let's
+[01:08:15] check our stash list again. Type in the
+[01:08:17] terminal get stash list. What do we have
+[01:08:21] here? We can see there's just one stash
+[01:08:24] entry. So now we are going to look at
+[01:08:26] the difference between pop and apply.
+[01:08:29] Now I run get stash pop. The stashed
+[01:08:32] changes are successfully restored into
+[01:08:34] my working directory. Then I check the
+[01:08:36] list again with get stash list and this
+[01:08:39] time the list is empty. That's because
+[01:08:42] pop brings your changes back and removes
+[01:08:44] them from the stash list. It's like
+[01:08:46] taking them out permanently like cut.
+[01:08:49] That's because pop brings your changes
+[01:08:51] back and removes them from the stash
+[01:08:53] list. It's like taking them out
+[01:08:55] permanently. Now let's dash something
+[01:08:57] again. I run gash and check the list
+[01:09:01] once more. g-ash list. This time I see
+[01:09:05] one stash item again. Now I run g/
+[01:09:08] apply. The command works perfectly. My
+[01:09:11] files are restored just like before. But
+[01:09:14] when I check the stash list again using
+[01:09:16] g stash list, boom, the stash is still
+[01:09:19] there. It didn't disappear. So here's
+[01:09:22] the key difference. G-pop restores your
+[01:09:25] changes and removes them from the stash
+[01:09:27] list while g-apply restores your changes
+[01:09:31] but keeps them in the stash list for
+[01:09:33] future use. That's exactly what I wanted
+[01:09:35] to show you. I walked you through both
+[01:09:37] commands so you can clearly understand
+[01:09:39] how they behave differently. Hopefully
+[01:09:41] now the concept is crystal clear. Now
+[01:09:44] let's talk about get revert. The get
+[01:09:47] revert command is used to undo the
+[01:09:49] changes made in a previous commit. But
+[01:09:52] instead of deleting that old comet, it
+[01:09:54] creates a new one that reverses those
+[01:09:56] changes. In other words, it cancels out
+[01:09:59] the effects of a previous comet while
+[01:10:01] keeping the project history completely
+[01:10:03] clean and traceable. That's why it's
+[01:10:06] called revert because it doesn't delete
+[01:10:08] any comet. Rather, it creates a new
+[01:10:10] comet that brings back the project to
+[01:10:12] its previous correct state. Simply put,
+[01:10:15] get revert means fixing an old mistake
+[01:10:18] without erasing it. For example, imagine
+[01:10:21] you accidentally added too much salt
+[01:10:23] while cooking. Instead of throwing the
+[01:10:26] whole dish away, you adjust the flavor
+[01:10:28] by adding some extra ingredients to
+[01:10:30] balance the saltiness. Similarly, get
+[01:10:33] revert doesn't delete the faulty commit.
+[01:10:35] It corrects it through a new one. Now,
+[01:10:38] to revert something, you will need its
+[01:10:40] comet ID. Let's see an example. Suppose
+[01:10:43] in the file 3.txt, you added the line
+[01:10:46] hello 3. Then you run g add dot then get
+[01:10:51] commit minus m hello 3. Now if you check
+[01:10:54] the log using g log one line you'll see
+[01:10:58] let's say you realize that the hello 3
+[01:11:00] comet is introduced a bug and you want
+[01:11:02] to remove it. Before that copy the comet
+[01:11:05] ID of hello 3 and then run get revert
+[01:11:08] that comet ID. After running the command
+[01:11:11] you'll see a prompt asking for a commit
+[01:11:13] message. You can either type a custom
+[01:11:15] message or simply keep the default one
+[01:11:17] and exit it by typing colonw that means
+[01:11:21] write and quit. Once you do that, the
+[01:11:24] changes from hello 3 will be undone.
+[01:11:26] Now, if you check the logs again using g
+[01:11:29] log one line, you will notice there's a
+[01:11:32] new commit added specifically for the
+[01:11:34] revert. At this point, you might be
+[01:11:36] reminded of g reset, right? The main
+[01:11:38] difference between g reset and g revert
+[01:11:41] lies here. Get reset can take you back
+[01:11:43] to a specific comet and discard all
+[01:11:45] comets after that point without creating
+[01:11:47] any new comet. On the other hand, get
+[01:11:50] revert removes the changes from a
+[01:11:51] specific comet by creating a new one
+[01:11:54] that reverses it. So if your project is
+[01:11:56] on GitHub or any remote repository,
+[01:11:59] other contributors can also see the
+[01:12:00] revert commit ensuring clarity and
+[01:12:03] preventing confusion. Another key point
+[01:12:05] is if you check the logs after a reset,
+[01:12:07] there will be no record of the removed
+[01:12:09] commits. But when you use revert, you
+[01:12:12] will clearly see an additional comet
+[01:12:13] indicating that a revert took place.
+[01:12:16] Crystal clear. Now let's talk about g
+[01:12:18] rebase. Imagine you are starting to work
+[01:12:21] on a new feature. So you create a new
+[01:12:23] branch called feature by checking out
+[01:12:24] from the main branch. You begin
+[01:12:26] developing the new feature, making
+[01:12:28] changes bit by bit and committing your
+[01:12:30] progress as you go. Meanwhile, another
+[01:12:33] developer adds more updates to the main
+[01:12:34] branch for production. Now you also want
+[01:12:37] to include those latest updates from the
+[01:12:39] main branch into your feature branch. So
+[01:12:41] what can you do? Well, there are several
+[01:12:44] ways to handle this. As we have seen
+[01:12:46] before, one option is to merge the main
+[01:12:48] branch into your feature branch. If you
+[01:12:50] do that, G will create a new merge comet
+[01:12:53] and all the latest updates from main
+[01:12:55] will be merged into your feature branch.
+[01:12:58] However, note that merging always
+[01:13:00] creates an additional commit. You can
+[01:13:02] see it clearly if you run git log. Some
+[01:13:05] developers find these extra merge
+[01:13:07] commits a bit messy and if you continue
+[01:13:09] merging multiple items, your commit
+[01:13:11] history can look quite cluttered. In
+[01:13:14] such cases, a better solution is to use
+[01:13:16] git rebase. When you perform a rebase,
+[01:13:19] the base of your feature branch changes.
+[01:13:21] That means if you rebase onto main, all
+[01:13:24] the new comets from main will be applied
+[01:13:26] directly into your feature branch. Then
+[01:13:28] all your feature branch commits will be
+[01:13:30] reapplied on top of them. So while your
+[01:13:33] main branches code content remains the
+[01:13:35] same, the comet history becomes much
+[01:13:36] cleaner and more linear. You can easily
+[01:13:39] verify this using G log. Now let's
+[01:13:42] understand this with an example. Let's
+[01:13:44] say we create a new branch called
+[01:13:46] feature from main. Get branch feature.
+[01:13:49] Then we switch to that branch. Get
+[01:13:52] checkout feature. Now we are inside the
+[01:13:55] feature branch. Let's open 1.xt and add
+[01:13:58] the line adding dark mode functionality.
+[01:14:01] Then stage it. Get add dot and commit
+[01:14:05] it. Get commit minus m. Adding dark mode
+[01:14:09] functionality. Now let's switch back to
+[01:14:11] the main branch. Get checkout main. We
+[01:14:15] are now in the main branch. Let's create
+[01:14:17] a new file called 2.xt and write inside
+[01:14:19] it adding dark mode UI. Then stage and
+[01:14:23] commit it. Get add dot get commit minus
+[01:14:26] m adding dark mode UI. Done. That means
+[01:14:30] our main branch now has a new feature
+[01:14:32] dark mode UI. Now we want that same dark
+[01:14:36] mode UI update to appear in our feature
+[01:14:38] branch as well. So first we switch back
+[01:14:40] to our feature branch. Get checkout
+[01:14:43] feature. We are now inside the feature
+[01:14:45] branch again. Our goal is to bring the
+[01:14:47] latest updates from the main branch into
+[01:14:49] the feature branch. But this time we
+[01:14:51] will do it using repace. How do we do
+[01:14:54] that? To perform a git rebase, you need
+[01:14:57] to be on the branch you want to rebase
+[01:14:58] and then specify the branch from which
+[01:15:01] you want to bring that changes. For
+[01:15:03] example, if you are currently on the
+[01:15:04] feature branch and you want to bring in
+[01:15:06] the changes from the main branch, the
+[01:15:08] command will be get rebase main. That's
+[01:15:11] it. Once you run this command, the
+[01:15:13] rebase will be completed smoothly and
+[01:15:15] the dark mode UI update from the main
+[01:15:17] branch will now appear in your feature
+[01:15:19] branch. Here's what actually happens
+[01:15:21] behind the scenes when you use rebase.
+[01:15:24] Kit first identifies the most recent
+[01:15:26] common comet shared between your current
+[01:15:28] branch that means the feature branch and
+[01:15:30] the branch you are rebasing onto that
+[01:15:32] means the main branch. Then all the
+[01:15:34] comets in your feature branch that come
+[01:15:36] after that common comet are temporarily
+[01:15:39] set aside. Next, it applies all the new
+[01:15:42] comets from the main branch into your
+[01:15:43] feature branch. Finally, it reapplies
+[01:15:46] the saved comets from the feature branch
+[01:15:48] on top of those main comets one by one.
+[01:15:51] The result is a clean linear commit
+[01:15:53] history much tedier than what you get
+[01:15:55] with margin. You can easily see this
+[01:15:57] difference by running git log. However,
+[01:16:00] even though git rebase is very powerful,
+[01:16:02] it's not recommended to use it on public
+[01:16:05] repositories or branches where multiple
+[01:16:07] developers are working together. If you
+[01:16:09] must use it, you should always inform
+[01:16:11] your team beforehand. Otherwise, it can
+[01:16:14] cause serious issues. The reason is that
+[01:16:16] rebase rewrites existing comet history.
+[01:16:18] even the comet ids change. So if someone
+[01:16:22] else is working on the same branch, your
+[01:16:23] rebased comets won't match their local
+[01:16:26] copies anymore and they won't be able to
+[01:16:28] pull or sync normally. Therefore, before
+[01:16:30] using rebase, make sure you fully
+[01:16:32] understand where you are applying it and
+[01:16:34] whether it could cause problems for your
+[01:16:36] collaborators. It's perfectly safe to
+[01:16:39] use rebase on your local or personal
+[01:16:41] branches where only you are working.
+[01:16:43] Just avoid rewriting commits that
+[01:16:45] already exists on a shared remote
+[01:16:47] branch. Now before we wrap up this
+[01:16:50] tutorial, let's discuss one last
+[01:16:52] important topic, the pull request. When
+[01:16:55] working with G and GitHub, the term pull
+[01:16:58] request, often shortened as PR, comes up
+[01:17:01] frequently. A pull request is
+[01:17:03] essentially a request you make to merge
+[01:17:05] your changes into another branch,
+[01:17:07] usually the main branch. It's a way of
+[01:17:10] saying, I have made some changes in my
+[01:17:12] branch. Please review them, and if
+[01:17:14] everything looks good, merge them into
+[01:17:16] the main branch. In other words, you
+[01:17:18] can't directly make changes to someone
+[01:17:20] else's repository. So when you finish
+[01:17:22] your work in your own branch, you create
+[01:17:24] a pull request to ask for permission to
+[01:17:27] merge your code into the main
+[01:17:28] repository. That's what we call a pull
+[01:17:31] request. All right, let's head back to
+[01:17:33] our Git journey repository on GitHub. By
+[01:17:36] now, we have already pushed our main
+[01:17:39] staging and development branches. At the
+[01:17:41] top of the GitHub page, you will notice
+[01:17:44] several tabs. code issues, pull
+[01:17:46] requests, and actions. We'll now click
+[01:17:49] on the pull requests tab. Here we'll see
+[01:17:52] a big green button labeled new pull
+[01:17:54] request. This is where you can see I
+[01:17:57] want to merge the changes from this
+[01:17:58] branch into another branch. Once you
+[01:18:01] click new pull request, GitHub will show
+[01:18:03] you two drop-down menus. Base the branch
+[01:18:07] where you want to merge the changes.
+[01:18:08] We'll select main here and compare the
+[01:18:11] branch from which you want to bring the
+[01:18:13] changes. we'll select development. In
+[01:18:16] other words, we are saying I have made
+[01:18:18] some updates in the development branch
+[01:18:20] and now I want those updates to be
+[01:18:22] merged into the main branch. GitHub will
+[01:18:25] automatically show a detailed comparison
+[01:18:27] which files have been modified, which
+[01:18:29] lines have been added and which ones
+[01:18:31] have been removed. Everything clearly
+[01:18:33] visible. If everything looks good,
+[01:18:36] scroll down and click create pull
+[01:18:38] request. Then give your pier a title
+[01:18:41] such as merge development updates into
+[01:18:43] main and in the description box write
+[01:18:46] something like this pier adds the latest
+[01:18:48] updates and fixes from development to
+[01:18:50] main. After that click create pull
+[01:18:53] request to submit it. Now if you go back
+[01:18:55] to the pull requests tab you will see
+[01:18:58] your newly created PR development
+[01:19:01] domain. Clicking on it you will find
+[01:19:03] three sections. conversation where you
+[01:19:06] and your teammates can discuss or commit
+[01:19:08] on the changes commits which lists all
+[01:19:11] the commits included in this PR files
+[01:19:14] changed which shows exactly what changes
+[01:19:17] were made in which files if everything
+[01:19:19] looks good after review click the green
+[01:19:22] merge pull request button at the top and
+[01:19:24] then confirm by clicking confirm merge
+[01:19:28] once it's done GitHub will display a
+[01:19:30] message saying pull request successfully
+[01:19:32] merged and closed That means all the
+[01:19:35] updates from the development branch have
+[01:19:37] now been successfully merged into main.
+[01:19:39] This is how pull requests make code
+[01:19:41] management so easier. Every change gets
+[01:19:43] reviewed first and then merged into
+[01:19:45] main. As a result, the main branch
+[01:19:48] always stays stable and the entire team
+[01:19:50] can collaborate safely and efficiently.
+[01:19:53] That's how software companies use Git
+[01:19:55] and GitHub. This was my complete
+[01:19:58] tutorial series on Git and GitHub where
+[01:20:00] I tried to explain all the essential
+[01:20:02] day-to-day concepts in the most simplest
+[01:20:04] way possible. I truly believe this
+[01:20:06] series will be specially helpful for
+[01:20:07] those who are just getting started. If
+[01:20:09] you have always felt a bit intimidated
+[01:20:11] or confused about using Git for the
+[01:20:13] first time, these videos were made
+[01:20:16] exactly for you. In short, we have
+[01:20:18] learned how to create a local repository
+[01:20:20] using Git in it from our working
+[01:20:22] directory. how to stage files, commit
+[01:20:24] them to update the local repository and
+[01:20:27] finally how to push that code to a
+[01:20:29] remote repository or clone a remote one
+[01:20:31] to work locally. Hopefully, by the end
+[01:20:34] of this video, you now have a clear
+[01:20:36] understanding of how git works. And one
+[01:20:39] more important thing on my logic based
+[01:20:41] labs Facebook page, I have published a
+[01:20:43] git cheat sheet which is especially
+[01:20:45] useful for beginners. It's completely
+[01:20:47] free. So feel free to grab your copy
+[01:20:49] right now. The link is available in the
+[01:20:51] video description. If you found this
+[01:20:53] video helpful, don't forget to give it a
+[01:20:55] like and subscribe to the channel
+[01:20:56] because I have got plenty more valuable
+[01:20:58] topics coming up next. And yes, if you
+[01:21:01] have any feedback or suggestions about
+[01:21:03] this video, please share them in the
+[01:21:05] comment section. I read every comment
+[01:21:07] and try my best to reply every comment
+[01:21:09] as well. Stay well and I will see you in
+[01:21:12] the next video.
