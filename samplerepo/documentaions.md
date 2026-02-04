@@ -80,3 +80,35 @@ dist/
 ```
 
 ---
+
+## 2. GitHub
+
+### What is GitHub?
+
+GitHub is a cloud-based hosting service for Git repositories. It provides a web-based graphical interface and access control/collaboration features.
+
+### Key Features
+
+- **Pull Requests (PR)**: core tool for collaboration.
+- **Issues**: Tracking bugs and enhancements.
+- **Actions**: CI/CD automation.
+- **Projects**: Kanban boards and roadmaps.
+- **Wiki**: Documentation for repositories.
+
+### Repository Management
+
+- **Settings**: Control repository visibility (Public/Private), rename repository, transfer ownership.
+- **Collaborators**: Invite users to contribute to the repository.
+- **Branch Protection Rules**: Prevent direct pushing to `main`, require PR reviews before merging, require status checks (CI) to pass.
+
+### Advanced Collaborative Workflow
+
+1. **Fork/Clone**: Get your own copy.
+2. **Branch Protection**: Ensure `main` is protected.
+3. **Draft Pull Requests**: Open a PR that is not ready for review yet to get early feedback.
+4. **Code Review**:
+   - **Line comments**: Discuss specific lines of code.
+   - **Suggestions**: Propose code changes directly in the comment that can be committed by the author with one click.
+   - **Review Status**: Request changes, Comment, or Approve.
+5. **Resolving Conflicts**: Fix merge conflicts directly in the GitHub web editor or locally.
+6. **Releases**: Package software versions using Git Tags and provide release notes.
