@@ -179,3 +179,30 @@ When a merge conflict occurs (e.g., after pulling from `main` into your feature 
 
 - Before merging, use the "Branch" dropdown to compare your current branch with `main`.
 - See exactly which files are ahead or behind.
+
+
+### GitHub Desktop Interaction Diagram
+
+```mermaid
+flowchart TD
+    Start[Open GitHub Desktop] --> Auth{Authenticated?}
+    Auth -- No --> Login[Sign in to GitHub.com]
+    Auth -- Yes --> SelectRepo[Select/Clone Repository]
+  
+    SelectRepo --> Action{Choose Action}
+  
+    Action -- New Feature --> Branch[Create New Branch]
+    Branch --> Edit[Make Changes in Editor]
+    Edit --> Desktop[Return to Desktop]
+    Desktop --> Diff[Review Visual Diff]
+    Diff --> Commit[Commit Changes]
+    Commit --> Push[Push Origin]
+    Push --> PR[Create Pull Request]
+  
+    Action -- Sync --> Fetch[Fetch Origin]
+    Fetch --> Pull[Pull New Commits]
+  
+    Action -- Fix History --> Hist[History Tab]
+    Hist --> Revert[Right-click: Revert Commit]
+    Revert --> Push
+```
