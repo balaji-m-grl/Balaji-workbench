@@ -146,3 +146,26 @@ sequenceDiagram
 ```
 
 ---
+
+## 3. GitHub Desktop
+
+### What is GitHub Desktop?
+
+GitHub Desktop is a free, open-source application that allows you to interact with GitHub and other Git services using a GUI. It simplifies complex commands.
+
+### Why use GitHub Desktop?
+
+- **Visual History**: Intuitive graph of commits.
+- **No Command Line needed**: Great for beginners or quick actions.
+- **Visual Diffs**: Syntax-highlighted diffs for many languages.
+
+### Advanced Workflows in Desktop
+
+#### Handling Merge Conflicts
+
+When a merge conflict occurs (e.g., after pulling from `main` into your feature branch):
+
+1. GitHub Desktop flags the conflicted files.
+2. It offers to open the file in your default editor (e.g., VS Code).
+3. After fixing the conflict in the editor, return to Desktop.
+4. It detects the fix and allows you to "Continue Merge".
