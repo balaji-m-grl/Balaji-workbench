@@ -43,3 +43,40 @@ graph LR
 | `git branches`          | Lists, creates, or deletes branches.                          |
 | `git checkout <branch>` | Switches to a different branch.                               |
 |                           |                                                               |
+
+### Advanced Git Concepts
+
+#### Stashing
+
+Used when you want to record the current state of the working directory and the index, but want to go back to a clean working directory.
+
+- `git stash save "message"`: Stash changes with a message.
+- `git stash pop`: Apply the stored changes and remove them from the stash list.
+- `git stash list`: View all stashed changes.
+
+#### Rebasing vs. Merging
+
+- **Merge**: Creates a new "merge commit" in the history. It preserves the history of both branches exactly as it happened.
+- **Rebase**: Moves the entire feature branch to begin on the tip of the main branch. It rewrites history to create a linear path.
+- **Command**: `git rebase main` (while on feature branch).
+- **Warning**: Never rebase public branches that others are working on.
+
+#### Resetting
+
+- **Soft Reset** (`git reset --soft HEAD~1`): Moves HEAD back, but keeps changes in Staging.
+- **Mixed Reset** (`git reset --mixed HEAD~1`): Default. Moves HEAD back, keeps changes in Working Directory (unstaged).
+- **Hard Reset** (`git reset --hard HEAD~1`): Moves HEAD back and **destroys** all changes. Use with caution.
+
+#### Ignoring Files (.gitignore)
+
+A `.gitignore` file specifies intentionally untracked files that Git should ignore (e.g., build artifacts, temporary files, secrets).
+
+```text
+# Example .gitignore
+node_modules/
+dist/
+*.log
+.env
+```
+
+---
