@@ -112,3 +112,37 @@ GitHub is a cloud-based hosting service for Git repositories. It provides a web-
    - **Review Status**: Request changes, Comment, or Approve.
 5. **Resolving Conflicts**: Fix merge conflicts directly in the GitHub web editor or locally.
 6. **Releases**: Package software versions using Git Tags and provide release notes.
+
+### Pull Request Flow Diagram
+
+```mermaid
+sequenceDiagram
+    participant Dev as Developer
+    participant GH as GitHub
+    participant CI as CI System
+    participant Rev as Reviewer
+
+    Dev->>GH: Push code & open PR
+    GH->>CI: Run checks
+    CI-->>GH: Results
+
+    Dev->>GH: Mark PR ready for review
+    GH-->>Rev: Notify reviewer
+
+    Rev->>GH: Review code
+
+    alt Changes needed
+        Rev->>Dev: Request changes
+        Dev->>GH: Push fixes
+        GH->>CI: Run checks again
+        CI-->>GH: Results
+    else Approved
+        Rev->>GH: Approve PR
+    end
+
+    Rev->>GH: Merge PR
+    GH-->>Dev: PR merged and closed
+
+```
+
+---
