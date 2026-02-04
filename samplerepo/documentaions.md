@@ -169,3 +169,13 @@ When a merge conflict occurs (e.g., after pulling from `main` into your feature 
 2. It offers to open the file in your default editor (e.g., VS Code).
 3. After fixing the conflict in the editor, return to Desktop.
 4. It detects the fix and allows you to "Continue Merge".
+
+#### History Management
+
+- **Reverting**: Right-click any commit in the history tab and select **Revert changes in commit**. This creates a new commit that undoes the changes.
+- **Amend Last Commit**: If you forgot to add a file or made a typo in the message, you can modify the most recent unpushed commit.
+
+#### Comparison View
+
+- Before merging, use the "Branch" dropdown to compare your current branch with `main`.
+- See exactly which files are ahead or behind.
