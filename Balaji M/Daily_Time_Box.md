@@ -1,3 +1,7 @@
+# ⏱️ Daily Time Box
+
+[➕ Click Here to Add New Day](command:workbench.action.tasks.runTask?%22%E2%9E%95%20Add%20New%20Day%22) | [📂 Switch to HL-BL Sheet](./HL-BL.md)
+
 ## 📅 [02/Feb]
 
 | No. | Task                                 | Dependency / POC | Status | Inputs | Steps                                                                                                              | Output |  ETA  | Actual ETA |

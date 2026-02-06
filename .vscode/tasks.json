@@ -1,0 +1,41 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "➕ Add New Day",
+            "type": "shell",
+            "command": "python",
+            "args": [
+                "${workspaceFolder}/Balaji M/time_box_manager.py",
+                "new_day"
+            ],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "➕ Add New HL-BL Task",
+            "type": "shell",
+            "command": "python",
+            "args": [
+                "${workspaceFolder}/Balaji M/time_box_manager.py",
+                "new_task"
+            ],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": []
+        }
+    ]
+}
