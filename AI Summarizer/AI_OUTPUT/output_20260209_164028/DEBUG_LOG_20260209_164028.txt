@@ -1,0 +1,110 @@
+[2026-02-09 16:40:28.190] [INITIALIZATION ] Logger started for AI Summarizer v2
+[2026-02-09 16:40:28.191] [SYSTEM         ] Output Directory: D:\Balaji-workbench\AI Summarizer\AI_OUTPUT\output_20260209_164028
+
+============================================================
+EXECUTION START - 2026-02-09 16:40:28
+============================================================
+
+[2026-02-09 16:40:39.619] [INPUT          ] Path provided: D:\Balaji-workbench\AI Summarizer\input\Synthetic Data in USB-PD.md
+[2026-02-09 16:40:39.620] [INPUT          ] Reading file: D:\Balaji-workbench\AI Summarizer\input\Synthetic Data in USB-PD.md
+[2026-02-09 16:40:39.622] [PARSING        ] Starting markdown split into user/assistant pairs...
+[2026-02-09 16:40:39.625] [PARSING        ] Extraction complete. Found 9 pairs.
+
+============================================================
+AI EXTRACTION STEP - 2026-02-09 16:40:39
+============================================================
+
+[2026-02-09 16:40:39.626] [AI_EXTRACT     ] Calling Ollama (qwen2.5:3b) for segment: 'Synthetic data, in model training, is **artificial...'
+[2026-02-09 16:40:49.991] [AI_RESULT      ] Extracted 0 suggestions.
+[2026-02-09 16:40:49.991] [AI_EXTRACT     ] Calling Ollama (qwen2.5:3b) for segment: 'Alright, let’s design this like an **engineering-g...'
+[2026-02-09 16:41:02.318] [AI_RESULT      ] Extracted 0 suggestions.
+[2026-02-09 16:41:02.319] [AI_EXTRACT     ] Calling Ollama (qwen2.5:3b) for segment: 'Perfect, this is where the schema becomes **future...'
+[2026-02-09 16:41:20.158] [AI_RESULT      ] Extracted 5 suggestions.
+[2026-02-09 16:41:20.159] [AI_EXTRACT     ] Calling Ollama (qwen2.5:3b) for segment: 'Nice, this is the **engine room** of the whole sys...'
+[2026-02-09 16:41:46.248] [AI_RESULT      ] Extracted 12 suggestions.
+[2026-02-09 16:41:46.249] [AI_EXTRACT     ] Calling Ollama (qwen2.5:3b) for segment: 'Nice choice. A **spec-rule DSL** is the right abst...'
+[2026-02-09 16:42:09.511] [AI_RESULT      ] Extracted 10 suggestions.
+[2026-02-09 16:42:09.511] [AI_EXTRACT     ] Calling Ollama (qwen2.5:3b) for segment: 'Great question — this is the step that turns the D...'
+[2026-02-09 16:42:28.146] [AI_RESULT      ] Extracted 6 suggestions.
+[2026-02-09 16:42:28.147] [AI_EXTRACT     ] Calling Ollama (qwen2.5:3b) for segment: 'Great question. This is exactly where **synthetic ...'
+[2026-02-09 16:42:39.374] [AI_RESULT      ] Extracted 0 suggestions.
+[2026-02-09 16:42:39.374] [AI_EXTRACT     ] Calling Ollama (qwen2.5:3b) for segment: 'This is a **very mature question** — it goes beyon...'
+[2026-02-09 16:42:49.532] [AI_RESULT      ] Extracted 0 suggestions.
+[2026-02-09 16:42:49.532] [AI_EXTRACT     ] Calling Ollama (qwen2.5:3b) for segment: 'Perfect. Let’s do this **concretely and surgically...'
+[2026-02-09 16:43:06.586] [AI_RESULT      ] Extracted 5 suggestions.
+
+============================================================
+FILE IO STEP - 2026-02-09 16:43:06
+============================================================
+
+[2026-02-09 16:43:06.588] [IO_WRITE       ] Starting file writing to AI_OUTPUT\output_20260209_164028
+[2026-02-09 16:43:06.588] [IO_WRITE       ] Generating questions_only.md...
+[2026-02-09 16:43:06.589] [IO_WRITE       ] Generating 9 individual Q&A markdown files...
+
+============================================================
+VALIDATION & VERIFICATION - 2026-02-09 16:43:06
+============================================================
+
+[2026-02-09 16:43:06.595] [VALIDATE       ] Verifying Q1...
+[2026-02-09 16:43:06.595] [VALIDATE       ] Verifying Q2...
+[2026-02-09 16:43:06.595] [VALIDATE       ] Verifying Q3...
+[2026-02-09 16:43:06.596] [VALIDATE       ]   FAIL: 'What are the new voltage levels introduced by PD 3.1 / EPR?' NOT found in source.
+[2026-02-09 16:43:06.596] [VALIDATE       ]   FAIL: 'Why does the schema need to explicitly encode 'Is EPR even allowed here?'' NOT found in source.
+[2026-02-09 16:43:06.596] [VALIDATE       ]   FAIL: 'How do legacy PD agents handle these optional blocks for schema extension?' NOT found in source.
+[2026-02-09 16:43:06.597] [VALIDATE       ]   FAIL: 'Why is it important that agent can immediately answer: ‘EPR negotiation should not have happened’ when checking source and sink capabilities?' NOT found in source.
+[2026-02-09 16:43:06.597] [VALIDATE       ]   FAIL: 'What are the critical requirements for cables in the context of PD 3.1?' NOT found in source.
+[2026-02-09 16:43:06.597] [VALIDATE       ] Verifying Q4...
+[2026-02-09 16:43:06.598] [VALIDATE       ]   FAIL: 'What types of failures can the EPR scenario generator generate?' NOT found in source.
+[2026-02-09 16:43:06.598] [VALIDATE       ]   FAIL: 'What are the key constraints that need to be respected by the EPR scenario generator?' NOT found in source.
+[2026-02-09 16:43:06.598] [VALIDATE       ]   FAIL: 'How will the EPR scenario generator handle scale issues, especially for millions of variants?' NOT found in source.
+[2026-02-09 16:43:06.599] [VALIDATE       ]   FAIL: 'Why is it important for the EPR scenario generator to be deterministic in certain scenarios?' NOT found in source.
+[2026-02-09 16:43:06.599] [VALIDATE       ]   FAIL: 'How can the EPR scenario generator produce ground-truth labels?' NOT found in source.
+[2026-02-09 16:43:06.599] [VALIDATE       ]   FAIL: 'Can you elaborate on the architecture of the EPRScenarioGenerator?' NOT found in source.
+[2026-02-09 16:43:06.600] [VALIDATE       ]   FAIL: 'Which blocks are independently testable within the high-level architecture of the EPR scenario generator?' NOT found in source.
+[2026-02-09 16:43:06.600] [VALIDATE       ]   FAIL: 'What is the role of the spec model and how does it differ from being text-based in your description?' NOT found in source.
+[2026-02-09 16:43:06.601] [VALIDATE       ]   FAIL: 'How does the spec model validate itself and label outcomes automatically?' NOT found in source.
+[2026-02-09 16:43:06.601] [VALIDATE       ]   FAIL: 'Can you provide an example of a specification rule for the cable component?' NOT found in source.
+[2026-02-09 16:43:06.601] [VALIDATE       ]   FAIL: 'What do the safety constraints include according to your taxonomy?' NOT found in source.
+[2026-02-09 16:43:06.602] [VALIDATE       ]   FAIL: 'What is the purpose of categorizing scenarios into core classes like EPR_HAPPY_PATH, EPR_POLICY_REJECT, EPR_CABLE_INVAL?' NOT found in source.
+[2026-02-09 16:43:06.602] [VALIDATE       ] Verifying Q5...
+[2026-02-09 16:43:06.602] [VALIDATE       ]   FAIL: 'What is the purpose of the spec-rule DSL in your design?' NOT found in source.
+[2026-02-09 16:43:06.602] [VALIDATE       ]   FAIL: 'How does the spec-rule DSL differ from a programming language and a textual copy of the USB-IF spec?' NOT found in source.
+[2026-02-09 16:43:06.602] [VALIDATE       ]   FAIL: 'Can you elaborate on how the spec-rule DSL can be evaluated by machines?' NOT found in source.
+[2026-02-09 16:43:06.603] [VALIDATE       ]   FAIL: 'Why do you say it evaluates to true / false / violation?' NOT found in source.
+[2026-02-09 16:43:06.603] [VALIDATE       ]   FAIL: 'What makes the spec-rule DSL evolvable?' NOT found in source.
+[2026-02-09 16:43:06.603] [VALIDATE       ]   FAIL: 'How does the spec-rule DSL explain itself when violated?' NOT found in source.
+[2026-02-09 16:43:06.603] [VALIDATE       ]   FAIL: 'Can you provide an example of a rule in YAML-like syntax for future PD 3.2?' NOT found in source.
+[2026-02-09 16:43:06.604] [VALIDATE       ]   FAIL: 'What is the significance of structured like a schema in your design principles?' NOT found in source.
+[2026-02-09 16:43:06.604] [VALIDATE       ]   FAIL: 'Why are timing rules parametric and not hard-coded in the spec-rule DSL?' NOT found in source.
+[2026-02-09 16:43:06.604] [VALIDATE       ]   FAIL: 'How does the specification-layer reasoning layer interface with the agent reasoning layer?' NOT found in source.
+[2026-02-09 16:43:06.604] [VALIDATE       ] Verifying Q6...
+[2026-02-09 16:43:06.605] [VALIDATE       ]   FAIL: 'What specific examples are included in the 'Concrete examples' section?' NOT found in source.
+[2026-02-09 16:43:06.605] [VALIDATE       ]   FAIL: 'How does the mapping block help traceability and certification workflows?' NOT found in source.
+[2026-02-09 16:43:06.605] [VALIDATE       ]   FAIL: 'Can you provide more details on how to compose and reuse DSL rules effectively?' NOT found in source.
+[2026-02-09 16:43:06.606] [VALIDATE       ]   FAIL: 'Could you elaborate on the difference between procedural and observable behavior-based test cases for USB-IF?' NOT found in source.
+[2026-02-09 16:43:06.606] [VALIDATE       ]   FAIL: 'What are some best practices for extending DSL rules with certification mapping blocks?' NOT found in source.
+[2026-02-09 16:43:06.606] [VALIDATE       ]   FAIL: 'How can we ensure that our DSL rules align properly with both the intention of the specification and the needs of the certification process?' NOT found in source.
+[2026-02-09 16:43:06.607] [VALIDATE       ] Verifying Q7...
+[2026-02-09 16:43:06.607] [VALIDATE       ] Verifying Q8...
+[2026-02-09 16:43:06.607] [VALIDATE       ] Verifying Q9...
+[2026-02-09 16:43:06.608] [VALIDATE       ]   FAIL: 'What are some specific technical details you would include in your mock spec gap case?' NOT found in source.
+[2026-02-09 16:43:06.608] [VALIDATE       ]   FAIL: 'Could you elaborate on how the mutual exclusion rules between PR_SWAP and DR_SWAP could be clarified further in the spec?' NOT found in source.
+[2026-02-09 16:43:06.609] [VALIDATE       ]   FAIL: 'Is there any precedent or industry practice that suggests which interpretation is more commonly implemented?' NOT found in source.
+[2026-02-09 16:43:06.610] [VALIDATE       ]   FAIL: 'How can the ambiguity regarding arbitration priority during overlapping swaps be addressed in future updates of the spec?' NOT found in source.
+[2026-02-09 16:43:06.610] [VALIDATE       ]   FAIL: 'What kind of impact might the 'quiet ownership' windows have on real-world implementations, and should they be explicitly defined?' NOT found in source.
+[2026-02-09 16:43:06.611] [IO_WRITE       ] Validation report appended to: Synthetic Data in USB-PD.md
+
+============================================================
+EXTRACTION SUMMARY - 2026-02-09 16:43:06
+============================================================
+
+[2026-02-09 16:43:06.612] [SUMMARY        ] Segments Parsed:   9
+[2026-02-09 16:43:06.612] [SUMMARY        ] Total Extracted:  38
+[2026-02-09 16:43:06.612] [SUMMARY        ] Confirmed Valid:  0
+[2026-02-09 16:43:06.612] [SUMMARY        ] Potential Halluc: 38
+[2026-02-09 16:43:06.612] [SUMMARY        ] Confidence:       0.0%
+
+============================================================
+PROCESS COMPLETE - 2026-02-09 16:43:06
+============================================================
+

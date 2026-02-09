@@ -3042,3 +3042,188 @@ If you want next, I can:
 * Show how to **auto-detect similar gaps**
     
 * Or expand this to **EPR + swap interactions**
+
+--- AI EXTRACTION VALIDATION REPORT ---
+Timestamp: 2026-02-09 16:56:10
+
+### Q1 Verification
+- ❌ What is the process for generating valid and invalid PD message sequences programmatically?
+  (Note: Question text not found in source answer)
+- ❌ * * *
+
+## What synthetic data looks like in USB-PD training
+### 1. Synthetic protocol traces
+You **generate valid and invalid PD message sequences** programmatically.
+Example (conceptual):
+```
+t0: Attach detected
+t1: Source_Capabilities (PDO1:5V@3A, PDO2:9V@2A)
+t2: Request (9V@2A)
+t3: Accept
+t4: PS_RDY
+```
+  (Note: Question text not found in source answer)
+- ❌ Can you provide more examples of synthetic variations that can be created programmatically?
+  (Note: Question text not found in source answer)
+- ❌ * * *
+
+## USB-PD domain: what “data” even means here
+For a USB-PD agent model, training data is not just waveforms. It usually includes:
+* **Protocol message sequences**
+  (Note: Question text not found in source answer)
+- ❌ What are some common compliance or IP constraints that might make real logs difficult to share?
+  (Note: Question text not found in source answer)
+- ❌ * * *
+
+## Why synthetic data is used (quick context)
+In many engineering domains (USB-PD included):
+* Real data is **limited, expensive, or proprietary**
+  (Note: Question text not found in source answer)
+- ❌ How does the use of synthetic data help in manufacturing scenarios on demand?
+  (Note: Question text not found in source answer)
+
+### Q2 Verification
+- No questions extracted from this block.
+### Q3 Verification
+- ❌ What specific EPR mode handshakes are introduced in PD 3.1?
+  (Note: Question text not found in source answer)
+- ❌ Is there a need to add any new protocols for managing the cable requirements specifically for PD 3.1?
+  (Note: Question text not found in source answer)
+- ❌ Could you explain more about the 'epr_vbus_profile' and its place within the electrical_trace block?
+  (Note: Question text not found in source answer)
+- ❌ What fault classes have been added for EPR-specific failures?
+  (Note: Question text not found in source answer)
+- ❌ How does the schema ensure that EPR negotiation is not performed if it's not allowed in certain contexts?
+  (Note: Question text not found in source answer)
+- ❌ Would you consider adding a way to check for the presence of an 'e-marker' specifically designed for EPR operations?
+  (Note: Question text not found in source answer)
+
+### Q4 Verification
+- ❌ What are the specific algorithmic flows you plan to implement in the EPR scenario generator?
+  (Note: Question text not found in source answer)
+- ❌ How will the control knobs be designed for the EPR scenario generator?
+  (Note: Question text not found in source answer)
+- ❌ In terms of scale, what kind of engineering resources would be needed to handle 'millions of variants' with a deterministic approach?
+  (Note: Question text not found in source answer)
+- ❌ Are there any unique safety constraints that need special attention during the design phase of the EPR scenario generator?
+  (Note: Question text not found in source answer)
+- ❌ What types of invalid but realistic failures should the EPR scenario generator simulate in addition to those specified (e.g., voltage or current spikes)?
+  (Note: Question text not found in source answer)
+- ❌ How would you ensure compliance with compliance standards and how could this be integrated into your architecture?
+  (Note: Question text not found in source answer)
+- ❌ Could you elaborate on the deterministic approach for the EPR scenario generator? How will it be implemented within the architecture?
+  (Note: Question text not found in source answer)
+- ❌ What are some potential edge cases that should be considered during the Edge-Case Planner phase of the EPR scenario generator?
+  (Note: Question text not found in source answer)
+- ❌ How does the EPR scenario generator plan to handle compliance and root cause mapping processes with the current design?
+  (Note: Question text not found in source answer)
+
+### Q5 Verification
+- No questions extracted from this block.
+### Q6 Verification
+- ❌ What is the observable-behavior based approach of USB-IF test cases?
+  (Note: Question text not found in source answer)
+- ❌ Why is the mapping many-to-many between DSL rules and USB-IF test cases intentional and powerful?
+  (Note: Question text not found in source answer)
+- ❌ Can you provide an example of how a certification mapping block should be extended to each DSL rule?
+  (Note: Question text not found in source answer)
+- ❌ How do capability & policy rules fit into your mapping patterns for EPR?
+  (Note: Question text not found in source answer)
+- ❌ Are there any specific security or privacy concerns that arise from using this approach in agent workflows?
+  (Note: Question text not found in source answer)
+
+### Q7 Verification
+- No questions extracted from this block.
+### Q8 Verification
+- ❌ What are the specific scenarios where two or more compliant implementations can behave differently?
+  (Note: Question text not found in source answer)
+- ❌ How does the specification handle interactions between devices that might not be explicitly covered by unit testing?
+  (Note: Question text not found in source answer)
+- ❌ What types of gaps in the PD spec (like ambiguous timing windows, undefined arbitration ownership, etc.) typically occur during real hardware testing and how do they manifest?
+  (Note: Question text not found in source answer)
+- ❌ Why is synthetic simulation more effective than real hardware testing for identifying these gaps? In what ways does it differ from traditional testing methods?
+  (Note: Question text not found in source answer)
+- ❌ How should one's Domain Specific Language (DSL) be designed to ensure the spec rules are unambiguously encoded?
+  (Note: Question text not found in source answer)
+- ❌ What steps must be taken to generate 'multi-interpretation compliant' actors that can explore all legal interpretations of the specification?
+  (Note: Question text not found in source answer)
+
+### Q9 Verification
+- No questions extracted from this block.
+
+
+--- AI EXTRACTION VALIDATION REPORT ---
+Timestamp: 2026-02-09 17:18:16
+
+### Q1 Verification
+- ❌ What makes synthetic data 'domain-faithful' in the context of USB-PD training?
+  (Note: Question text not found in source answer)
+- ❌ How does synthesizing protocol message sequences benefit model training for USB-PD agents?
+  (Note: Question text not found in source answer)
+- ❌ Can you provide an example of a 'statistically realistic' scenario generated from synthetic data in USB-PD training?
+  (Note: Question text not found in source answer)
+- ❌ What are some benefits of using synthetic data over real-world data in the context of USB-PD agent models?
+  (Note: Question text not found in source answer)
+
+### Q2 Verification
+- ❌ What specific policy considerations should be included in the 'Policy & Capabilities' layer to ensure agent training effectiveness?
+  (Note: Question text not found in source answer)
+
+### Q3 Verification
+- No questions extracted from this block.
+### Q4 Verification
+- ❌ What specific features would you include in the `ScenarioTypes` section of your architecture diagram?
+  (Note: Question text not found in source answer)
+- ❌ Could you elaborate on how the `TopologyBuilder` will integrate with the `CapabilityGenerator` to ensure compliance with the spec constraints?
+  (Note: Question text not found in source answer)
+- ❌ How do you plan to handle variations in timing profiles across different EPR scenarios? Are there any specific considerations or optimizations for this?
+  (Note: Question text not found in source answer)
+- ❌ In terms of control knobs, what features would be essential to include in the `ControlKnobs` section for a flexible and scalable generator?
+  (Note: Question text not found in source answer)
+- ❌ Could you provide more details on how the `TraceSynthesizer` will handle edge cases beyond just happy path scenarios?
+  (Note: Question text not found in source answer)
+
+### Q5 Verification
+- ❌ What are the benefits of using a spec-rule DSL over traditional programming languages for handling USB-PD rules?
+  (Note: Question text not found in source answer)
+- ❌ Can you provide an example of how the structured rule anatomy is used in the DSL, similar to the cable eligibility rule provided?
+  (Note: Question text not found in source answer)
+- ❌ How does the compliance checker work with the rules defined in the spec-rule DSL?
+  (Note: Question text not found in source answer)
+- ❌ What role do agents play in reasoning with the specification rules, and what kind of questions can they ask based on the information provided by these rules?
+  (Note: Question text not found in source answer)
+- ❌ Is there a plan for future updates or extensions to the spec-rule DSL to accommodate new USB-PD versions like PD 3.2?
+  (Note: Question text not found in source answer)
+
+### Q6 Verification
+- ❌ What does it mean for the DSL to be 'procedural' in terms of test cases?
+  (Note: Question text not found in source answer)
+- ❌ Can you provide an example of how a 'spec-intent driven' rule would differ from a procedural one?
+  (Note: Question text not found in source answer)
+- ❌ How do you see this philosophy affecting the development and maintenance process of the DSL?
+  (Note: Question text not found in source answer)
+- ❌ Could you give me some concrete examples of what USB-IF test cases look like in YAML format similar to the one provided?
+  (Note: Question text not found in source answer)
+- ❌ What are some practical benefits that the use of a 'many-to-many' mapping provides compared to other approaches?
+  (Note: Question text not found in source answer)
+
+### Q7 Verification
+- ❌ How does synthetic data differ from traditional logging in the context of real-time systems?
+  (Note: Question text not found in source answer)
+- ❌ Could you provide more details on how synthetic data is generated before runtime and what specific inputs are needed for that generation process?
+  (Note: Question text not found in source answer)
+- ❌ In your example, why do you mention the PD stack as a critical point where synthetic data interacts with real hardware? Could you elaborate further on this role?
+  (Note: Question text not found in source answer)
+- ❌ How does the synthetic data's model-driven approach help in predicting failure patterns compared to traditional analysis methods?
+  (Note: Question text not found in source answer)
+
+### Q8 Verification
+- No questions extracted from this block.
+### Q9 Verification
+- ❌ What are some potential consequences of choosing Interpretation A over Interpretation B?
+  (Note: Question text not found in source answer)
+- ❌ Can you provide an example scenario where the difference between Interpretations A and B could affect user experience or system reliability?
+  (Note: Question text not found in source answer)
+- ❌ Why might a standards body choose to clarify whether PR_SWAP and DR_SWAP should be mutually exclusive?
+  (Note: Question text not found in source answer)
+
