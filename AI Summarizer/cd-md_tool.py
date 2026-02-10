@@ -122,6 +122,11 @@ def split_conversation(md_text: str, logger: DebugLogger) -> List[Tuple[str, str
     def clean_block(text: str) -> str:
         # Remove repeated chunks and artifacts
         text = re.sub(r'^\s*\*+\s*\*+\s*\*+\s*$', '', text, flags=re.MULTILINE)
+        
+        # Remove existing Validation Reports from input to prevent duplication
+        if "--- AI EXTRACTION VALIDATION REPORT ---" in text:
+            text = text.split("--- AI EXTRACTION VALIDATION REPORT ---")[0]
+            
         return text.strip()
 
     result = [(clean_block(u), clean_block(a)) for u, a in blocks if u or a]
@@ -153,10 +158,10 @@ def extract_suggestions_from_ai(answer_text: str, cache: Dict[str, List[str]], l
 
     # Simpler, more direct prompt for small models (Qwen 3B)
     prompt = (
-        "Instructions: Find the 'If you want next' or 'Suggested follow-up' list at the END of the text below.\n"
+       "Instructions: Look for any suggested next steps, follow-up questions, or recommendations near the END of the text below.\n"
         "Extract the exact text of each suggestion into a JSON list of strings.\n\n"
         "Rules:\n"
-        "1. Only look at the final section (ignore the main explanation).\n"
+        "1. Focus on the ending part of the text, but include suggestions even if they are in sentences or mixed with text.\n"
         "2. Keep the original wording (e.g., 'Draft a mock change note').\n"
         "3. If there are no suggestions at the end, return [].\n\n"
         "Text:\n"
@@ -248,10 +253,10 @@ def write_outputs(pairs: List[Tuple[str, str]], all_suggestions: List[List[str]]
             f.write("## 🤖 Assistant Answer\n\n")
             f.write(assistant_a + "\n\n")
             
-            if suggestions:
-                f.write("## 💡 Recommended Follow-ups\n\n")
-                for j, s in enumerate(suggestions, 1):
-                    f.write(f"- **Q{i}.{j}**: {s}\n")
+            # if suggestions:
+            #     f.write("## 💡 Recommended Follow-ups\n\n")
+            #     for j, s in enumerate(suggestions, 1):
+            #         f.write(f"- **Q{i}.{j}**: {s}\n")
 
 # ---------- Validation Module ----------
 

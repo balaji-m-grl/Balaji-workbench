@@ -1,0 +1,52 @@
+[2026-02-10 16:42:38.451] [INIT      ] Logger started for AI Summarizer v3
+[2026-02-10 16:42:38.451] [ENV       ] Output Dir: D:\Balaji-workbench\AI Summarizer\AI_OUTPUT\run_20260210_164238
+
+============================================================
+PROCESS START - 2026-02-10 16:42:38
+============================================================
+
+[2026-02-10 16:43:09.121] [STEP      ] Reading and parsing conversation...
+[2026-02-10 16:43:09.122] [PARSING   ] Starting markdown split...
+[2026-02-10 16:43:09.123] [PARSING   ] Extracted 5 Q&A pairs.
+[2026-02-10 16:43:09.123] [STEP      ] Extracting suggestions via AI...
+[2026-02-10 16:43:09.124] [AI_CALL   ] Requesting suggestions (length: 1723)
+[2026-02-10 16:43:29.639] [AI_RAW    ] Raw response: {"strings": ["Which app? (VS Code / Obsidian / something else?)", "What do you want to convert? (text, Excel, Word, notes, etc.)", "What output do you want? (`.md`, PDF, HTML, GitHub-ready, etc.)"]}
+[2026-02-10 16:43:29.640] [AI_RESULT ] Found 3 suggestions.
+[2026-02-10 16:43:29.641] [AI_CALL   ] Requesting suggestions (length: 511)
+[2026-02-10 16:43:36.503] [AI_RAW    ] Raw response: {
+    "items": [
+        "Draft a mock change note"
+    ]
+}
+[2026-02-10 16:43:36.504] [AI_RESULT ] Found 1 suggestions.
+[2026-02-10 16:43:36.504] [AI_CALL   ] Requesting suggestions (length: 24)
+[2026-02-10 16:43:39.273] [AI_RAW    ] Raw response: {}
+[2026-02-10 16:43:39.273] [AI_RESULT ] Found 0 suggestions.
+[2026-02-10 16:43:39.274] [AI_CALL   ] Requesting suggestions (length: 1174)
+[2026-02-10 16:43:51.336] [AI_RAW    ] Raw response: {"suggestions": ["Convert this ChatGPT conversation into clean Markdown.", "Look for buttons like: 'Export', 'Copy as Markdown', 'Save to file' if using a browser / VS Code extension."]}
+[2026-02-10 16:43:51.337] [AI_RESULT ] Found 2 suggestions.
+[2026-02-10 16:43:51.338] [AI_CALL   ] Requesting suggestions (length: 1447)
+[2026-02-10 16:44:03.587] [AI_RAW    ] Raw response: {"strings": ["What’s the exact name of the extension you installed?", "Are you using it in browser or VS Code?"]}
+[2026-02-10 16:44:03.588] [AI_RESULT ] Found 2 suggestions.
+[2026-02-10 16:44:03.588] [STEP      ] Writing output files...
+
+============================================================
+FILE GENERATION - 2026-02-10 16:44:03
+============================================================
+
+[2026-02-10 16:44:03.589] [IO        ] Creating combined questions file: All_Questions_and_Followups.md
+[2026-02-10 16:44:03.590] [IO        ] Creating 5 separate Q&A files...
+[2026-02-10 16:44:03.592] [STEP      ] Running validation...
+
+============================================================
+VALIDATION & QUALITY CHECK - 2026-02-10 16:44:03
+============================================================
+
+[2026-02-10 16:44:03.593] [VAL       ] Generating validation report: VALIDATION_REPORT.md
+[2026-02-10 16:44:03.596] [VAL       ] Validation PASSED. Coverage: 97.9%. Q&A Pairs: 5.
+
+============================================================
+PROCESS COMPLETE - 2026-02-10 16:44:03
+============================================================
+
+[2026-02-10 16:44:03.597] [EXIT      ] FINAL STATUS: PASSED - Validation PASSED. Coverage: 97.9%. Q&A Pairs: 5.
