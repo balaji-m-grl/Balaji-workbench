@@ -1,0 +1,172 @@
+[2026-02-09 17:56:17.165] [INITIALIZATION ] Logger started for AI Summarizer v2
+[2026-02-09 17:56:17.165] [SYSTEM         ] Output Directory: D:\Balaji-workbench\AI Summarizer\AI_OUTPUT\output_20260209_175617
+
+============================================================
+EXECUTION START - 2026-02-09 17:56:17
+============================================================
+
+[2026-02-09 17:56:24.148] [INPUT          ] Path provided: C:\Users\GRL\Downloads\Synthetic Data in USB-PD.md
+[2026-02-09 17:56:24.149] [INPUT          ] Reading file: C:\Users\GRL\Downloads\Synthetic Data in USB-PD.md
+[2026-02-09 17:56:24.150] [PARSING        ] Starting markdown split into user/assistant pairs...
+[2026-02-09 17:56:24.154] [PARSING        ] Extraction complete. Found 9 pairs.
+
+============================================================
+AI EXTRACTION STEP - 2026-02-09 17:56:24
+============================================================
+
+[2026-02-09 17:56:24.155] [AI_EXTRACT     ] Calling Ollama (qwen2.5:3b) for segment: 'Synthetic data, in model training, is **artificial...'
+[2026-02-09 17:56:38.798] [AI_RESULT      ] Extracted 2 suggestions.
+[2026-02-09 17:56:38.799] [AI_EXTRACT     ] Calling Ollama (qwen2.5:3b) for segment: 'Alright, let’s design this like an **engineering-g...'
+[2026-02-09 17:56:53.671] [AI_WARNING     ] Failed to parse JSON from AI response: ["If you want next, we can start working on designing the schema based on your feedback.", "What other layers do you think should be included in the high-level schema?", "Can you provide any example of how a fault injection might look like in this schema?"]
+[]
+[2026-02-09 17:56:53.672] [AI_RESULT      ] Extracted 0 suggestions.
+[2026-02-09 17:56:53.672] [AI_EXTRACT     ] Calling Ollama (qwen2.5:3b) for segment: 'Perfect, this is where the schema becomes **future...'
+[2026-02-09 17:57:22.753] [AI_WARNING     ] Failed to parse JSON from AI response: [
+    "What would you like to do next?",
+    "* New voltage levels: **28V, 36V, 48V**",
+    "* AVS (Adjustable Voltage Supply) instead of PPS",
+    "* EPR mode entry / exit handshake",
+    "* Stricter cable requirements (50V / 5A)",
+    "* New timing and safety constraints",
+    "* EPR-specific fault classes",
+    "Is EPR even allowed here?",
+    "legacy PD agents can ignore these safely.",
+    "source_pdos",
+    "sink_constraints",
+    "epr_capabilities   (NEW)",
+    "protocol_trace",
+    "epr_messages       (NEW)",
+    "electrical_trace",
+    "epr_vbus_profile   (NEW)",
+    "timing_profile",
+    "epr_timing         (NEW)",
+    "fault_injection",
+    "epr_faults         (NEW)",
+    "expected_outcome",
+    "epr_compliance     (NEW)",
+    "epr_supported",
+    "max_voltage_v": 48,
+    "max_current_a": 5,
+    "avs_supported": true,
+    "max_voltage_v": 36,
+    "max_current_a": 5,
+    "avs_supported": true,
+    "e_marker",
+    "current_capability_a": 5,
+    "voltage_rating_v": 50,
+    "epr_certified": true
+]
+[2026-02-09 17:57:22.754] [AI_RESULT      ] Extracted 0 suggestions.
+[2026-02-09 17:57:22.754] [AI_EXTRACT     ] Calling Ollama (qwen2.5:3b) for segment: 'Nice, this is the **engine room** of the whole sys...'
+[2026-02-09 17:57:48.942] [AI_RESULT      ] Extracted 34 suggestions.
+[2026-02-09 17:57:48.943] [AI_EXTRACT     ] Calling Ollama (qwen2.5:3b) for segment: 'Nice choice. A **spec-rule DSL** is the right abst...'
+[2026-02-09 17:58:10.876] [AI_RESULT      ] Extracted 18 suggestions.
+[2026-02-09 17:58:10.877] [AI_EXTRACT     ] Calling Ollama (qwen2.5:3b) for segment: 'Great question — this is the step that turns the D...'
+[2026-02-09 17:58:25.821] [AI_WARNING     ] Failed to parse JSON from AI response: ["If you want next, we can discuss the specific capability and policy rules.", "What would you like to do next?", "Mapping patterns (you’ll reuse these a lot) section.", "Pattern A: Capability & policy rules section."]
+[]
+[2026-02-09 17:58:25.821] [AI_RESULT      ] Extracted 0 suggestions.
+[2026-02-09 17:58:25.822] [AI_EXTRACT     ] Calling Ollama (qwen2.5:3b) for segment: 'Great question. This is exactly where **synthetic ...'
+[2026-02-09 17:58:42.199] [AI_RESULT      ] Extracted 3 suggestions.
+[2026-02-09 17:58:42.200] [AI_EXTRACT     ] Calling Ollama (qwen2.5:3b) for segment: 'This is a **very mature question** — it goes beyon...'
+[2026-02-09 17:59:19.185] [AI_WARNING     ] Failed to parse JSON from AI response: ["Qwen", "I’ll break it into **how gaps emerge**, **how synthetic simulation exposes them**, and **how to convert that into a credible change proposal**.", "\n\n## 1. What a “gap in the PD spec” actually means\nA spec gap is **not**:\n* A bug in one implementation\n* A vendor doing something wrong\n\nA real gap exists when:\n> **Two or more compliant implementations behave differently, and the spec does not clearly constrain or resolve that behavior.**\nCommon gap types in USB-PD:\n* Ambiguous timing windows\n* Undefined arbitration ownership (especially DRP + eMarker)\n* Missing ordering constraints\n* Undefined recovery behavior\n* Overloaded use of “should” vs “shall”\n\nThese gaps only appear under **interaction**, not unit testing.\n", "\n\n## 2. Why synthetic simulation is uniquely suited to find gaps\nReal hardware testing:\n* Shows _one_ implementation at a time\n* Is biased by vendor design choices\n* Rarely explores boundary simultaneity\n\nSynthetic simulation:\n* Explores **all legal interpretations** of the spec\n* Forces edge concurrency\n* Separates _spec intent_ from _implementation habit_\n\nKey idea:\n> **You don’t simulate devices — you simulate interpretations of the spec.**\n", "\n\n## 3. Step 1 – Encode the spec as rules, not prose\nYour DSL already does this.\nExample:\n* Spec says: _“The port should not transmit during role swap.”_\n* DSL forces you to ask:\n    * Who exactly?\n    * During which sub-state?\n    * For how long?\n    * Does this include SOP’, SOP’’?\n\nIf the DSL **cannot be written unambiguously**, that’s your first signal.\n👉 **Un-encodable prose = spec ambiguity**\n", "\n\n## 4. Step 2 – Generate “multi-interpretation compliant” actors\nThis is critical.\nInstead"]
+[]
+[2026-02-09 17:59:19.186] [AI_RESULT      ] Extracted 0 suggestions.
+[2026-02-09 17:59:19.186] [AI_EXTRACT     ] Calling Ollama (qwen2.5:3b) for segment: 'Perfect. Let’s do this **concretely and surgically...'
+[2026-02-09 17:59:38.492] [AI_WARNING     ] Failed to parse JSON from AI response: ["If you want next, we can present it like a mock spec gap case you could actually take to a standards discussion.", "What would you like to do next?", "Here are the two valid interpretations (both spec-compliant) discussed:", "Explain Interpretation A (Conservative DRP):", "Initiates PR_SWAP:", "Suppresses DR_SWAP triggers:", "Expects partner silence except ACCEPT / PS_RDY:", "Explain Interpretation B (Orthogonal DRP):", "Receives PR_SWAP:", "ACCEPTs PR_SWAP:", "Immediately initiates DR_SWAP (allowed by text, not explicitly forbidden):", "Expects DR_SWAP handling in parallel:", "Nothing in the spec explicitly forbids this:"]
+[]
+[2026-02-09 17:59:38.492] [AI_RESULT      ] Extracted 0 suggestions.
+
+============================================================
+FILE IO STEP - 2026-02-09 17:59:38
+============================================================
+
+[2026-02-09 17:59:38.494] [IO_WRITE       ] Starting file writing to AI_OUTPUT\output_20260209_175617
+[2026-02-09 17:59:38.494] [IO_WRITE       ] Generating questions_only.md...
+[2026-02-09 17:59:38.495] [IO_WRITE       ] Generating 9 individual Q&A markdown files...
+
+============================================================
+VALIDATION & VERIFICATION - 2026-02-09 17:59:38
+============================================================
+
+[2026-02-09 17:59:38.500] [VALIDATE       ] Verifying Q1...
+[2026-02-09 17:59:38.501] [VALIDATE       ]   PASS: 'If you want next, we can discuss how syn...' found in source.
+[2026-02-09 17:59:38.501] [VALIDATE       ]   FAIL: 'What would you like to do next?...' NOT found in source.
+[2026-02-09 17:59:38.502] [VALIDATE       ] Verifying Q2...
+[2026-02-09 17:59:38.502] [VALIDATE       ] Verifying Q3...
+[2026-02-09 17:59:38.502] [VALIDATE       ] Verifying Q4...
+[2026-02-09 17:59:38.503] [VALIDATE       ]   PASS: 'What an EPR scenario generator must do...' found in source.
+[2026-02-09 17:59:38.503] [VALIDATE       ]   PASS: 'Generate valid PD 3.1 / EPR negotiations...' found in source.
+[2026-02-09 17:59:38.503] [VALIDATE       ]   PASS: 'Generate invalid but realistic failures...' found in source.
+[2026-02-09 17:59:38.504] [VALIDATE       ]   PASS: 'Respect spec constraints (voltage, timin...' found in source.
+[2026-02-09 17:59:38.504] [VALIDATE       ]   PASS: 'Produce ground-truth labels...' found in source.
+[2026-02-09 17:59:38.505] [VALIDATE       ]   PASS: 'Scale to millions of variants...' found in source.
+[2026-02-09 17:59:38.505] [VALIDATE       ]   PASS: 'Be deterministic when needed (seeded)...' found in source.
+[2026-02-09 17:59:38.505] [VALIDATE       ]   PASS: 'EPRScenarioGenerator...' found in source.
+[2026-02-09 17:59:38.506] [VALIDATE       ]   PASS: 'SpecModel...' found in source.
+[2026-02-09 17:59:38.506] [VALIDATE       ]   PASS: 'PD3.1 Rules...' found in source.
+[2026-02-09 17:59:38.506] [VALIDATE       ]   PASS: 'Timing Limits...' found in source.
+[2026-02-09 17:59:38.507] [VALIDATE       ]   PASS: 'Safety Constraints...' found in source.
+[2026-02-09 17:59:38.507] [VALIDATE       ]   PASS: 'TopologyBuilder...' found in source.
+[2026-02-09 17:59:38.508] [VALIDATE       ]   PASS: 'Source Model...' found in source.
+[2026-02-09 17:59:38.508] [VALIDATE       ]   PASS: 'Sink Model...' found in source.
+[2026-02-09 17:59:38.508] [VALIDATE       ]   PASS: 'Cable Model...' found in source.
+[2026-02-09 17:59:38.508] [VALIDATE       ]   PASS: 'CapabilityGenerator...' found in source.
+[2026-02-09 17:59:38.509] [VALIDATE       ]   PASS: 'AVS PDO Generator...' found in source.
+[2026-02-09 17:59:38.509] [VALIDATE       ]   PASS: 'Policy Constraints...' found in source.
+[2026-02-09 17:59:38.510] [VALIDATE       ]   PASS: 'ScenarioPlanner...' found in source.
+[2026-02-09 17:59:38.510] [VALIDATE       ]   PASS: 'Happy Path Planner...' found in source.
+[2026-02-09 17:59:38.510] [VALIDATE       ]   PASS: 'Fault Planner...' found in source.
+[2026-02-09 17:59:38.511] [VALIDATE       ]   PASS: 'Edge-Case Planner...' found in source.
+[2026-02-09 17:59:38.511] [VALIDATE       ]   PASS: 'TraceSynthesizer...' found in source.
+[2026-02-09 17:59:38.511] [VALIDATE       ]   PASS: 'Protocol Trace...' found in source.
+[2026-02-09 17:59:38.512] [VALIDATE       ]   PASS: 'Electrical Trace...' found in source.
+[2026-02-09 17:59:38.512] [VALIDATE       ]   PASS: 'Timing Profile...' found in source.
+[2026-02-09 17:59:38.512] [VALIDATE       ]   PASS: 'Labeler...' found in source.
+[2026-02-09 17:59:38.513] [VALIDATE       ]   PASS: 'Compliance Checker...' found in source.
+[2026-02-09 17:59:38.513] [VALIDATE       ]   PASS: 'Root Cause Mapper...' found in source.
+[2026-02-09 17:59:38.513] [VALIDATE       ]   PASS: 'DatasetEmitter...' found in source.
+[2026-02-09 17:59:38.514] [VALIDATE       ]   PASS: 'EPR_HAPPY_PATH...' found in source.
+[2026-02-09 17:59:38.514] [VALIDATE       ]   PASS: 'EPR_POLICY_REJECT...' found in source.
+[2026-02-09 17:59:38.514] [VALIDATE       ]   PASS: 'EPR_CABLE_INVAL...' found in source.
+[2026-02-09 17:59:38.515] [VALIDATE       ] Verifying Q5...
+[2026-02-09 17:59:38.515] [VALIDATE       ]   PASS: 'If you want next, we can keep it clean, ...' found in source.
+[2026-02-09 17:59:38.515] [VALIDATE       ]   PASS: 'What the spec-rule DSL is (and is not)...' found in source.
+[2026-02-09 17:59:38.516] [VALIDATE       ]   PASS: 'It is a declarative language to encode P...' found in source.
+[2026-02-09 17:59:38.516] [VALIDATE       ]   PASS: 'It is deterministic and auditable...' found in source.
+[2026-02-09 17:59:38.516] [VALIDATE       ]   PASS: 'It evaluates to true / false / violation...' found in source.
+[2026-02-09 17:59:38.517] [VALIDATE       ]   PASS: 'It explains itself when violated...' found in source.
+[2026-02-09 17:59:38.517] [VALIDATE       ]   PASS: 'It is composable...' found in source.
+[2026-02-09 17:59:38.518] [VALIDATE       ]   PASS: 'Core design principles...' found in source.
+[2026-02-09 17:59:38.518] [VALIDATE       ]   PASS: 'Readable like a spec...' found in source.
+[2026-02-09 17:59:38.518] [VALIDATE       ]   PASS: 'Structured like a schema...' found in source.
+[2026-02-09 17:59:38.519] [VALIDATE       ]   PASS: 'Evaluates to true / false / violation...' found in source.
+[2026-02-09 17:59:38.519] [VALIDATE       ]   PASS: 'Explains itself when violated...' found in source.
+[2026-02-09 17:59:38.519] [VALIDATE       ]   PASS: 'Composable (SPR + EPR + future PD 3.2)...' found in source.
+[2026-02-09 17:59:38.520] [VALIDATE       ]   PASS: 'DSL building blocks...' found in source.
+[2026-02-09 17:59:38.520] [VALIDATE       ]   PASS: 'Every rule has: id, scope, condition, co...' found in source.
+[2026-02-09 17:59:38.520] [VALIDATE       ]   PASS: 'Rule anatomy...' found in source.
+[2026-02-09 17:59:38.521] [VALIDATE       ]   PASS: 'Core design principles...' found in source.
+[2026-02-09 17:59:38.521] [VALIDATE       ]   PASS: 'Timing rules...' found in source.
+[2026-02-09 17:59:38.521] [VALIDATE       ] Verifying Q6...
+[2026-02-09 17:59:38.521] [VALIDATE       ] Verifying Q7...
+[2026-02-09 17:59:38.522] [VALIDATE       ]   PASS: 'If you want next, we can explain the lay...' found in source.
+[2026-02-09 17:59:38.522] [VALIDATE       ]   FAIL: 'What would you like to do next?...' NOT found in source.
+[2026-02-09 17:59:38.522] [VALIDATE       ]   PASS: '[1] First: how ‘synthetic’ connects to ‘...' found in source.
+[2026-02-09 17:59:38.523] [VALIDATE       ] Verifying Q8...
+[2026-02-09 17:59:38.523] [VALIDATE       ] Verifying Q9...
+[2026-02-09 17:59:38.524] [IO_WRITE       ] Validation report appended to: Synthetic Data in USB-PD.md
+
+============================================================
+EXTRACTION SUMMARY - 2026-02-09 17:59:38
+============================================================
+
+[2026-02-09 17:59:38.524] [SUMMARY        ] Segments Parsed:   9
+[2026-02-09 17:59:38.524] [SUMMARY        ] Total Extracted:  57
+[2026-02-09 17:59:38.524] [SUMMARY        ] Confirmed Valid:  55
+[2026-02-09 17:59:38.525] [SUMMARY        ] Potential Halluc: 2
+[2026-02-09 17:59:38.525] [SUMMARY        ] Confidence:       96.5%
+
+============================================================
+PROCESS COMPLETE - 2026-02-09 17:59:38
+============================================================
+

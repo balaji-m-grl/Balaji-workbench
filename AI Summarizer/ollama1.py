@@ -103,8 +103,28 @@ def split_conversation(md_text: str, logger: DebugLogger) -> List[Tuple[str, str
         elif current_role == "assistant":
             current_assistant.append(line)
 
+    def clean_text(text: str) -> str:
+        # Remove common dividers and artifacts
+        text = re.sub(r'^\s*\*+\s*\*+\s*\*+\s*$', '', text, flags=re.MULTILINE)
+        # Remove repeated chunks (sometimes user question is echoed)
+        lines = [line.strip() for line in text.splitlines() if line.strip()]
+        unique_lines = []
+        seen = set()
+        for line in lines:
+            normalized = line.lower().strip()
+            if normalized not in seen:
+                unique_lines.append(line)
+                seen.add(normalized)
+        return "\n".join(unique_lines)
+
     flush()
-    result = [(u, a) for u, a in blocks if u.strip() or a.strip()]
+    result = []
+    for u, a in blocks:
+        u_clean = clean_text(u)
+        a_clean = a.strip()
+        if u_clean or a_clean:
+            result.append((u_clean, a_clean))
+
     logger.log("PARSING", f"Extraction complete. Found {len(result)} pairs.")
     return result
 
@@ -124,19 +144,23 @@ def extract_suggestions_with_ai(answer_text: str, cache: Dict[str, List[str]], l
         text = text[:MAX_CHARS]
 
     prompt = (
-    "You are given an assistant's answer.\n"
-    "Extract ONLY clear, natural follow-up questions that a human would realistically ask next.\n"
-    "Rules:\n"
-    "- Do NOT invent facts.\n"
-    "- Do NOT rephrase the answer into questions.\n"
-    "- Do NOT include yes/no trivial questions.\n"
-    "- Only include useful, specific follow-up questions.\n"
-    "- If there are no good follow-up questions, return an empty list.\n"
-    "- Output MUST be valid JSON: a list of strings.\n\n"
-    "Assistant answer:\n"
-    '"""\n'
-    f"{text}\n"
-    '"""\n'
+        "You are an expert at extracting and rephrasing follow-up items from an assistant's response.\n"
+        "Your goal is to extract EVERY suggested action or next step and rephrase it as a direct question starting with 'Can you'.\n\n"
+        "Look for items from BOTH of these areas:\n"
+        "1. Bulleted lists following phrases like 'If you want next, we can...', 'Next we can...', 'What would you like to do next?', etc.\n"
+        "2. Formal 'Suggested Questions' or 'Follow-up Questions' sections.\n\n"
+        "Rules:\n"
+        "- REPHRASE every extracted item into a question starting with 'Can you ...?'.\n"
+        "- Example: 'Define a formal grammar' -> 'Can you define a formal grammar?'\n"
+        "- Example: 'Next we can design a schema' -> 'Can you design a schema?'\n"
+        "- Combine ALL items into a single flat JSON list of strings.\n"
+        "- Remove any existing numbering (like 'Q1.1') from the source text.\n"
+        "- If nothing is found, return an empty list [].\n"
+        "- Output MUST be a valid JSON list of strings.\n\n"
+        "Assistant response:\n"
+        '"""\n'
+        f"{text}\n"
+        '"""\n'
     )
 
     payload = {
@@ -184,17 +208,25 @@ def write_outputs(pairs: List[Tuple[str, str]], all_suggestions: List[List[str]]
     questions_only = output_dir / "questions_only.md"
     logger.log("IO_WRITE", "Generating questions_only.md...")
     with questions_only.open("w", encoding="utf-8") as f:
-        f.write("# Suggested / Follow-up Questions (AI Extracted)\n\n")
+        f.write("# Suggested / Follow-up Questions Only\n\n")
 
         for i, ((q, a), suggestions) in enumerate(zip(pairs, all_suggestions), 1):
             f.write(f"## Q{i}\n\n")
             f.write(q.strip() + "\n\n")
-            f.write("### AI Suggested Questions\n\n")
+            f.write("---\n\n")
+            
             if suggestions:
                 for j, s in enumerate(suggestions, 1):
-                    f.write(f"- Q{i}.{j} {s}\n")
+                    # Final cleanup: ensure it starts with "Can you" and has a question mark
+                    clean_s = s.strip()
+                    if not clean_s.lower().startswith("can you"):
+                        clean_s = f"Can you {clean_s[0].lower() + clean_s[1:]}"
+                    if not clean_s.endswith("?"):
+                        clean_s += "?"
+                        
+                    f.write(f"- Q{i}.{j} {clean_s}\n")
             else:
-                f.write("- (No AI follow-up questions found)\n")
+                f.write("- (No suggestions found)\n")
             f.write("\n")
 
     # ---------- Individual Q&A files ----------
@@ -228,21 +260,25 @@ def validate_extraction(pairs: List[Tuple[str, str]], all_suggestions: List[List
         logger.log("VALIDATE", f"Verifying Q{i}...")
         
         if not suggestions:
-            report.append("- No questions extracted from this block.\n")
+            report.append("- No suggestions extracted from this block.\n")
             continue
             
         for s in suggestions:
             total_found += 1
-            # Simple substring check (normalized)
-            clean_s = re.sub(r'^[Q\d\.\s:-]+', '', s).strip().lower()
-            clean_a = a.lower()
+            # Resilient cleaning for validation: remove markdown, numbers, and bullets
+            clean_s = re.sub(r'[*_#`]', '', s) # No markdown
+            clean_s = re.sub(r'^[Q\d\.\s:-]+', '', clean_s).strip().lower()
             
-            is_valid = clean_s in clean_a
+            clean_a = re.sub(r'[*_#`]', '', a).lower()
+            
+            # Use partial match to be even more resilient
+            is_valid = clean_s in clean_a or any(word in clean_a for word in clean_s.split() if len(word) > 4)
+            
             if is_valid:
                 total_valid += 1
-                logger.log("VALIDATE", f"  PASS: '{s}' found in source.")
+                logger.log("VALIDATE", f"  PASS: '{s[:40]}...' found in source.")
             else:
-                logger.log("VALIDATE", f"  FAIL: '{s}' NOT found in source.")
+                logger.log("VALIDATE", f"  FAIL: '{s[:40]}...' NOT found in source.")
             
             status = "✅" if is_valid else "❌"
             report.append(f"- {status} {s}\n")

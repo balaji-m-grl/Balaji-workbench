@@ -1,0 +1,320 @@
+# Question 4
+
+## 👤 User Question
+
+Design an EPR scenario generator
+
+## 🤖 Assistant Answer
+
+Nice, this is the **engine room** of the whole system. I’ll design the EPR scenario generator like something you could actually hand to an engineer and start implementing in C++ / Python tomorrow.
+
+I’ll keep it **architectural first**, then go into **algorithmic flow**, **scenario types**, and **control knobs**.
+
+## 1. What an EPR scenario generator must do
+
+At a minimum, it must:
+
+1. Generate **valid PD 3.1 / EPR negotiations**
+    
+2. Generate **invalid but realistic failures**
+    
+3. Respect **spec constraints** (voltage, timing, cable, AVS)
+    
+4. Produce **ground-truth labels**
+    
+5. Scale to **millions of variants**
+    
+6. Be deterministic when needed (seeded)
+    
+
+This is not random fuzzing. It’s **spec-guided synthesis**.
+
+## 2. High-level architecture
+
+```
+EPRScenarioGenerator
+│
+├── SpecModel
+│   ├── PD3.1 Rules
+│   ├── Timing Limits
+│   └── Safety Constraints
+│
+├── TopologyBuilder
+│   ├── Source Model
+│   ├── Sink Model
+│   └── Cable Model
+│
+├── CapabilityGenerator
+│   ├── AVS PDO Generator
+│   └── Policy Constraints
+│
+├── ScenarioPlanner
+│   ├── Happy Path Planner
+│   ├── Fault Planner
+│   └── Edge-Case Planner
+│
+├── TraceSynthesizer
+│   ├── Protocol Trace
+│   ├── Electrical Trace
+│   └── Timing Profile
+│
+├── Labeler
+│   ├── Compliance Checker
+│   └── Root Cause Mapper
+│
+└── DatasetEmitter
+```
+
+Each block is independently testable.
+
+## 3. Spec model (the brain)
+
+The spec model is **not text**. It’s rules.
+
+Example (conceptual):
+
+```yaml
+EPR_RULES:
+  cable:
+    min_voltage_rating_v: 50
+    min_current_a: 5
+
+  avs:
+    step_size_mv: 100
+    max_ripple_mv: 150
+
+  timing:
+    t_epr_entry_max_ms: 700
+    t_epr_source_ready_max_ms: 500
+
+  safety:
+    max_overshoot_percent: 5
+```
+
+This lets the generator:
+
+* Validate itself
+    
+* Label outcomes automatically
+
+## 4. Scenario taxonomy (important)
+
+Every scenario is intentionally categorized.
+
+### 4.1 Core scenario classes
+
+```
+EPR_HAPPY_PATH
+EPR_POLICY_REJECT
+EPR_CABLE_INVALID
+EPR_AVS_REGULATION_FAILURE
+EPR_TIMING_VIOLATION
+EPR_SAFETY_SHUTDOWN
+EPR_MODE_EXIT_FAILURE
+```
+
+This guarantees **coverage**, not accidental skew.
+
+## 5. Scenario generation flow (step-by-step)
+
+### Step 1: Build topology
+
+```pseudo
+source = build_source(epr_capable=true)
+sink   = build_sink(epr_capable=maybe)
+cable  = build_cable(epr_certified=maybe)
+```
+
+Controlled randomness:
+
+* 70% valid EPR cables
+    
+* 30% borderline / invalid
+
+### Step 2: Decide scenario intent
+
+```pseudo
+scenario_type = weighted_random([
+  EPR_HAPPY_PATH: 40%,
+  EPR_CABLE_INVALID: 20%,
+  EPR_AVS_REGULATION_FAILURE: 15%,
+  EPR_TIMING_VIOLATION: 15%,
+  EPR_SAFETY_SHUTDOWN: 10%
+])
+```
+
+You **control learning bias** here.
+
+### Step 3: Generate capabilities
+
+```pseudo
+avs_pdo = generate_avs_pdo(
+  min_v=15,
+  max_v=random(28,48),
+  step=100mV
+)
+```
+
+If scenario is `POLICY_REJECT`, generate:
+
+* Sink max voltage < requested voltage
+
+### Step 4: Plan protocol sequence
+
+#### Happy path
+
+```
+Attach
+Source_Capabilities
+Request (EPR)
+Accept
+EPR_Mode_Entry
+EPR_Mode_Ack
+PS_RDY
+```
+
+#### Fault injection example (cable invalid)
+
+```
+Attach
+Source_Capabilities (EPR advertised)
+Request (EPR)
+EPR_Mode_Entry
+--> Fault injected: Cable not EPR-certified
+Hard_Reset
+```
+
+Planner decides **where the fault occurs**, not just what fault.
+
+## 6. Electrical trace synthesis (EPR-aware)
+
+Instead of random values:
+
+```pseudo
+target_voltage = random(28, 36, 48)
+overshoot = scenario == SAFETY_SHUTDOWN
+           ? random(6%, 10%)
+           : random(0%, 4%)
+
+ramp_time = normal_dist(mean=400ms, variance=50ms)
+```
+
+Electrical behavior is:
+
+* Correlated with protocol intent
+    
+* Different for AVS vs SPR
+
+## 7. Timing manipulation (subtle but powerful)
+
+```pseudo
+t_epr_entry = scenario == TIMING_VIOLATION
+              ? random(720, 900)
+              : random(300, 600)
+```
+
+This teaches the agent:
+
+* “Everything else was fine, but timing killed it”
+
+## 8. Fault injection model
+
+Faults are **first-class objects**:
+
+```json
+{
+  "fault_type": "EPR_OVERVOLTAGE",
+  "severity": "CRITICAL",
+  "injected_at": "AVS_RAMP_UP",
+  "detectable_by": ["VBUS_MONITOR", "SAFETY_LOGIC"]
+}
+```
+
+This enables:
+
+* Multi-agent reasoning
+    
+* Root-cause learning
+
+## 9. Labeling & compliance checking
+
+After generation:
+
+```pseudo
+compliance = run_spec_checker(scenario)
+root_cause = map_violation_to_cause(compliance)
+```
+
+Output:
+
+* PASS / FAIL
+    
+* Safety vs policy vs timing
+    
+* Corrective actions
+    
+
+This is **deterministic truth**, not human-labeled guesses.
+
+## 10. Dataset emission
+
+Each scenario outputs:
+
+* Full schema JSON
+    
+* Compact “agent input” view
+    
+* Scenario metadata (difficulty, rarity)
+    
+
+You can also emit:
+
+* **Delta scenarios** (one change from baseline)
+    
+* **Curriculum learning batches**
+
+## 11. Control knobs (for training strategy)
+
+Key dials you’ll want:
+
+| Knob | Purpose |
+| --- | --- |
+| Valid vs Invalid ratio | Bias agent confidence |
+| Safety fault frequency | Train conservative behavior |
+| Voltage level skew | Focus on 28V vs 48V |
+| Noise injection | Improve robustness |
+| Seed | Reproducibility |
+
+## 12. Why this generator is powerful
+
+* Spec-driven, not log-driven
+    
+* Deterministic labeling
+    
+* Rare failures become common
+    
+* Perfect fit for **on-prem agent training**
+    
+
+This is exactly how you scale **deep PD expertise**.
+
+### My opinion
+
+An EPR scenario generator like this becomes **institutional memory**. It encodes what only senior engineers know today and makes it teachable, testable, and improvable. For PD 3.1, this is not “nice to have” — it’s the only safe way to build intelligent tooling without risking hardware.
+
+If you want next, I can:
+
+* Convert this into a **class-level design (C++ / Python)**
+    
+* Show a **minimal working generator**
+    
+* Design a **spec-rule DSL**
+    
+* Or integrate this with your **C++ streamer + .NET validator + AI agent loop**
+
+## 💡 Recommended Follow-ups
+
+- **Q4.1**: Convert this into a class-level design (C++ / Python)
+- **Q4.2**: Show a minimal working generator
+- **Q4.3**: Design a spec-rule DSL
+- **Q4.4**: Integrate this with your C++ streamer + .NET validator + AI agent loop

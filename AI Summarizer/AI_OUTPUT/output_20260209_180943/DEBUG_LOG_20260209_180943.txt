@@ -1,0 +1,129 @@
+[2026-02-09 18:09:43.403] [INITIALIZATION ] Logger started for AI Summarizer v2
+[2026-02-09 18:09:43.404] [SYSTEM         ] Output Directory: D:\Balaji-workbench\AI Summarizer\AI_OUTPUT\output_20260209_180943
+
+============================================================
+EXECUTION START - 2026-02-09 18:09:43
+============================================================
+
+[2026-02-09 18:09:53.417] [INPUT          ] Path provided: C:\Users\GRL\Downloads\Synthetic Data in USB-PD.md
+[2026-02-09 18:09:53.418] [INPUT          ] Reading file: C:\Users\GRL\Downloads\Synthetic Data in USB-PD.md
+[2026-02-09 18:09:53.419] [PARSING        ] Starting markdown split into user/assistant pairs...
+[2026-02-09 18:09:53.422] [PARSING        ] Extraction complete. Found 9 pairs.
+
+============================================================
+AI EXTRACTION STEP - 2026-02-09 18:09:53
+============================================================
+
+[2026-02-09 18:09:53.423] [AI_EXTRACT     ] Calling Ollama (qwen2.5:3b) for segment: 'Synthetic data, in model training, is **artificial...'
+[2026-02-09 18:10:10.700] [AI_RESULT      ] Extracted 0 suggestions.
+[2026-02-09 18:10:10.701] [AI_EXTRACT     ] Calling Ollama (qwen2.5:3b) for segment: 'Alright, let’s design this like an **engineering-g...'
+[2026-02-09 18:10:26.680] [AI_RESULT      ] Extracted 5 suggestions.
+[2026-02-09 18:10:26.681] [AI_EXTRACT     ] Calling Ollama (qwen2.5:3b) for segment: 'Perfect, this is where the schema becomes **future...'
+[2026-02-09 18:10:52.640] [AI_RESULT      ] Extracted 11 suggestions.
+[2026-02-09 18:10:52.641] [AI_EXTRACT     ] Calling Ollama (qwen2.5:3b) for segment: 'Nice, this is the **engine room** of the whole sys...'
+[2026-02-09 18:11:15.861] [AI_RESULT      ] Extracted 16 suggestions.
+[2026-02-09 18:11:15.861] [AI_EXTRACT     ] Calling Ollama (qwen2.5:3b) for segment: 'Nice choice. A **spec-rule DSL** is the right abst...'
+[2026-02-09 18:11:35.309] [AI_RESULT      ] Extracted 10 suggestions.
+[2026-02-09 18:11:35.310] [AI_EXTRACT     ] Calling Ollama (qwen2.5:3b) for segment: 'Great question — this is the step that turns the D...'
+[2026-02-09 18:11:57.549] [AI_RESULT      ] Extracted 10 suggestions.
+[2026-02-09 18:11:57.550] [AI_EXTRACT     ] Calling Ollama (qwen2.5:3b) for segment: 'Great question. This is exactly where **synthetic ...'
+[2026-02-09 18:12:14.766] [AI_RESULT      ] Extracted 5 suggestions.
+[2026-02-09 18:12:14.767] [AI_EXTRACT     ] Calling Ollama (qwen2.5:3b) for segment: 'This is a **very mature question** — it goes beyon...'
+[2026-02-09 18:12:25.152] [AI_RESULT      ] Extracted 0 suggestions.
+[2026-02-09 18:12:25.152] [AI_EXTRACT     ] Calling Ollama (qwen2.5:3b) for segment: 'Perfect. Let’s do this **concretely and surgically...'
+[2026-02-09 18:12:35.997] [AI_RESULT      ] Extracted 0 suggestions.
+
+============================================================
+FILE IO STEP - 2026-02-09 18:12:35
+============================================================
+
+[2026-02-09 18:12:35.999] [IO_WRITE       ] Starting file writing to AI_OUTPUT\output_20260209_180943
+[2026-02-09 18:12:35.999] [IO_WRITE       ] Generating questions_only.md...
+[2026-02-09 18:12:36.000] [IO_WRITE       ] Generating 9 individual Q&A markdown files...
+
+============================================================
+VALIDATION & VERIFICATION - 2026-02-09 18:12:36
+============================================================
+
+[2026-02-09 18:12:36.005] [VALIDATE       ] Verifying Q1...
+[2026-02-09 18:12:36.005] [VALIDATE       ] Verifying Q2...
+[2026-02-09 18:12:36.006] [VALIDATE       ]   PASS: 'Can you define the structure of the USB-...' found in source.
+[2026-02-09 18:12:36.006] [VALIDATE       ]   PASS: 'Can you design a schema for the high-lev...' found in source.
+[2026-02-09 18:12:36.007] [VALIDATE       ]   PASS: 'Can you create the metadata JSON for the...' found in source.
+[2026-02-09 18:12:36.007] [VALIDATE       ]   PASS: 'Can you describe the topology details in...' found in source.
+[2026-02-09 18:12:36.008] [VALIDATE       ]   PASS: 'Can you outline the policy and capabilit...' found in source.
+[2026-02-09 18:12:36.008] [VALIDATE       ] Verifying Q3...
+[2026-02-09 18:12:36.008] [VALIDATE       ]   PASS: 'Can you define the extended power range ...' found in source.
+[2026-02-09 18:12:36.009] [VALIDATE       ]   PASS: 'Can you provide an explanation of why ea...' found in source.
+[2026-02-09 18:12:36.009] [VALIDATE       ]   PASS: 'Can you design a schema extension strate...' found in source.
+[2026-02-09 18:12:36.009] [VALIDATE       ]   PASS: 'Can you outline which electrical traces ...' found in source.
+[2026-02-09 18:12:36.010] [VALIDATE       ]   PASS: 'Can you specify what timing profiles req...' found in source.
+[2026-02-09 18:12:36.010] [VALIDATE       ]   PASS: 'Can you define new fault classes introdu...' found in source.
+[2026-02-09 18:12:36.011] [VALIDATE       ]   PASS: 'Can you describe any expected outcome ch...' found in source.
+[2026-02-09 18:12:36.011] [VALIDATE       ]   PASS: 'Can you provide an example of how cable ...' found in source.
+[2026-02-09 18:12:36.012] [VALIDATE       ]   PASS: 'Can you explain the agent rule about EPR...' found in source.
+[2026-02-09 18:12:36.012] [VALIDATE       ]   PASS: 'Can you identify any new protocol messag...' found in source.
+[2026-02-09 18:12:36.012] [VALIDATE       ]   PASS: 'Can you suggest how existing PD agents c...' found in source.
+[2026-02-09 18:12:36.013] [VALIDATE       ] Verifying Q4...
+[2026-02-09 18:12:36.013] [VALIDATE       ]   PASS: 'Can you design a schema?...' found in source.
+[2026-02-09 18:12:36.013] [VALIDATE       ]   FAIL: 'Can you define a formal grammar?...' NOT found in source.
+[2026-02-09 18:12:36.014] [VALIDATE       ]   PASS: 'Can you start implementing in C++ / Pyth...' found in source.
+[2026-02-09 18:12:36.014] [VALIDATE       ]   PASS: 'Can you generate valid PD 3.1 / EPR nego...' found in source.
+[2026-02-09 18:12:36.014] [VALIDATE       ]   PASS: 'Can you generate invalid but realistic f...' found in source.
+[2026-02-09 18:12:36.014] [VALIDATE       ]   PASS: 'Can you respect spec constraints (voltag...' found in source.
+[2026-02-09 18:12:36.015] [VALIDATE       ]   PASS: 'Can you produce ground-truth labels?...' found in source.
+[2026-02-09 18:12:36.015] [VALIDATE       ]   PASS: 'Can you scale to millions of variants?...' found in source.
+[2026-02-09 18:12:36.015] [VALIDATE       ]   PASS: 'Can you be deterministic when needed (se...' found in source.
+[2026-02-09 18:12:36.016] [VALIDATE       ]   PASS: 'Can you design a schema?...' found in source.
+[2026-02-09 18:12:36.016] [VALIDATE       ]   PASS: 'Can you identify and address the gaps in...' found in source.
+[2026-02-09 18:12:36.016] [VALIDATE       ]   PASS: 'Can you ensure each block is independent...' found in source.
+[2026-02-09 18:12:36.017] [VALIDATE       ]   PASS: 'Can you validate itself?...' found in source.
+[2026-02-09 18:12:36.017] [VALIDATE       ]   PASS: 'Can you label outcomes automatically?...' found in source.
+[2026-02-09 18:12:36.017] [VALIDATE       ]   PASS: 'Can you categorize every scenario intent...' found in source.
+[2026-02-09 18:12:36.018] [VALIDATE       ]   PASS: 'Can you define core scenario classes for...' found in source.
+[2026-02-09 18:12:36.018] [VALIDATE       ] Verifying Q5...
+[2026-02-09 18:12:36.018] [VALIDATE       ]   PASS: 'Can you design a schema?...' found in source.
+[2026-02-09 18:12:36.018] [VALIDATE       ]   PASS: 'Can you define a spec-rule DSL?...' found in source.
+[2026-02-09 18:12:36.019] [VALIDATE       ]   PASS: 'Can you keep the spec-rule DSL clean, de...' found in source.
+[2026-02-09 18:12:36.019] [VALIDATE       ]   PASS: 'Can you explain what the spec-rule DSL i...' found in source.
+[2026-02-09 18:12:36.019] [VALIDATE       ]   PASS: 'Can you list core design principles for ...' found in source.
+[2026-02-09 18:12:36.020] [VALIDATE       ]   PASS: 'Can you describe the rule anatomy in det...' found in source.
+[2026-02-09 18:12:36.020] [VALIDATE       ]   PASS: 'Can you provide examples of DSL building...' found in source.
+[2026-02-09 18:12:36.020] [VALIDATE       ]   PASS: 'Can you specify the DSL syntax using YAM...' found in source.
+[2026-02-09 18:12:36.021] [VALIDATE       ]   PASS: 'Can you discuss timing rules for the DSL...' found in source.
+[2026-02-09 18:12:36.021] [VALIDATE       ]   PASS: 'Can you suggest any next steps or action...' found in source.
+[2026-02-09 18:12:36.021] [VALIDATE       ] Verifying Q6...
+[2026-02-09 18:12:36.022] [VALIDATE       ]   PASS: 'Can you explain the mapping between your...' found in source.
+[2026-02-09 18:12:36.022] [VALIDATE       ]   FAIL: 'Can you define what a 'mapping philosoph...' NOT found in source.
+[2026-02-09 18:12:36.022] [VALIDATE       ]   PASS: 'Can you describe how each DSL rule links...' found in source.
+[2026-02-09 18:12:36.023] [VALIDATE       ]   PASS: 'Can you provide an example of how a conc...' found in source.
+[2026-02-09 18:12:36.023] [VALIDATE       ]   PASS: 'Can you elaborate on how agents, validat...' found in source.
+[2026-02-09 18:12:36.023] [VALIDATE       ]   FAIL: 'Can you define what a 'mapping model' is...' NOT found in source.
+[2026-02-09 18:12:36.024] [VALIDATE       ]   PASS: 'Can you show me an extended DSL rule wit...' found in source.
+[2026-02-09 18:12:36.024] [VALIDATE       ]   PASS: 'Can you provide more details about Patte...' found in source.
+[2026-02-09 18:12:36.025] [VALIDATE       ]   PASS: 'Can you give an example of how your DSL ...' found in source.
+[2026-02-09 18:12:36.025] [VALIDATE       ]   PASS: 'Can you suggest any follow-up steps for ...' found in source.
+[2026-02-09 18:12:36.025] [VALIDATE       ] Verifying Q7...
+[2026-02-09 18:12:36.026] [VALIDATE       ]   PASS: 'Can you explain how synthetic data conne...' found in source.
+[2026-02-09 18:12:36.026] [VALIDATE       ]   PASS: 'Can you design the baseline real-time to...' found in source.
+[2026-02-09 18:12:36.026] [VALIDATE       ]   PASS: 'Can you generate and include synthetic s...' found in source.
+[2026-02-09 18:12:36.027] [VALIDATE       ]   PASS: 'Can you structure this information in la...' found in source.
+[2026-02-09 18:12:36.027] [VALIDATE       ]   PASS: 'Can you explain the model-driven expecta...' found in source.
+[2026-02-09 18:12:36.027] [VALIDATE       ] Verifying Q8...
+[2026-02-09 18:12:36.027] [VALIDATE       ] Verifying Q9...
+[2026-02-09 18:12:36.028] [IO_WRITE       ] Validation report appended to: Synthetic Data in USB-PD.md
+
+============================================================
+EXTRACTION SUMMARY - 2026-02-09 18:12:36
+============================================================
+
+[2026-02-09 18:12:36.028] [SUMMARY        ] Segments Parsed:   9
+[2026-02-09 18:12:36.029] [SUMMARY        ] Total Extracted:  57
+[2026-02-09 18:12:36.029] [SUMMARY        ] Confirmed Valid:  54
+[2026-02-09 18:12:36.029] [SUMMARY        ] Potential Halluc: 3
+[2026-02-09 18:12:36.029] [SUMMARY        ] Confidence:       94.7%
+
+============================================================
+PROCESS COMPLETE - 2026-02-09 18:12:36
+============================================================
+

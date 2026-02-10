@@ -1,0 +1,60 @@
+[2026-02-10 11:47:02.362] [INIT      ] Logger started for AI Summarizer v3
+[2026-02-10 11:47:02.363] [ENV       ] Output Dir: D:\Balaji-workbench\AI Summarizer\AI_OUTPUT\run_20260210_114702
+
+============================================================
+PROCESS START - 2026-02-10 11:47:02
+============================================================
+
+[2026-02-10 11:48:08.224] [STEP      ] Reading and parsing conversation...
+[2026-02-10 11:48:08.227] [PARSING   ] Starting markdown split...
+[2026-02-10 11:48:08.231] [PARSING   ] Extracted 9 Q&A pairs.
+[2026-02-10 11:48:08.231] [STEP      ] Extracting suggestions via AI...
+[2026-02-10 11:48:08.232] [AI_CALL   ] Requesting suggestions (length: 4006)
+[2026-02-10 11:48:34.271] [AI_RAW    ] Raw response: {"suggestions": ["Design a USB-PD synthetic data schema", "Sketch a PD scenario generator architecture", "Map this into your on-prem multi-agent builder system"]}
+[2026-02-10 11:48:34.272] [AI_RESULT ] Found 3 suggestions.
+[2026-02-10 11:48:34.273] [AI_CALL   ] Requesting suggestions (length: 4006)
+[2026-02-10 11:49:03.540] [AI_RAW    ] Raw response: {"suggestions": ["Add PD 3.1 / EPR extensions", "Design a scenario generator algorithm", "Map this schema to your C++ streamer + .NET analyzer pipeline", "Show how to compress this for context-window-efficient agent prompts"]}
+[2026-02-10 11:49:03.541] [AI_RESULT ] Found 4 suggestions.
+[2026-02-10 11:49:03.542] [AI_CALL   ] Requesting suggestions (length: 4006)
+[2026-02-10 11:49:38.384] [AI_RAW    ] Raw response: {"suggestions": ["Design an EPR scenario generator", "Define EPR safety scoring", "Map this schema to regulatory / certification test cases", "Or compress this into a context-efficient agent input format"]}
+[2026-02-10 11:49:38.385] [AI_RESULT ] Found 4 suggestions.
+[2026-02-10 11:49:38.386] [AI_CALL   ] Requesting suggestions (length: 4006)
+[2026-02-10 11:50:08.490] [AI_RAW    ] Raw response: {"suggestions": ["Convert this into a class-level design (C++ / Python)", "Show a minimal working generator", "Design a spec-rule DSL", "Integrate this with your C++ streamer + .NET validator + AI agent loop"]}
+[2026-02-10 11:50:08.491] [AI_RESULT ] Found 4 suggestions.
+[2026-02-10 11:50:08.493] [AI_CALL   ] Requesting suggestions (length: 4006)
+[2026-02-10 11:50:41.422] [AI_RAW    ] Raw response: {"recommendations": ["Define a formal grammar (EBNF)", "Design a fast rule evaluator", "Map DSL rules to USB-IF test cases", "Or show how to plug this into your C++ / .NET / agent loop"]}
+[2026-02-10 11:50:41.423] [AI_RESULT ] Found 4 suggestions.
+[2026-02-10 11:50:41.423] [AI_CALL   ] Requesting suggestions (length: 4006)
+[2026-02-10 11:51:04.837] [AI_RAW    ] Raw response: {}
+[2026-02-10 11:51:04.838] [AI_RESULT ] Found 0 suggestions.
+[2026-02-10 11:51:04.839] [AI_CALL   ] Requesting suggestions (length: 4006)
+[2026-02-10 11:51:28.482] [AI_RAW    ] Raw response: {"suggestions": ["Draw a PR_SWAP + DR_SWAP timing arbitration table", "Show collision heat maps across scenarios", "Design a real-time violation scorer", "Map this to USB-IF pre-compliance automation"]}
+[2026-02-10 11:51:28.483] [AI_RESULT ] Found 4 suggestions.
+[2026-02-10 11:51:28.483] [AI_CALL   ] Requesting suggestions (length: 4006)
+[2026-02-10 11:51:53.645] [AI_RAW    ] Raw response: {"suggestions": ["Show a real PR_SWAP/DR_SWAP ambiguity example as a mock spec gap", "Help draft a sample USB-IF change proposal", "Design a gap-detection automation loop", "Map this to pre-certification risk scoring"]}
+[2026-02-10 11:51:53.647] [AI_RESULT ] Found 4 suggestions.
+[2026-02-10 11:51:53.648] [AI_CALL   ] Requesting suggestions (length: 4006)
+[2026-02-10 11:52:19.024] [AI_RAW    ] Raw response: {"suggestions": ["Turn this into a formal DSL gap report", "Draft a mock USB-IF ECN-style change note", "Show how to auto-detect similar gaps", "Expand this to EPR + swap interactions"]}
+[2026-02-10 11:52:19.025] [AI_RESULT ] Found 4 suggestions.
+[2026-02-10 11:52:19.026] [STEP      ] Writing output files...
+
+============================================================
+FILE GENERATION - 2026-02-10 11:52:19
+============================================================
+
+[2026-02-10 11:52:19.027] [IO        ] Creating combined questions file: All_Questions_and_Followups.md
+[2026-02-10 11:52:19.028] [IO        ] Creating 9 separate Q&A files...
+[2026-02-10 11:52:19.034] [STEP      ] Running validation...
+
+============================================================
+VALIDATION & QUALITY CHECK - 2026-02-10 11:52:19
+============================================================
+
+[2026-02-10 11:52:19.036] [VAL       ] Generating validation report: VALIDATION_REPORT.md
+[2026-02-10 11:52:19.052] [VAL       ] Validation PASSED. Coverage: 97.8%. Q&A Pairs: 9.
+
+============================================================
+PROCESS COMPLETE - 2026-02-10 11:52:19
+============================================================
+
+[2026-02-10 11:52:19.053] [EXIT      ] FINAL STATUS: PASSED - Validation PASSED. Coverage: 97.8%. Q&A Pairs: 9.
