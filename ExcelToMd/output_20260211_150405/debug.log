@@ -1,0 +1,11 @@
+2026-02-11 15:04:05,525 [INFO] Logging to: output_20260211_150405\debug.log
+2026-02-11 15:04:05,526 [INFO] Starting Excel folder to CSV/MD conversion
+2026-02-11 15:04:05,527 [INFO] Found 1 Excel files
+2026-02-11 15:04:05,527 [INFO] Processing file: timesheet.xlsx
+2026-02-11 15:04:05,544 [INFO] Saved CSV: output_20260211_150405\timesheet.xlsx\timesheet_weekly_sheet.csv
+2026-02-11 15:04:05,546 [INFO] Saved MD: output_20260211_150405\timesheet.xlsx\timesheet_weekly_sheet.md
+2026-02-11 15:04:05,548 [INFO] Saved CSV: output_20260211_150405\timesheet.xlsx\timesheet_HL-BL.csv
+2026-02-11 15:04:05,550 [INFO] Saved MD: output_20260211_150405\timesheet.xlsx\timesheet_HL-BL.md
+2026-02-11 15:04:05,552 [INFO] Saved CSV: output_20260211_150405\timesheet.xlsx\timesheet_TimeBox_sheet.csv
+2026-02-11 15:04:05,554 [INFO] Saved MD: output_20260211_150405\timesheet.xlsx\timesheet_TimeBox_sheet.md
+2026-02-11 15:04:05,555 [INFO] All Excel files processed successfully.

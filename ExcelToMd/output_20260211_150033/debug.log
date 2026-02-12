@@ -1,0 +1,4 @@
+2026-02-11 15:00:33,356 [INFO] Logging to: output_20260211_150033\debug.log
+2026-02-11 15:00:33,357 [INFO] Found 1 Excel files
+2026-02-11 15:00:33,358 [INFO] Processing file: timesheet.xlsx
+2026-02-11 15:01:16,406 [INFO] Starting Excel folder to CSV/MD conversion

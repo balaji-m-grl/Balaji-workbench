@@ -1,9 +1,0 @@
-[2026-02-09 16:52:45.735] [INITIALIZATION ] Logger started for AI Summarizer v2
-[2026-02-09 16:52:45.736] [SYSTEM         ] Output Directory: D:\Balaji-workbench\AI Summarizer\AI_OUTPUT\output_20260209_165245
-
-============================================================
-EXECUTION START - 2026-02-09 16:52:45
-============================================================
-
-[2026-02-09 16:52:50.385] [INPUT          ] Path provided: D:\Balaji-workbench\AI Summarizer\input
-[2026-02-09 16:52:50.385] [INPUT          ] Reading file: D:\Balaji-workbench\AI Summarizer\input

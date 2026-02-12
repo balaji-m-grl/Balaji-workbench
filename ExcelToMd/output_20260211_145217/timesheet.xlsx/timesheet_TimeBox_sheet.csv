@@ -1,0 +1,9 @@
+Date,Activity,Status,Dependency,Input,Step,Output,ETA,Comments
+,process reflect,,,"check mail,teams, weekly Task ,HL-BL",,time box sheet,30 min,
+2025-02-09,Ai chat summarizer.,in progress,,.md file,regex model and qwen model to Develop,"regex model it gives correct output and
+qwen model followup or ai question not
+expected",1 hr,seperated md file are created but question
+,"Excel to md file and
+csv file",open,,excel file,"pandas, openpyxl and Tabulate to do",,1hr 30 min,
+,Speech to Text,,,audio ,use asr qwen model speech to text,,1hr 30 min,
+,KT for c2 ,,,,,,30 min,
