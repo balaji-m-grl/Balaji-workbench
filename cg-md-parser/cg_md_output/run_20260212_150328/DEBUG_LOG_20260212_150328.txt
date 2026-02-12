@@ -1,0 +1,65 @@
+[2026-02-12 15:03:28.718] [INIT      ] Logger started for AI Summarizer v3
+[2026-02-12 15:03:28.719] [ENV       ] Output Dir: D:\Balaji-workbench\cg-md-parser\cg_md_output\run_20260212_150328
+
+============================================================
+PROCESS START - 2026-02-12 15:03:28
+============================================================
+
+[2026-02-12 15:04:06.802] [INFO      ] Found 1 markdown file(s) to process.
+
+============================================================
+PROCESSING FILE 1/1: SYNTHETIC DATA IN USB-PD (2).MD - 2026-02-12 15:04:06
+============================================================
+
+[2026-02-12 15:04:06.806] [STEP      ] Reading and parsing: Synthetic Data in USB-PD (2).md
+[2026-02-12 15:04:06.808] [PARSING   ] Starting markdown split...
+[2026-02-12 15:04:06.817] [PARSING   ] Extracted 9 Q&A pairs.
+[2026-02-12 15:04:06.818] [STEP      ] Extracting suggestions via AI...
+[2026-02-12 15:04:06.819] [AI_CALL   ] Requesting suggestions (length: 4006)
+[2026-02-12 15:04:46.961] [AI_RAW    ] Raw response: {"suggestions": ["Design a USB-PD synthetic data schema", "Sketch a PD scenario generator architecture", "Map this into your on-prem multi-agent builder system"]}
+[2026-02-12 15:04:46.963] [AI_RESULT ] Found 3 suggestions.
+[2026-02-12 15:04:46.965] [AI_CALL   ] Requesting suggestions (length: 4006)
+[2026-02-12 15:05:23.769] [AI_RAW    ] Raw response: {"suggestions": ["Add PD 3.1 / EPR extensions", "Design a scenario generator algorithm", "Map this schema to your C++ streamer + .NET analyzer pipeline", "Show how to compress this for context-window-efficient agent prompts"]}
+[2026-02-12 15:05:23.770] [AI_RESULT ] Found 4 suggestions.
+[2026-02-12 15:05:23.771] [AI_CALL   ] Requesting suggestions (length: 4006)
+[2026-02-12 15:05:58.568] [AI_RAW    ] Raw response: {"suggestions": ["Design an EPR scenario generator", "Define EPR safety scoring", "Map this schema to regulatory / certification test cases", "Or compress this into a context-efficient agent input format"]}
+[2026-02-12 15:05:58.569] [AI_RESULT ] Found 4 suggestions.
+[2026-02-12 15:05:58.570] [AI_CALL   ] Requesting suggestions (length: 4006)
+[2026-02-12 15:06:31.977] [AI_RAW    ] Raw response: {"suggestions": ["Convert this into a class-level design (C++ / Python)", "Show a minimal working generator", "Design a spec-rule DSL", "Integrate this with your C++ streamer + .NET validator + AI agent loop"]}
+[2026-02-12 15:06:31.978] [AI_RESULT ] Found 4 suggestions.
+[2026-02-12 15:06:31.979] [AI_CALL   ] Requesting suggestions (length: 4006)
+[2026-02-12 15:07:04.180] [AI_RAW    ] Raw response: {"suggestions": ["Define a formal grammar (EBNF)", "Design a fast rule evaluator", "Map DSL rules to USB-IF test cases", "Or show how to plug this into your C++ / .NET / agent loop"]}
+[2026-02-12 15:07:04.181] [AI_RESULT ] Found 4 suggestions.
+[2026-02-12 15:07:04.182] [AI_CALL   ] Requesting suggestions (length: 4006)
+[2026-02-12 15:07:35.315] [AI_RAW    ] Raw response: {"suggestions": ["Design a USB-IF coverage dashboard", "Auto-generate test readiness reports", "Map DSL → CTS automation hooks", "Or show how to expose this cleanly to an AI agent prompt"]}
+[2026-02-12 15:07:35.316] [AI_RESULT ] Found 4 suggestions.
+[2026-02-12 15:07:35.318] [AI_CALL   ] Requesting suggestions (length: 4006)
+[2026-02-12 15:08:03.548] [AI_RAW    ] Raw response: {"suggestions": ["Draw a PR_SWAP + DR_SWAP timing arbitration table", "Show collision heat maps across scenarios", "Design a real-time violation scorer", "Map this to USB-IF pre-compliance automation"]}
+[2026-02-12 15:08:03.550] [AI_RESULT ] Found 4 suggestions.
+[2026-02-12 15:08:03.552] [AI_CALL   ] Requesting suggestions (length: 4006)
+[2026-02-12 15:08:32.118] [AI_RAW    ] Raw response: {"suggestions": ["Show a real PR_SWAP/DR_SWAP ambiguity example as a mock spec gap", "Help draft a sample USB-IF change proposal", "Design a gap-detection automation loop", "Map this to pre-certification risk scoring"]}
+[2026-02-12 15:08:32.120] [AI_RESULT ] Found 4 suggestions.
+[2026-02-12 15:08:32.122] [AI_CALL   ] Requesting suggestions (length: 4006)
+[2026-02-12 15:09:01.492] [AI_RAW    ] Raw response: {"suggestions": ["Turn this into a formal DSL gap report", "Draft a mock USB-IF ECN-style change note", "Show how to auto-detect similar gaps", "Expand this to EPR + swap interactions"]}
+[2026-02-12 15:09:01.494] [AI_RESULT ] Found 4 suggestions.
+[2026-02-12 15:09:01.496] [STEP      ] Writing output files...
+
+============================================================
+FILE GENERATION - 2026-02-12 15:09:01
+============================================================
+
+[2026-02-12 15:09:01.499] [IO        ] Creating combined questions file: All_Questions_and_Followups.md
+[2026-02-12 15:09:01.502] [IO        ] Creating 9 separate Q&A files...
+[2026-02-12 15:09:01.519] [STEP      ] Running validation...
+
+============================================================
+VALIDATION & QUALITY CHECK - 2026-02-12 15:09:01
+============================================================
+
+[2026-02-12 15:09:01.522] [VAL       ] Generating validation report: VALIDATION_REPORT.md
+[2026-02-12 15:09:01.561] [VAL       ] Validation PASSED. Coverage: 97.2%. Q&A Pairs: 9.
+
+============================================================
+PROCESS COMPLETE - 2026-02-12 15:09:01
+============================================================
+
