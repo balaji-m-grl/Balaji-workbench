@@ -304,9 +304,3 @@ If you want next, we can:
     
 * Or show how to plug this into your **C++ / .NET / agent loop**
 
-## 💡 Recommended Follow-ups
-
-- **Q5.1**: Define a formal grammar (EBNF)
-- **Q5.2**: Design a fast rule evaluator
-- **Q5.3**: Map DSL rules to USB-IF test cases
-- **Q5.4**: Or show how to plug this into your C++ / .NET / agent loop

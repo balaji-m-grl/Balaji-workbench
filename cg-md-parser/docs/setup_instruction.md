@@ -2,7 +2,17 @@ Ollama Setup Guide (Windows)
 
 install, run, and use **Ollama** locally, and connect it with your Python script.
 
+
+## 📦 0. Install Python Dependencies
+
+Run this command in the project folder:
+
+```bash
+pip install -r requirements.txt
+```
+
 ---
+
 
 ## ✅ 1. Download & Install Ollama
 

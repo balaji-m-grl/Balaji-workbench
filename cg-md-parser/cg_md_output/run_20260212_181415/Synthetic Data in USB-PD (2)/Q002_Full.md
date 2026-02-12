@@ -301,9 +301,3 @@ If you want, next I can:
     
 * Or show how to compress this for **context-window-efficient agent prompts**
 
-## 💡 Recommended Follow-ups
-
-- **Q2.1**: Add PD 3.1 / EPR extensions
-- **Q2.2**: Design a scenario generator algorithm
-- **Q2.3**: Map this schema to your C++ streamer + .NET analyzer pipeline
-- **Q2.4**: Show how to compress this for context-window-efficient agent prompts

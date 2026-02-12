@@ -1,13 +1,13 @@
 # Extraction Validation Report
 **Final Status: PASSED**
-Generated: 2026-02-10 10:45:50
+Generated: 2026-02-12 18:18:27
 
 ## Metrics
 - Total Q&A Pairs: 9
-- Total Suggestions Found: 31
-- Input Length: 69846 characters
-- Extracted Length: 68307 characters
-- **Coverage: 97.8%**
+- Total Suggestions Found: 35
+- Input File Length: 55704 characters
+- Extracted File Length: 54166 characters
+- **Coverage: 97.2%**
 
 ## Detailed Checks
 ### Q1 Suggestion Verification
@@ -40,7 +40,10 @@ Generated: 2026-02-10 10:45:50
 - ✅ Suggestion: Or show how to plug this into your C++ / .NET / agent loop
 
 ### Q6 Suggestion Verification
-- Info: No suggestions extracted.
+- ✅ Suggestion: Design a USB-IF coverage dashboard
+- ✅ Suggestion: Auto-generate test readiness reports
+- ✅ Suggestion: Map DSL → CTS automation hooks
+- ✅ Suggestion: Or show how to expose this cleanly to an AI agent prompt
 
 ### Q7 Suggestion Verification
 - ✅ Suggestion: Draw a PR_SWAP + DR_SWAP timing arbitration table

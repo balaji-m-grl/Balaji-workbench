@@ -2,8 +2,12 @@ from pathlib import Path
 import re
 import json
 import requests
-from typing import List, Tuple, Dict
+import os
+import time
+import psutil
 from datetime import datetime
+from typing import List, Tuple, Dict
+
 
 # ---------- Ollama Config ----------
 OLLAMA_URL = "http://localhost:11434/api/generate"
@@ -35,6 +39,59 @@ ASSISTANT_PATTERNS = [
 USER_RE = re.compile("|".join(USER_PATTERNS), re.IGNORECASE)
 ASSISTANT_RE = re.compile("|".join(ASSISTANT_PATTERNS), re.IGNORECASE)
 
+
+# ---------- Performance Logger System ----------
+
+class PerformanceLogger:
+    """Tracks CPU and Memory usage for the process to a separate log file."""
+    def __init__(self, output_dir: Path):
+        self.output_dir = output_dir
+        # Ensure dir exists (though DebugLogger likely creates it too)
+        self.output_dir.mkdir(parents=True, exist_ok=True)
+        
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        self.log_file = self.output_dir / f"RESOURCE_LOG_{timestamp}.log"
+        
+        # Write Log Header
+        with self.log_file.open("w", encoding="utf-8") as f:
+            f.write(f"Resource Log Started: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+            f.write("Format: [Timestamp] [Step] CPU% | RAM(MB)\n")
+            f.write("-" * 50 + "\n")
+            
+        self.process = psutil.Process(os.getpid())
+        self.start_time = time.time()
+        # Initial call to cpu_percent to set baseline (it returns 0.0 first call)
+        self.process.cpu_percent(interval=None)
+
+    def log_usage(self, step_name: str):
+        """Logs current CPU and Memory usage with a timestamp."""
+        # Using a small interval to get a meaningful instant CPU reading, 
+        # or interval=None to get average since last call. 
+        # Since we call this periodically, interval=None gives average usage *between* steps, which is good.
+        cpu = self.process.cpu_percent(interval=None) 
+        mem = self.process.memory_info().rss / (1024 * 1024) # MB
+        
+        now = datetime.now().strftime("%H:%M:%S")
+        line = f"[{now}] [{step_name:<20}] CPU: {cpu:5.1f}% | RAM: {mem:6.2f} MB"
+        print(f"Resource Update -> {line}")
+        
+        with self.log_file.open("a", encoding="utf-8") as f:
+            f.write(line + "\n")
+            
+    def summary_log(self):
+        """Logs final summary statistics."""
+        end_time = time.time()
+        duration = end_time - self.start_time
+        # Final snapshots
+        final_mem = self.process.memory_info().rss / (1024 * 1024)
+        final_cpu = self.process.cpu_percent(interval=None)
+        
+        with self.log_file.open("a", encoding="utf-8") as f:
+            f.write(f"\n# Summary\n")
+            f.write(f"# Total Duration: {duration:.2f} seconds\n")
+            f.write(f"# Final Memory:   {final_mem:.2f} MB\n")
+            f.write(f"# Final CPU:      {final_cpu:.1f} %\n")
 
 # ---------- Debug Logger System ----------
 
@@ -135,7 +192,7 @@ def split_conversation(md_text: str, logger: DebugLogger) -> List[Tuple[str, str
 
 # ---------- AI Extraction ----------
 
-def extract_suggestions_from_ai(answer_text: str, cache: Dict[str, List[str]], logger: DebugLogger) -> List[str]:
+def extract_suggestions_from_ai(answer_text: str, cache: Dict[str, List[str]], logger: DebugLogger, perf_logger: PerformanceLogger, q_idx: int) -> List[str]:
     """Uses Ollama to extract suggested/follow-up questions from the assistant's answer."""
     # 1. Strip existing artifacts from the answer to prevent confusion
     # This removes previous validation reports that might be in the file
@@ -178,8 +235,10 @@ def extract_suggestions_from_ai(answer_text: str, cache: Dict[str, List[str]], l
     }
 
     logger.log("AI_CALL", f"Requesting suggestions (length: {len(text)})")
+    perf_logger.log_usage(f"Pre-AI Req Q{q_idx}")
     try:
         resp = requests.post(OLLAMA_URL, json=payload, timeout=90)
+        perf_logger.log_usage(f"Post-AI Raw Q{q_idx}")
         resp.raise_for_status()
         data = resp.json()
         raw_response = data.get("response", "").strip()
@@ -307,8 +366,8 @@ def run_validation(input_text: str, pairs: List[Tuple[str, str]], all_suggestion
         "## Metrics\n",
         f"- Total Q&A Pairs: {total_q}\n",
         f"- Total Suggestions Found: {total_suggestions}\n",
-        f"- Input Length: {input_chars} characters\n",
-        f"- Extracted Length: {total_extracted_chars} characters\n",
+        f"- Input File Length: {input_chars} characters\n",
+        f"- Extracted File Length: {total_extracted_chars} characters\n",
         f"- **Coverage: {coverage:.1f}%**\n",
         "\n## Detailed Checks\n"
     ]
@@ -352,11 +411,13 @@ def main():
     output_dir.mkdir(parents=True, exist_ok=True)
 
     # Init Logger
-    logger = DebugLogger("AI Summarizer v3", output_dir)
+    logger = DebugLogger("cg_md parser", output_dir)
+    perf_logger = PerformanceLogger(output_dir)
+    perf_logger.log_usage("Process Start")
     logger.section("Process Start")
 
     # Input handling
-    print("\n--- AI Conversation Summarizer ---")
+    print("\n--- cg_md parser ---")
     input_str = input("Enter the path to your conversation .md file OR folder: ").strip().strip('"')
     input_path = Path(input_str)
 
@@ -391,6 +452,7 @@ def main():
         file_output_dir.mkdir(parents=True, exist_ok=True)
 
         # 1. Parse
+        perf_logger.log_usage(f"Start Parse: {md_file.name}")
         logger.log("STEP", f"Reading and parsing: {md_file.name}")
         text = md_file.read_text(encoding="utf-8", errors="ignore")
         pairs = split_conversation(text, logger)
@@ -400,17 +462,20 @@ def main():
             continue
 
         # 2. Extract Suggestions
+        perf_logger.log_usage("Start AI Extraction")
         logger.log("STEP", "Extracting suggestions via AI...")
         cache: Dict[str, List[str]] = {}
         all_suggestions = []
-        for _, a in pairs:
-            all_suggestions.append(extract_suggestions_from_ai(a, cache, logger))
+        for i, (_, a) in enumerate(pairs, 1):
+            all_suggestions.append(extract_suggestions_from_ai(a, cache, logger, perf_logger, i))
 
         # 3. Write Outputs
+        perf_logger.log_usage("Start Write Outputs")
         logger.log("STEP", "Writing output files...")
         write_outputs(pairs, all_suggestions, file_output_dir, logger)
 
         # 4. Validate
+        perf_logger.log_usage("Start Validation")
         logger.log("STEP", "Running validation...")
         last_val_results = run_validation(text, pairs, all_suggestions, file_output_dir, logger)
 
@@ -427,6 +492,9 @@ def main():
     print(f"📁 Results saved to: {output_dir.resolve()}")
     print(f"📄 Main log: {logger.log_file.name}")
     print(f"📄 Validation report: VALIDATION_REPORT.md")
+    
+    perf_logger.summary_log()
+    print(f"📄 Resource Log: {perf_logger.log_file.name}")
 
 
 

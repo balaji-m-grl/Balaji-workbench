@@ -312,9 +312,3 @@ If you want next, I can:
     
 * Or integrate this with your **C++ streamer + .NET validator + AI agent loop**
 
-## 💡 Recommended Follow-ups
-
-- **Q4.1**: Convert this into a class-level design (C++ / Python)
-- **Q4.2**: Show a minimal working generator
-- **Q4.3**: Design a spec-rule DSL
-- **Q4.4**: Integrate this with your C++ streamer + .NET validator + AI agent loop

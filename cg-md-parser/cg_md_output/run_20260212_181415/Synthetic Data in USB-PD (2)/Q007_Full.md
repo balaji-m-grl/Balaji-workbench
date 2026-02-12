@@ -370,9 +370,3 @@ If you want next, I can:
     
 * Or map this to **USB-IF pre-compliance automation**
 
-## 💡 Recommended Follow-ups
-
-- **Q7.1**: Draw a PR_SWAP + DR_SWAP timing arbitration table
-- **Q7.2**: Show collision heat maps across scenarios
-- **Q7.3**: Design a real-time violation scorer
-- **Q7.4**: Map this to USB-IF pre-compliance automation

@@ -244,8 +244,3 @@ If you want, next we can:
     
 * Or map this into your on-prem multi-agent builder system
 
-## 💡 Recommended Follow-ups
-
-- **Q1.1**: Design a USB-PD synthetic data schema
-- **Q1.2**: Sketch a PD scenario generator architecture
-- **Q1.3**: Map this into your on-prem multi-agent builder system

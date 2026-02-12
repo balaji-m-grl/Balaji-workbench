@@ -252,9 +252,3 @@ If you want next, we can:
     
 * Or compress this into a **context-efficient agent input format**
 
-## 💡 Recommended Follow-ups
-
-- **Q3.1**: Design an EPR scenario generator
-- **Q3.2**: Define EPR safety scoring
-- **Q3.3**: Map this schema to regulatory / certification test cases
-- **Q3.4**: Or compress this into a context-efficient agent input format

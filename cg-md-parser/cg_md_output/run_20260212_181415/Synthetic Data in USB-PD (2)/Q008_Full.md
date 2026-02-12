@@ -352,9 +352,3 @@ If you want next, I can:
     
 * Or map this to **pre-certification risk scoring**
 
-## 💡 Recommended Follow-ups
-
-- **Q8.1**: Show a real PR_SWAP/DR_SWAP ambiguity example as a mock spec gap
-- **Q8.2**: Help draft a sample USB-IF change proposal
-- **Q8.3**: Design a gap-detection automation loop
-- **Q8.4**: Map this to pre-certification risk scoring

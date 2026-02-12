@@ -1,6 +1,6 @@
 # Questions and AI Recommendations
 
-Generated on: 2026-02-10 10:45:50
+Generated on: 2026-02-12 18:18:27
 
 ### Q1: Wat is Synthetic data in model training,   
 Explain with USB pd domain agent model training example
@@ -66,7 +66,13 @@ Explain with USB pd domain agent model training example
 
 ### Q6: Map DSL rules to USB-IF test cases
 
-*No follow-up suggestions for this question.*
+**Q6.1**: Design a USB-IF coverage dashboard
+
+**Q6.2**: Auto-generate test readiness reports
+
+**Q6.3**: Map DSL → CTS automation hooks
+
+**Q6.4**: Or show how to expose this cleanly to an AI agent prompt
 
 ---
 

@@ -1,0 +1,31 @@
+Resource Log Started: 2026-02-12 18:14:15
+Format: [Timestamp] [Step] CPU% | RAM(MB)
+--------------------------------------------------
+[18:14:15] [Process Start       ] CPU:   0.0% | RAM:  32.27 MB
+[18:14:27] [Start Parse: Synthetic Data in USB-PD (2).md] CPU:   0.1% | RAM:  32.34 MB
+[18:14:27] [Start AI Extraction ] CPU:   0.0% | RAM:  33.10 MB
+[18:14:27] [Pre-AI Req Q1       ] CPU:   0.0% | RAM:  33.10 MB
+[18:14:50] [Post-AI Raw Q1      ] CPU:   0.1% | RAM:  34.11 MB
+[18:14:50] [Pre-AI Req Q2       ] CPU:   0.0% | RAM:  34.19 MB
+[18:15:21] [Post-AI Raw Q2      ] CPU:   0.0% | RAM:  34.15 MB
+[18:15:21] [Pre-AI Req Q3       ] CPU:   0.0% | RAM:  34.15 MB
+[18:15:52] [Post-AI Raw Q3      ] CPU:   0.1% | RAM:  34.16 MB
+[18:15:52] [Pre-AI Req Q4       ] CPU: 371.8% | RAM:  34.16 MB
+[18:16:21] [Post-AI Raw Q4      ] CPU:   0.0% | RAM:  34.16 MB
+[18:16:21] [Pre-AI Req Q5       ] CPU:   0.0% | RAM:  34.17 MB
+[18:16:48] [Post-AI Raw Q5      ] CPU:   0.1% | RAM:  34.15 MB
+[18:16:48] [Pre-AI Req Q6       ] CPU:   0.0% | RAM:  34.15 MB
+[18:17:14] [Post-AI Raw Q6      ] CPU:   0.0% | RAM:  34.15 MB
+[18:17:14] [Pre-AI Req Q7       ] CPU: 673.8% | RAM:  34.15 MB
+[18:17:39] [Post-AI Raw Q7      ] CPU:   0.0% | RAM:  34.15 MB
+[18:17:39] [Pre-AI Req Q8       ] CPU:   0.0% | RAM:  34.15 MB
+[18:18:02] [Post-AI Raw Q8      ] CPU:   0.0% | RAM:  34.15 MB
+[18:18:02] [Pre-AI Req Q9       ] CPU:   0.0% | RAM:  34.15 MB
+[18:18:27] [Post-AI Raw Q9      ] CPU:   0.0% | RAM:  34.15 MB
+[18:18:27] [Start Write Outputs ] CPU:   0.0% | RAM:  34.15 MB
+[18:18:27] [Start Validation    ] CPU:   0.0% | RAM:  34.17 MB
+
+# Summary
+# Total Duration: 252.09 seconds
+# Final Memory:   34.31 MB
+# Final CPU:      157.3 %
