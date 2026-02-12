@@ -346,7 +346,7 @@ def run_validation(input_text: str, pairs: List[Tuple[str, str]], all_suggestion
 
 def main():
     # Setup directories
-    base_output = Path("AI_OUTPUT")
+    base_output = Path("cg_md_output")
     run_timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     output_dir = base_output / f"run_{run_timestamp}"
     output_dir.mkdir(parents=True, exist_ok=True)
