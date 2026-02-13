@@ -10,9 +10,56 @@ from typing import List, Tuple, Dict
 
 
 # ---------- Ollama Config ----------
-OLLAMA_URL = "http://localhost:11434/api/generate"
+OLLAMA_URL = os.getenv("OLLAMA_URL", "http://127.0.0.1:11434/api/generate")
 MODEL_NAME = "qwen2.5:3b"  # fast & light
 MAX_CHARS = 3000  # limit text sent to model
+
+def check_and_pull_model(logger=None):
+    """Checks if the model exists in Ollama; if not, triggers a pull."""
+    try:
+        # 1. List local models
+        tags_url = OLLAMA_URL.replace("/api/generate", "/api/tags")
+        if logger: logger.log("INIT", f"Checking for model: {MODEL_NAME} at {tags_url}")
+        
+        resp = requests.get(tags_url, timeout=10)
+        resp.raise_for_status()
+        models = [m.get("name") for m in resp.json().get("models", [])]
+        
+        # Check for exact match or match with :latest
+        if MODEL_NAME in models or f"{MODEL_NAME}:latest" in models:
+            if logger: logger.log("INIT", f"Model '{MODEL_NAME}' found.")
+            return True
+            
+        # 2. Pull model if missing
+        pull_url = OLLAMA_URL.replace("/api/generate", "/api/pull")
+        if logger: logger.log("INIT", f"Model '{MODEL_NAME}' not found. Attempting to pull... (this may take a while)")
+        print(f"[INFO] Model '{MODEL_NAME}' not found on host. Pulling now...")
+        
+        # Stream the pull to avoid timeouts and show progress
+        pull_resp = requests.post(pull_url, json={"name": MODEL_NAME}, stream=True, timeout=None)
+        pull_resp.raise_for_status()
+        
+        for line in pull_resp.iter_lines():
+            if line:
+                try:
+                    data = json.loads(line)
+                    status = data.get("status")
+                    if status and logger:
+                         # Log only significant status updates to avoid spam
+                         if "downloading" not in status or "100%" in status: 
+                            logger.log("PULL", f"{status}")
+                except:
+                    pass
+                    
+        if logger: logger.log("INIT", f"Model '{MODEL_NAME}' successfully pulled.")
+        print(f"[INFO] Model '{MODEL_NAME}' ready.")
+        return True
+        
+    except Exception as e:
+        msg = f"Failed to check/pull model '{MODEL_NAME}'. Ensure Ollama is running! Error: {e}"
+        if logger: logger.log("FATAL", msg)
+        print(f"[ERROR] {msg}")
+        return False
 
 # ---------- Role markers ----------
 # Improved patterns to match more variations of Chat history exports
@@ -416,9 +463,29 @@ def main():
     perf_logger.log_usage("Process Start")
     logger.section("Process Start")
 
+    # Ensure Ollama Model is ready
+    if not check_and_pull_model(logger):
+        print("\n[CRITICAL] Could not connect to Ollama or pull the model.")
+        print(f"Please ensure Ollama is installed and running at: {OLLAMA_URL}")
+        print("Detailed error logged in output folder.")
+        return
+
     # Input handling
     print("\n--- cg_md parser ---")
-    input_str = input("Enter the path to your conversation .md file OR folder: ").strip().strip('"')
+    import sys
+    
+    input_str = None
+    env_input = os.getenv("INPUT_PATH")
+
+    if len(sys.argv) > 1:
+        input_str = sys.argv[1]
+        print(f"Using input path from CLI: {input_str}")
+    elif env_input:
+        input_str = env_input
+        print(f"Using input path from ENV: {input_str}")
+    else:
+        input_str = input("Enter the path to your conversation .md file OR folder: ").strip().strip('"')
+    
     input_path = Path(input_str)
 
     # Decide if input is file or folder
@@ -428,11 +495,11 @@ def main():
         md_files = list(input_path.glob("*.md"))
         if not md_files:
             logger.log("ERROR", f"No .md files found in folder: {input_path}")
-            print("❌ No .md files found in the given folder.")
+            print("[FAIL] No .md files found in the given folder.")
             return
     else:
         logger.log("ERROR", f"Invalid path: {input_path}")
-        print("❌ Invalid file or folder path.")
+        print("[FAIL] Invalid file or folder path.")
         return
 
     logger.log("INFO", f"Found {len(md_files)} markdown file(s) to process.")
@@ -488,13 +555,13 @@ def main():
 
     logger.log("EXIT", final_status)
 
-    print(f"\n✅ {final_status}")
-    print(f"📁 Results saved to: {output_dir.resolve()}")
-    print(f"📄 Main log: {logger.log_file.name}")
-    print(f"📄 Validation report: VALIDATION_REPORT.md")
+    print(f"\n[DONE] {final_status}")
+    print(f"[DIR] Results saved to: {output_dir.resolve()}")
+    print(f"[LOG] Main log: {logger.log_file.name}")
+    print(f"[RPT] Validation report: VALIDATION_REPORT.md")
     
     perf_logger.summary_log()
-    print(f"📄 Resource Log: {perf_logger.log_file.name}")
+    print(f"[RES] Resource Log: {perf_logger.log_file.name}")
 
 
 
